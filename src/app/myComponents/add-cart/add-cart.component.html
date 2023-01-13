@@ -1,0 +1,134 @@
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<p></p>
+					<h1>Cart</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb section -->
+
+<!-- cart -->
+<div class="cart-section mt-150 mb-150 back_colour">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-12">
+				<div class="cart-table-wrap">
+					<table *ngIf="!cartempty" class="cart-table">
+						<thead class="cart-table-head">
+							<tr class="table-head-row">
+								<th class="product-remove"></th>
+								<th class="product-image">Product Image</th>
+								<th class="product-name">Name</th>
+								<th class="product-name">Coupon</th>
+								<th class="product-price">Price</th>
+								<th class="product-quantity">Quantity</th>
+								<th class="product-total">Total</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr class="table-body-row" *ngFor="let item of cartlist; let i=index">
+								<td class="product-remove"><a (click)="DeleteCart(item.cart_id,i)"><i
+											class="far fa-window-close icons_colour"></i></a></td>
+								<td class="product-image"><img
+										src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{item.product_image}}"
+										alt=""></td>
+								<td class="product-name">{{item.product_name}}</td>
+								<td class="product-name ">
+									<div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText"
+										data-id="AJl2qkayMs" data-clipboard-text="CDUNIA"
+										data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs">
+										{{item.product_name}}{{item.discount}}PR </div>
+								</td>
+								<td class="product-price">₹{{item.price}}</td>
+
+								<td class="product-quantity">
+									<div class="quantity">
+										<a class="quantity__minus"
+											(click)="quantitydown(item.product_id,item.quantity,item.cart_id)"><span>-</span></a>
+										<input name="quantity" type="text" class="quantity__input"
+											value={{item.quantity}}>
+										<a class="quantity__plus"
+											(click)="quantityUp(item.product_id,item.quantity,item.cart_id)"><span>+</span></a>
+									</div>
+									<!-- <input type="number" [(ngModel)]="item.quantity" id="quantity" (change)="quantityChange($event,item.price,item.quantity,i)"  > -->
+								</td>
+
+								<td class="product-total">{{getTotal(item.price,item.quantity)}}{{Total}}</td>
+							</tr>
+							<!-- <tr class="table-body-row">
+									<td class="product-remove"><a href="#"><i class="far fa-window-close icons_colour"></i></a></td>
+									<td class="product-image"><img src="../../../assets/img/products/card_img.png" alt=""></td>
+									<td class="product-name">White Wine</td>
+                                    <td class="product-name "> <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs"> RedWine10PR </div></td>
+									<td class="product-price">₹70</td>
+									<td class="product-quantity"><input type="number" placeholder="0"></td>
+									<td class="product-total">1</td>
+								</tr>
+								<tr class="table-body-row">
+									<td class="product-remove"><a href="#"><i class="far fa-window-close icons_colour"></i></a></td>
+									<td class="product-image"><img src="../../../assets/img/products/card_img.png" alt=""></td>
+									<td class="product-name">black Wine</td>
+                                    <td class="product-name "> <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs"> RedWine10PR </div></td>
+									<td class="product-price">₹35</td>
+									<td class="product-quantity"><input type="number" placeholder="0"></td>
+									<td class="product-total">1</td>
+								</tr> -->
+						</tbody>
+
+					</table>
+					<span style="font-size: 20px; color: coral; text-align:center;" *ngIf="cartempty">Cart is
+						Empty</span>
+				</div>
+			</div>
+
+			<div class="col-lg-4">
+				<div class="total-section">
+					<table *ngIf="!cartempty" class="total-table">
+						<thead class="total-table-head">
+							<tr class="table-total-row">
+								<th>Bill Total</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="total-data">
+								<td><strong>No.Of Coupons: </strong></td>
+								<td>{{totalcoupons}}</td>
+							</tr>
+							<!-- <tr class="total-data">
+									<td><strong>Shipping: </strong></td>
+									<td>₹45</td>
+								</tr> -->
+							<tr class="total-data">
+								<td><strong>Total: </strong></td>
+								<td>₹{{totalbill}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<div *ngIf="!cartempty" class="cart-buttons">
+						<!-- <a  class="boxed-btn">Update Cart</a> -->
+						<a  class="boxed-btn black" (click)="checkout()">Check Out</a>
+					</div>
+				</div>
+
+				<!-- <div class="coupon-section">
+						<h3>Apply Coupon</h3>
+						<div class="coupon-form-wrap">
+							<form action="index.html">
+								<p><input type="text" placeholder="Coupon"></p>
+								<p><input type="submit" value="Apply"></p>
+							</form>
+						</div>
+					</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end cart -->

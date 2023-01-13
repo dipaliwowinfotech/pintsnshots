@@ -1,0 +1,162 @@
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>We sale fresh</p>
+                    <h1>Taproom-Product</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+<!-- products -->
+<div class="product-section mt-150 mb-150 back_colour">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-filters product-filters1">
+                    <ul >
+                        <!-- <li  data-filter="*">All</li> --> -->
+                         <li  *ngFor="let item of product; let i = index" [class.focus]="isActive==item.product_category_id"  data-filter=".SHOTS" (click)="shots(item.product_category_id)">
+                            {{item.product_category_name}}</li>
+                        <!-- <li data-filter=".DRINKS">DRINKS</li>
+                            <li data-filter=".MIX-FRUIT">MIX-FRUIT JUICE</li> -->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- taproom section -->
+
+        <!-- <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">	
+                    <h3><span class="orange-text"></span> SHOTS  </h3>
+                </div>
+            </div>
+        </div> -->
+
+        <div routerLink="/product-detalis" class="row product-lists"  *ngFor="let item of productList">
+            <h4>{{item.sub_category_name}}</h4>
+            <div class="col-lg-4 col-md-6 col-6 text-center MIX-FRUIT" *ngFor="let i of item.product">
+                <div class="single-product-item"  >
+                    
+                        <div class="product-image">
+                            <a (click)="details(i)">
+                                <img src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{i.product_image}}" class="pro_img" alt=""></a>
+                        </div>
+
+                        <h3>{{i.product_name}}</h3>
+
+                        <p class="product-price"><span></span> </p>
+                        <P class="product-price">Category:&nbsp;{{item.sub_category_name}}</P>
+                        <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText"
+                            data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
+                            data-offer-id="AJl2qkayMs">{{i.product_name}}{{i.discount}}PR</div>
+                        <a  class="cart-btn"(click)="details(i)">
+                            Product Detail</a>
+                        
+                    
+                </div>
+            </div>
+            <!-- <div class="col-lg-4 col-md-6 text-center MIX-FRUIT">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="JavaScript:void(0);"><img src="../../../assets/img/products/Untitled_design1-removebg-preview.png" alt=""></a>
+                    </div>
+                    <h3>Red Wine</h3>
+						<p class="product-price"><span></span> </p>
+                        <P class="product-price">Category:&nbsp;Soft Drink</P>
+                        <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs"> RedWine10PR </div>
+						<a routerLink="/product-detalis" class="cart-btn">Product Detail</a>
+                   
+                </div>
+            </div>  -->
+
+            <!-- <div class="col-lg-4 col-md-6 text-center DRINKS">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="JavaScript:void(0);"><img src="../../../assets/img/products/Untitled_design1-removebg-preview.png" alt=""></a>
+                    </div>
+					<h3>Red Wine</h3>
+						<p class="product-price"><span></span> </p>
+                        <p class="product-price">Category:&nbsp; Beers</p>
+                        <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs"> RedWine10PR </div>
+                        <a routerLink="/product-detalis" class="cart-btn">Product Detail</a>
+                   
+                </div>
+            </div> -->
+
+            <!-- <div class="col-lg-4 col-md-6 text-center DRINKS">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="JavaScript:void(0);"><img src="../../../assets/img/products/Untitled_design1-removebg-preview.png" alt=""></a>
+                    </div>
+					<h3>Red Wine</h3>
+					<p class="product-price"><span></span> </p>
+                    <p class="product-price">Category:&nbsp; Vodka</p>
+                    <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs"> RedWine10PR </div>
+					<a routerLink="/product-detalis" class="cart-btn">Product Detail</a>
+                   
+                </div>
+            </div> -->
+
+            <!-- <div class="col-lg-4 col-md-6 text-center SHOTS">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="JavaScript:void(0);"><img src="../../../assets/img/products/Untitled_design1-removebg-preview.png" alt=""></a>
+                    </div>
+                    <h3>Red Wine</h3>
+						<p class="product-price"><span></span> </p>
+                        <p class="product-price">Category:&nbsp;Shots</p>
+                        <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs"> RedWine10PR </div>
+						<a routerLink="/product-detalis" class="cart-btn">Product Detail</a>
+                   
+                </div>
+            </div> -->
+
+            <!-- <div class="col-lg-4 col-md-6 text-center SHOTS">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="JavaScript:void(0);"><img src="../../../assets/img/products/Untitled_design1-removebg-preview.png" alt=""></a>
+                    </div>
+					<h3>Red Wine</h3>
+					<p class="product-price"><span></span> </p>
+                    <p class="product-price">Category:&nbsp;Shots</p>
+                    <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs"> RedWine10PR </div>
+					<a routerLink="/product-detalis" class="cart-btn">Product Detail</a>
+                   
+                </div>
+            </div> -->
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="pagination-wrap">
+                    <ul>
+                        <li><a href="#">Prev</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a class="active" href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">Next</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end taproom section -->
+
+
+
+
+    </div>
+</div>
+<!-- end products -->

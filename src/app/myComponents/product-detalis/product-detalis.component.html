@@ -1,0 +1,141 @@
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>See more Details</p>
+                    <h1>Single Product</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+
+<!-- single product -->
+<div class="single-product mt-150 mb-150 back_colour">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="single-product-img new_product">
+                    <img src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{productimage}}" alt="">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="single-product-content ">
+                    <h3>{{productname}}</h3>
+                    <p class="single-product-pricing">
+                        <span>{{productsize}}{{productunit}}</span><span>₹{{productprice}}</span></p>
+                    <div class="get-code-visible copy-visible-code1" data-offer-key="offerGetCodeBtnText"
+                        data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
+                        data-offer-id="AJl2qkayMs">{{productname}}{{productdiscount}}PR</div>
+
+                    <p>{{productdetail}}</p>
+
+                    <!-- <p>{{product_details}}</p> -->
+                    <div class="single-product-form">
+                        <form [formGroup]="qty" action="index.html">
+                            <input type="number" placeholder="0" formControlName="quantity">
+                        </form>
+
+                        <a (click)="addtocart()" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add Coupon To
+                            Cart</a>
+
+                    </div>
+                    <!-- <h4>Share:</h4>
+                    <ul class="product-share">
+                        <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                        <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end single product -->
+
+<!-- more products -->
+<div class="more-products mb-150 back_colour">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">
+                    <h3><span class="orange-text">Related</span> Products</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet
+                        beatae optio.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row " *ngFor="let item of productList">
+
+
+            <div class="col-lg-4 col-md-6 text-center DRINKS" *ngFor="let i of item.product">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="JavaScript:void(0);">
+                            <img src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{i.product_image}}"
+                                alt=""></a>
+                    </div>
+                    <h3>{{i.product_name}}</h3>
+                    <p class="product-price"><span></span></p>
+                    <p class="product-category"> {{i.sub_category_name}}</p>
+                    <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText"
+                        data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
+                        data-offer-id="AJl2qkayMs">{{i.product_name}}{{i.discount}}PR</div>
+                    <a routerLink="/product-detalis" class="cart-btn">Product Detail</a>
+
+                </div>
+            </div>
+            <!-- <div class="col-lg-4 col-md-6 text-center SHOTS">
+                  <div class="single-product-item">
+                      <div class="product-image">
+                          <a href="JavaScript:void(0);"><img src="../../../assets/img/products/Untitled_design1-removebg-preview.png" alt=""></a>
+                      </div>
+                      <h3>Red Wine</h3>
+                          <p class="product-price"><span></span> 80₹</p>
+                          <p class="product-price">Shots</p>
+                          <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs" > RedWine10PR </div>
+                          <a routerLink="/product-detalis" class="cart-btn">Product Detail</a>
+                     
+                  </div>
+              </div> -->
+            <!-- <div class="col-lg-4 col-md-6 text-center SHOTS">
+                  <div class="single-product-item">
+                      <div class="product-image">
+                          <a href="JavaScript:void(0);"><img src="../../../assets/img/products/Untitled_design1-removebg-preview.png" alt=""></a>
+                      </div>
+                      <h3>Red Wine</h3>
+                      <p class="product-price"><span></span> 80₹</p>
+                      <p class="product-price">Shots</p>
+                      <div class="get-code-visible copy-visible-code" data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE" data-offer-id="AJl2qkayMs" > RedWine10PR </div>
+                      <a routerLink="/product-detalis" class="cart-btn">Product Detail</a>
+                     
+                  </div>
+              </div>
+       -->
+        </div>
+    </div>
+</div>
+<!-- end more products -->
+
+<div  class="modal" [ngStyle]="{'display':displayStyle}">
+<div  class="modal-dialog" role="document">
+    
+    <div class="modal-content">
+        
+        <div class="modal-body">
+         if product aleready added clear cart
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" (click)="emptyCart()"   class="btn btn-light">Yes</button>
+            <button type="button" (click)="closePopup() " class="btn btn-light">
+                No
+            </button>
+        </div>
+    </div>
+</div>
+</div>

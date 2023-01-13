@@ -1,0 +1,54 @@
+
+
+
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p></p>
+						<h1>Login</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- check out section -->
+	<div class="checkout-section mt-150 mb-150 back_colour">
+		<div class="container12 clearfix">
+            <div class="form login">
+                <a class="logo" href="">
+                    <img src="assets/img/new_logo.png" style="width: 50%;" alt="Logo" />
+                </a>
+                <form  [formGroup]="loginForm" (ngSubmit)="login()">
+                    <p>
+                        <label>Fullname<span>*</span></label>
+                        <input type="text" required formControlName="fullname">
+                    </p>
+                    <p>
+                        <label>MobileNumber<span>*</span></label>
+                        <input type="text" maxlength="10" required formControlName="mobile_no">
+                        <span *ngIf="form['mobile_no'].touched&&isSubmitted ">
+                            <div class="text-danger" *ngIf="form['mobile_no'].errors?.['pattern']||form['mobile_no'].errors?.['minlength']">Please Enter Valid MobileNumber
+                            </div>
+                            <!-- <div class="text-danger" *ngIf="">Please Enter 10 Digit MobileNumber
+                            </div> -->
+                        </span>
+                    </p>
+                    <p>
+                        <label>
+                            <!-- <a href="JavaScript:void(0);">Forgot password?</a> -->
+                            <!-- <a routerLink="/registration">Create an account</a> -->
+                        </label>
+                        <input type="submit" value="Send Otp" />
+                        
+                    </p>
+                </form>
+            </div>
+        </div>
+	</div>
+	<!-- end check out section -->
+	
