@@ -11,9 +11,10 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="checkout-section mt-150 mb-150 back_colour">
+<div class="container ">
     <div class="d-flex justify-content-center align-item-center container shadow-sm">
-        <div class="col-md-6 offset md-3 p-3 bg-white mt-5">
+        <div class="col-md-6 offset md-3 p-3  mt-5">
 
             <div class="card py-5 px-3">
                 <h5 class="ml-10">OTP Verification</h5>
@@ -23,29 +24,20 @@
                 </div>
 
               
-              <div>
+              <div >
                 <p class="mr-10">Enter verification code</p>
-                <ng-otp-input (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config">
+                <ng-otp-input class="otp_box " (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config">
                 </ng-otp-input>
                 <span>
-                   
-                    <div class="text-danger" *ngIf="wrongOTP">please Enter Valid OTP</div>
+                    <div class=" otp_box1 text-danger" *ngIf="wrongOTP">please Enter Valid OTP</div>
                 </span>
               </div>
-              
-
-
-
-
-
-
-
-
-                <div>
+                <div class="otp_box1"> 
                     <button type="button" class="btn btn-primary m-5 mr-3" (click)="verify()">Verify</button>
                 </div>
             </div>
         </div>
 
     </div>
+</div>
 </div>
