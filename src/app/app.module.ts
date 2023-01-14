@@ -22,6 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { OtpComponent } from './myComponents/otp/otp.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WalletComponent } from './myComponents/wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegistrationComponent,
     ProfileComponent,
-    OtpComponent
+    OtpComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,
