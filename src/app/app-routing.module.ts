@@ -14,6 +14,7 @@ import { ProfileComponent } from './myComponents/profile/profile.component';
 import { RegistrationComponent } from './myComponents/registration/registration.component';
 import { ShishaLoungeComponent } from './myComponents/shisha-lounge/shisha-lounge.component';
 import { TaproomProductComponent } from './myComponents/taproom-product/taproom-product.component';
+import { WalletComponent } from './myComponents/wallet/wallet.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,9 @@ const routes: Routes = [
 },
   {
     path:'add-cart',component:AddCartComponent
+  },
+  {
+    path:'wallet',component:WalletComponent
   },
   {
     path:'check-out', component:CheckOutComponent

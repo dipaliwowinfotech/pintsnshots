@@ -36,8 +36,8 @@
 							<tr class="table-body-row" *ngFor="let item of cartlist; let i=index">
 								<td class="product-remove"><a (click)="DeleteCart(item.cart_id,i)"><i
 											class="far fa-window-close icons_colour"></i></a></td>
-								<td class="product-image"><img
-										src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{item.product_image}}"
+								<td class="product-image "><img
+									class="new_imgs"	src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{item.product_image}}"
 										alt=""></td>
 								<td class="product-name">{{item.product_name}}</td>
 								<td class="product-name ">
@@ -114,7 +114,7 @@
 					</table>
 					<div *ngIf="!cartempty" class="cart-buttons">
 						<!-- <a  class="boxed-btn">Update Cart</a> -->
-						<a  class="boxed-btn black" (click)="checkout()">Check Out</a>
+						<a routerLink="/check-out" class="boxed-btn black" (click)="checkout()">Check Out</a>
 					</div>
 				</div>
 

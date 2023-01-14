@@ -18,9 +18,9 @@
 	    margin-right: 0;
 	    margin-bottom: 15px;
 	}
-	.contact-form form p input[type=email] {
-	    /* margin-left: 8px; */
-	}
+	/* .contact-form form p input[type=email] {
+	    margin-left: 8px;
+	} */
 	.contact-form-box h4 i {
 	    left: -20%;
 	}
@@ -256,7 +256,7 @@
 	}
 
 	.footer-box {
-	    margin-bottom: 50px;
+	    margin-bottom: 20px;
 	}
 
 	.copyright p {
@@ -267,9 +267,9 @@
 	    text-align: center;
 	}
 
-	.footer-area {
-		/* padding: 80px 0; */
-	}
+	/* .footer-area {
+		padding: 80px 0;
+	} */
 
 	.hero-text {
 	    text-align: center;
