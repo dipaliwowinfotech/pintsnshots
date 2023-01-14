@@ -21,10 +21,10 @@
                 <a class="logo" href="">
                     <img src="assets/img/256-512.jpg" style="width: 50%;" alt="Logo" />
                 </a>
-                <form [formGroup]="profile" (ngSubmit)="update()">
+                <form #updateForm [formGroup]="profile" (ngSubmit)="update()">
                     <p>
                         <label>Full Name<span>*</span></label>
-                        <input type="text" required formControlName="">
+                        <input type="text"  formControlName="fullname">
                     </p>
                     <!-- <p>
                         <label>Last name<span>*</span></label>
@@ -32,27 +32,82 @@
                     </p> -->
                     <p>
                         <label>Email Address<span>*</span></label>
-                        <input type="email" required formControlName="">
+                        <input type="email"  formControlName="email">
+                        <span *ngIf="isSubmitted ">
+                            <div class="text-danger" *ngIf="form['email'].errors?.['pattern']">Please Enter Valid Email
+                            </div>
+                            
+                        </span>
                     </p>
-                    <p>
-                        <label>Phone Number<span>*</span></label>
-                        <input type="number" required formControlName="">
-                    </p>
-                    <p>
-                        <label>Date Of Birth<span>*</span></label>
-                        <input type="date" required formControlName="">
-                    </p>
-                    <p>
-                        <label>County <span>*</span></label>
-                        <select name="country" id="" class="form-control">
-                            <option value="India">India</option>
-                            <option value="austrailia">Australia</option>
-                            <option value="Malaysia">Malaysia</option>
+                    <p ><label >Country Code</label>
+                        <select name="country" id="country" [(ngModel)]="countrycode" class="form-control"  formControlName="countryCode"  >
+                            <ng-container *ngFor="let i of countryList">
+                            <option >{{i.code}}</option>
+                        </ng-container>
+                            
+                            
                         </select>
                     </p>
                     
                     <p>
-                        <a routerLink="/login"><input type="submit" value="Update" /></a>
+                        <label>Phone Number<span>*</span></label>
+                        <input type="text"  formControlName="mobile_no" maxlength="10">
+                        <span *ngIf="form['mobile_no'].touched&&isSubmitted ">
+                            <div class="text-danger" *ngIf="form['mobile_no'].errors?.['pattern']||form['mobile_no'].errors?.['minlength']">Please Enter Valid MobileNumber
+                            </div>
+                            
+                        </span>
+                    </p>
+                    <p>
+                        <label>Date Of Birth<span>*</span></label>
+                        <input type="date"  formControlName="dob">
+                    </p>
+                    <div>
+                        <span>Gender </span>
+                        
+                        <input type="radio" value="Male"  formControlName="gender"> <label>Male </label>
+                      
+                        <input type="radio" id="female" value="Female"  formControlName="gender"> <label for="female">Female </label> 
+                    </div>
+                    <p>
+                        <label>Country </label>
+                        <select name="country" id="country"  (change)="onCountryChange($event)" formControlName="country" class="form-control" >
+                            <option *ngFor="let i of countryList" >{{i.value}}</option>
+                            
+                        </select>
+                    </p>
+                    <p *ngIf="!isUs">
+                        <label>PAN</label>
+                        <input type="text"  formControlName="pan">
+                        <span *ngIf="isSubmitted ">
+                            <div class="text-danger" *ngIf="form['pan'].errors?.['pattern']">Please Enter Valid PAN
+                            </div>
+                            
+                        </span>
+                    </p>
+                    <p *ngIf="isUs">
+                        <label>EmiratedID</label>
+                        <input type="text"  formControlName="pan">
+                        <span *ngIf="isSubmitted ">
+                            <div class="text-danger" *ngIf="form['pan'].errors?.['pattern']">Please Enter Valid PAN
+                            </div>
+                            
+                        </span>
+                    </p>
+                    <p *ngIf="isUs">
+                        <label>EmiratedID Expiry Date<span>*</span></label>
+                        <input type="date"  formControlName="expiry_date">
+                    </p>
+                    <p>
+                        <label>Passport</label>
+                        <input type="text"  formControlName="passport">
+                    </p>
+                    <p>
+                        <label>Passport Expiry</label>
+                        <input type="month"  formControlName="passport_expiry_date">
+                    </p>
+                    <p>
+                        <a><input type="submit" value="Update" /></a>
                     </p>
                 </form>
             </div>
