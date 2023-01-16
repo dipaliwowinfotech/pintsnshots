@@ -75,7 +75,7 @@ console.log(res)
   logout(){
     this.api.remove();
    
-    this.router.navigate(['add-cart'])
+    this.router.navigate(['home'])
   }
 
 }
