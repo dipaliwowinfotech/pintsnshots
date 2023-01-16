@@ -16,6 +16,7 @@ import { RegistrationComponent } from './myComponents/registration/registration.
 import { ShishaLoungeComponent } from './myComponents/shisha-lounge/shisha-lounge.component';
 import { TaproomProductComponent } from './myComponents/taproom-product/taproom-product.component';
 import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-details.component';
+import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-history.component';
 import { WalletComponent } from './myComponents/wallet/wallet.component';
 
 const routes: Routes = [
@@ -64,7 +65,9 @@ const routes: Routes = [
   {
     path:'wallet-details',component:WalletDetailsComponent
   },
-  
+  {
+    path:'wallet-history',component:WalletHistoryComponent
+  }
   
 ];
 
