@@ -561,14 +561,14 @@ nav.main-menu ul li a {
   color: #fff;
   font-weight: 700;
   display: block;
-  padding: 15px;
+  padding: 10px;
   text-decoration: none;
 }
 
 nav.main-menu ul > li {
   position: relative;
   font-size: 17px;
-  margin: 0 .625rem;
+  margin: 21px .625rem;
     /* margin-top: 19px; */
 }
 
@@ -710,7 +710,7 @@ nav.main-menu ul li.current-list-item > a {
 nav.main-menu li:hover > a {
   
   color: #d6a354;
-  padding: .875rem .9375rem .75rem 1.1875rem;
+  /* padding: .875rem .9375rem .75rem 1.1875rem; */
     border-radius: 1.4375rem;
     /* text-transform: uppercase;
     font-size: 1.125rem; */

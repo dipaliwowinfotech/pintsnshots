@@ -33,7 +33,7 @@
                                     <li><a href="shop.html">Shop</a></li>
                                 </ul>
                             </li> -->
-                            <li><a href="JavaScript:void(0);">Visit The Tap Room</a>
+                            <li><a href="JavaScript:void(0);">Restaurant</a>
                                 <ul class="sub-menu">
                                     <li><a routerLink="/taproom-product">Taproom</a></li>
                                     <li><a routerLink="/coffee-shop">Coffee Shop</a></li>
@@ -55,10 +55,12 @@
                                     <li> <a class="shopping-cart" routerLink="/add-cart"><i class="fas fa-shopping-cart"></i><span class="position-absolute translate-middle badge rounded-pill" style="background-color: rgb(50, 141, 216);">{{cartlength}}</span></a></li>
                                     <li><a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                     </li>
-                                    <li><a routerLink="/login">Login</a>
-                                        <ul class="sub-menu">
-                                            <li><a routerLink="/profile">Profile</a></li>
-                                           
+                                    <li><a *ngIf="username1" routerLink="/login">{{username1}}</a>
+                                        <a *ngIf="!username1" routerLink="/login">Login</a>
+
+                                        <ul  *ngIf="username1" class="sub-menu">
+                                            <li><a  routerLink="/profile">Profile</a></li>
+                                            <li><a  routerLink="/logout" (click)="logout()">Logout</a></li>
                                         </ul>
                                     </li>
                                 </div>

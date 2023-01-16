@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       mobile_no:['',[Validators.required,
-       // Validators.pattern('[0-9].*/^[6-9]\d{9}$/'),
        Validators.pattern('[6-9]\\d{9}'),
         Validators.minLength(10),
         Validators.maxLength(10)],
@@ -55,4 +54,5 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
 }

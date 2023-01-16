@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -9,7 +10,8 @@ export class ApiService {
   cartItems:any;
   onMainEvent: EventEmitter<any> = new EventEmitter();
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,
+    private router:Router) { }
 
   getOtp(payload: any) {
     return this.http.post(
@@ -84,6 +86,10 @@ list:any;
    }
    cartCount(formdata:any){
     return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/cart.php/",formdata)
+   }
+   remove(){
+    localStorage.removeItem("verifiedUser");
+    this.router.navigate([''])
    }
 
 

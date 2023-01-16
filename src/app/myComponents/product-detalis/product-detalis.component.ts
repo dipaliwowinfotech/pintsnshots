@@ -128,12 +128,17 @@ openmodal:boolean=false;
       var data=this.api.getCart();
       this.api.onMainEvent.emit(data);
       
+     
+      
      }
     
     })
     this.router.navigate(['add-cart'])
   }
+  if(!this.verifiedUser){
+  alert("Please Login First");
   
+  }
   }
   
 closePopup() {

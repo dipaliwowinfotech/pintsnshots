@@ -12,6 +12,9 @@ export class HeaderComponent implements OnInit {
   cartlist: any;
   cartcount:any;
   cartlength:any;
+  username1:any;
+ 
+  
   constructor(private api:ApiService,
     private formBuilder:FormBuilder) { 
       this.api.onMainEvent.subscribe((res)=>{
@@ -32,6 +35,8 @@ console.log(res)
 
   ngOnInit(): void {
     this.loginData();
+    this.username1 = this.verifiedUser.fullname;
+    console.log(this.username1)
     this.api.addCart(this.cartlist)
     var data1=this.api.getCart();
     this.api.onMainEvent.emit(data1);
@@ -46,6 +51,7 @@ console.log(res)
   loginData(){
     this.verifiedUser = JSON.parse(localStorage.getItem('verifiedUser')!);
     
+   
   }
 
   cartList(){
@@ -63,6 +69,11 @@ console.log(res)
    
     
     })
+    
+  }
+  logout(){
+    this.api.remove();
+   
     
   }
 

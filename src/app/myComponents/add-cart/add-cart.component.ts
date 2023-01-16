@@ -183,6 +183,7 @@ this.cartList();
       formData.set('discount_id',this.discountlist.toString() );
       this.api.checkout(formData).subscribe((res)=>{
         console.log(res);
+        
       })
    
   
