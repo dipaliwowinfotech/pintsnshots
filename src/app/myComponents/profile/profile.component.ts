@@ -12,21 +12,28 @@ profile: FormGroup|any;
   isSubmitted:boolean = false;
   isUs:boolean=false;
   Code: any;
-  countrycode:any
-  countryList:Array<any>=[{id:1,value: "India",code:'+91'},{id:2,value: "United States",code:'+881'}];
+  countrycode:any;
+  showDOB: boolean = true;
+  countryList:Array<any>=[{id:1,value: "India",code:'+91'},{id:2,value: "UAE",code:'+881'}];
   constructor(private api:ApiService,private formBuilder:FormBuilder) { 
    // this.loginData();
   }
 
   ngOnInit(): void {
     this.createForm();  
-    
-   
+    this.countrycode = this.verifiedUser.country_code;
+   console.log(this.countrycode)
 }
 get form() { return this.profile.controls; }
 
+
 createForm(){
   this.loginData();
+  if(!this.verifiedUser.dob){
+    this.showDOB= false;
+    
+  }
+  
   this.profile = this.formBuilder.group({
     mobile_no: [this.verifiedUser.mobile_no, [Validators.required,
       Validators.pattern('[6-9]\\d{9}'),
@@ -67,13 +74,19 @@ onCountryChange(e:any){
   //console.log(e.target.value);
   this.countrycode = this.Code.code;
 console.log(this.countrycode);
-if(e.target.value == "United States"){
+if(e.target.value == "UAE"){
   this.isUs = true;
-  
+  this.profile.get('passport').setValidators([Validators.required]);
+  this.profile.get('passport_expiry_date').setValidators([Validators.required]);
+  //this.profile.get('pan').setValidators([Validators.required]);
   //this.profile.pan.clearValidators();
 }
 else{
   this.isUs = false;
+  this.profile.get('passport').clearValidators();
+  this.profile.get('passport_expiry_date').clearValidators();
+  //this.profile.get('pan').clearValidators();
+  
 }
 
 }
@@ -87,7 +100,7 @@ else{
       form_Data.set('expiry_date',this.profile.value.expiry_date);
       form_Data.set('mobile_no',this.profile.value.mobile_no);
       form_Data.set('passport_id',this.profile.value.passport);
-      form_Data.set('country_code',this.profile.value.countryCode);
+      form_Data.set('country_code',this.countrycode);
       form_Data.set('user_id',this.verifiedUser.user_id);
       form_Data.set('dob',this.profile.value.dob);
       form_Data.set('Aadhar_Emirates_ID',this.profile.value.pan);

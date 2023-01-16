@@ -60,7 +60,7 @@
                     </p>
                     <p>
                         <label>Date Of Birth<span>*</span></label>
-                        <input type="date"  formControlName="dob">
+                        <input type="date"  formControlName="dob" [attr.disabled]="showDOB ? '' : null">
                     </p>
                     <div>
                         <span>Gender </span>
@@ -78,41 +78,88 @@
                     </p>
                     <p *ngIf="!isUs">
                         <label>PAN</label>
-                        <input type="text"  formControlName="pan">
+                        <input type="text"  formControlName="pan" required>
                         <span *ngIf="isSubmitted ">
                             <div class="text-danger" *ngIf="form['pan'].errors?.['pattern']">Please Enter Valid PAN
                             </div>
-                            
+                            <div class="text-danger" *ngIf="form['pan'].errors?.['required']">Please Enter PAN Number
+                            </div>
                         </span>
                     </p>
                     <p *ngIf="isUs">
-                        <label>EmiratedID</label>
-                        <input type="text"  formControlName="pan">
+                        <label>EmiratesID</label>
+                        <input type="text"  formControlName="pan" required>
                         <span *ngIf="isSubmitted ">
-                            <div class="text-danger" *ngIf="form['pan'].errors?.['pattern']">Please Enter Valid PAN
+                            <div class="text-danger" *ngIf="form['pan'].errors?.['pattern']">Please Enter Valid EmiratesID
                             </div>
-                            
+                            <div class="text-danger" *ngIf="form['pan'].errors?.['required']">Please Enter EmiratesID
+                            </div>
                         </span>
                     </p>
                     <p *ngIf="isUs">
                         <label>EmiratedID Expiry Date<span>*</span></label>
                         <input type="date"  formControlName="expiry_date">
                     </p>
-                    <p>
+                    <p *ngIf="isUs">
                         <label>Passport</label>
                         <input type="text"  formControlName="passport">
+                        <span *ngIf="isSubmitted ">
+                        <span class="text-danger" *ngIf="form['passport'].errors?.['required']">Please Enter Passport Number
+                        </span>
+                    </span>
                     </p>
-                    <p>
+                    <p *ngIf="!isUs">
+                        <label>Passport (optional)</label>
+                        <input type="text"  formControlName="passport">
+                    </p>
+                    <p *ngIf="isUs">
                         <label>Passport Expiry</label>
+                        <input type="month"  formControlName="passport_expiry_date">
+                        <span *ngIf="isSubmitted ">
+                            <span class="text-danger" *ngIf="form['passport_expiry_date'].errors?.['required']">Please Enter Passport Expiry
+                            </span>
+                        </span>
+                    </p>
+                    <p *ngIf="!isUs">
+                        <label>Passport Expiry (optional)</label>
                         <input type="month"  formControlName="passport_expiry_date">
                     </p>
                     <p>
+                        <span class="check">
+                            <input type="checkbox" class="inputCheck" checked value="tnc" /><a data-toggle="modal" data-target="#tNcModal">I Accept to the Terms and Conditions</a>
+                        </span>
+                        </p>
+                    <p>
                         <a><input type="submit" value="Update" /></a>
                     </p>
+                    
                 </form>
             </div>
         </div>
 	</div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="tNcModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Terms and Conditions</h2>
+              
+            </div>
+            <div class="modal-body">
+                <h5>1. TERMS OF USE</h5>
+                By downloading, browsing, accessing or using this mobile application ("mobile Application"), you agree 
+                to be bound by these Terms and Conditions Of Use. We reserve the rightbto amend these terms and conditions at any time.
+                If you disagree with any of these Terms and Conditions of Use , you must immediately discontinue your access to the mobile Application
+                and use of the services offered on the Mobile Application . Continued use of the Mobile Application qill constitute acceptance of these
+                Terms and Conditions of Use, as may be amended from time to time.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" data-dismiss="modal">OK</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
 	<!-- end check out section -->
 	
 
