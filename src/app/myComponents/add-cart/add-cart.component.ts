@@ -23,6 +23,7 @@ export class AddCartComponent implements OnInit {
    productIdlist:any=[];
    discountlist:any=[];
    productpricelist:any=[];
+   
    quantitylist:any=[];
    totalquantity:any;
    unitidlist:any=[];
