@@ -89,7 +89,13 @@ list:any;
    }
    remove(){
     localStorage.removeItem("verifiedUser");
-    this.router.navigate([''])
+    
+   }
+   walletActive(formdata:any){
+     return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/new_volet.php",formdata)
+   }
+   walletCompleted(formdata:any){
+    return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/new_volet.php",formdata)
    }
 
 

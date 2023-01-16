@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './myComponents/about/about.component';
 import { AddCartComponent } from './myComponents/add-cart/add-cart.component';
+import { BlogComponent } from './myComponents/blog/blog.component';
 import { CheckOutComponent } from './myComponents/check-out/check-out.component';
 import { CoffeeShopComponent } from './myComponents/coffee-shop/coffee-shop.component';
 import { ContactUsComponent } from './myComponents/contact-us/contact-us.component';
@@ -14,6 +15,8 @@ import { ProfileComponent } from './myComponents/profile/profile.component';
 import { RegistrationComponent } from './myComponents/registration/registration.component';
 import { ShishaLoungeComponent } from './myComponents/shisha-lounge/shisha-lounge.component';
 import { TaproomProductComponent } from './myComponents/taproom-product/taproom-product.component';
+import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-details.component';
+import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-history.component';
 import { WalletComponent } from './myComponents/wallet/wallet.component';
 
 const routes: Routes = [
@@ -41,6 +44,9 @@ const routes: Routes = [
     path:'wallet',component:WalletComponent
   },
   {
+    path:'blog',component:BlogComponent
+  },
+  {
     path:'check-out', component:CheckOutComponent
   },
   {
@@ -55,7 +61,14 @@ const routes: Routes = [
    },
    {
    path:'otp',component:OtpComponent
+  },
+  {
+    path:'wallet-details',component:WalletDetailsComponent
+  },
+  {
+    path:'wallet-history',component:WalletHistoryComponent
   }
+  
 ];
 
 @NgModule({

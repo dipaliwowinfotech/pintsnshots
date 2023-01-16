@@ -24,6 +24,8 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WalletComponent } from './myComponents/wallet/wallet.component';
 import { BlogComponent } from './myComponents/blog/blog.component';
+import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-details.component';
+import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-history.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { BlogComponent } from './myComponents/blog/blog.component';
     ProfileComponent,
     OtpComponent,
     WalletComponent,
-    BlogComponent
+    BlogComponent,
+    WalletDetailsComponent,
+    WalletHistoryComponent
   ],
   imports: [
     BrowserModule,

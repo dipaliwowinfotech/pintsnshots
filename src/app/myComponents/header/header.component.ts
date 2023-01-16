@@ -1,7 +1,7 @@
 import { Component, OnInit,OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,7 +16,8 @@ export class HeaderComponent implements OnInit {
  
   
   constructor(private api:ApiService,
-    private formBuilder:FormBuilder) { 
+    private formBuilder:FormBuilder,
+    private router:Router) { 
       this.api.onMainEvent.subscribe((res)=>{
         const formData = new FormData();
         formData.set('user_id', this.verifiedUser.user_id);
@@ -74,7 +75,7 @@ console.log(res)
   logout(){
     this.api.remove();
    
-    
+    this.router.navigate(['home'])
   }
 
 }
