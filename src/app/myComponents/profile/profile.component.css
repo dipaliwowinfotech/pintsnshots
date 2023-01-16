@@ -202,3 +202,33 @@ a.boxed-btn:hover{
     padding: 10px 20px !important;
     text-decoration: none !important;
 }
+
+.check{
+    display: flex;
+    align-items: center;
+}
+.inputCheck{
+    width: 5% !important;
+    margin: 10px 10px 0 0px;
+}
+#tNcModal .modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: var(--bs-modal-padding);
+    background: rgb(49, 49, 49);
+    color: #FFF;
+}
+
+#tNcModal .modal-header {
+    position: relative;
+    flex: 1 1 auto;
+    padding: var(--bs-modal-padding);
+    background: rgb(97, 96, 96);
+}
+
+#tNcModal .modal-footer {
+    position: relative;
+    flex: 1 1 auto;
+    padding: var(--bs-modal-padding);
+    background: rgb(97, 96, 96);
+}
