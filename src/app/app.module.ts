@@ -25,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WalletComponent } from './myComponents/wallet/wallet.component';
 import { BlogComponent } from './myComponents/blog/blog.component';
 import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-details.component';
+import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-history.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-det
     OtpComponent,
     WalletComponent,
     BlogComponent,
-    WalletDetailsComponent
+    WalletDetailsComponent,
+    WalletHistoryComponent
   ],
   imports: [
     BrowserModule,
