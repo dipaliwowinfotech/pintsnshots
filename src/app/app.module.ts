@@ -23,6 +23,7 @@ import { OtpComponent } from './myComponents/otp/otp.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WalletComponent } from './myComponents/wallet/wallet.component';
+import { BlogComponent } from './myComponents/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { WalletComponent } from './myComponents/wallet/wallet.component';
     RegistrationComponent,
     ProfileComponent,
     OtpComponent,
-    WalletComponent
+    WalletComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
