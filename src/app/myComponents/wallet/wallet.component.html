@@ -29,10 +29,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-6" *ngFor="let item of activelist; let i = index" [class.focus]="isActive==item.order_id">
-                          <a routerLink="/wallet-details"> 
+                          <a > 
                              <div class="single-latest-news">
                               
-                            <div class="news-text-box">
+                            <div (click)="onwallet(item)" class="news-text-box">
                                 <ul class=" unordered-list">
                                     <li><b style="color:#d6a354;">Hotel Name:- </b>{{item.hotel_name}}</li>
 
