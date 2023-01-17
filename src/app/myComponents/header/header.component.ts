@@ -75,7 +75,7 @@ console.log(res)
   logout(){
     this.api.remove();
    
-    this.router.navigate(['home'])
+    this.router.navigate([' '])
   }
 
 }

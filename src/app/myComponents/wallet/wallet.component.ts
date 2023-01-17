@@ -11,9 +11,12 @@ export class WalletComponent implements OnInit {
    isActive: any;
   constructor(private api:ApiService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.active();
+  }
 
   active(){
+    
     const formData = new FormData();
       formData.set('user_id','163');
       formData.set('payment_status','active');

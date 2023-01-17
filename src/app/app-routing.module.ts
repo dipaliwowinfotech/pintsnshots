@@ -23,10 +23,12 @@ const routes: Routes = [
   {
     path:'',component:HomeComponent
   },
+  // {
+  //   path:'home',component:HomeComponent
+  // },
   { path: 'about', component:AboutComponent 
  },
-  { path: 'home', component:HomeComponent  
-},
+  
   { path: 'taproom-product', component:TaproomProductComponent  
 },
   { path: 'coffee-shop', component:CoffeeShopComponent

@@ -62,7 +62,7 @@ verify(){
        localStorage.setItem('verifiedUser',JSON.stringify(this.verifiedlogin));
       })
      
-      this.router.navigate(['/home'])
+      this.router.navigate(['/'])
     }
     this.wrongOTP = true;
 
