@@ -98,6 +98,9 @@ list:any;
    walletCompleted(formdata:any){
     return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/new_volet.php",formdata)
    }
+   walletDetails(formdata:any){
+    return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/volet_details.php",formdata)
+   }
 
 
 
