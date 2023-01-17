@@ -48,7 +48,7 @@
                                 </ul> -->
                             </li>
                             <li><a routerLink="/contact-us">Contact</a></li>
-                        <li><a routerLink="/wallet">Wallet</a></li>
+                        <li *ngIf="username1"><a routerLink="/wallet">Wallet</a></li>
                            
                             <li>
                                 <div class="header-icons">

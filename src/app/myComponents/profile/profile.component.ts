@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,7 @@ profile: FormGroup|any;
   countrycode:any;
   showDOB: boolean = true;
   countryList:Array<any>=[{id:1,value: "India",code:'+91'},{id:2,value: "UAE",code:'+881'}];
-  constructor(private api:ApiService,private formBuilder:FormBuilder) { 
+  constructor(private api:ApiService,private formBuilder:FormBuilder,private router:Router) { 
    // this.loginData();
   }
 
@@ -110,7 +111,12 @@ else{
       form_Data.set('email',this.profile.value.email);
       this.api.profile(form_Data).subscribe((res:any)=>{
         console.log(res)
-        //this.profile = res.data;
+        alert(res.ResponseMessage);
+        if(res.data){
+          localStorage.setItem('verifiedUser',JSON.stringify(res.data));
+        }
+        
+        window.history.back();
       });
     }
     this.profile.value

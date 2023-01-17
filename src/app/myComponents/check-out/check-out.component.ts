@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -33,7 +34,7 @@ export class CheckOutComponent implements OnInit {
   totalList:any=[];
   TotalCal:any;
   TotalPrice:any;
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit(): void {
     this.loginData();
@@ -124,11 +125,16 @@ export class CheckOutComponent implements OnInit {
     formData.set('discount_id',this.discountlist.toString() );
     this.api.checkout(formData).subscribe((res:any)=>{
       console.log(res);
-
-      if(res.ResponseCode =1 ){
-        alert(res.ResponseMessage);
+      if(res.ResponseCode ==0 ){
+        
+        alert("Order Placed Successfully");
       }
-      
+
+      if(res.ResponseCode ==1 ){
+        
+        this.router.navigate(['profile']);
+      }
+      this.router.navigate(['product-components']);
     })
   }
 }
