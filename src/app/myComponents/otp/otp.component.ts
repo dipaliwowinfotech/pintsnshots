@@ -30,6 +30,7 @@ export class OtpComponent implements OnInit {
   payload:any;
   wrongOTP:boolean = false
   formdata:any
+  login: any;
 
   constructor(private api:ApiService,private router:Router,private formBuilder:FormBuilder) { }
 
@@ -61,8 +62,11 @@ verify(){
        console.log(this.verifiedlogin);
        localStorage.setItem('verifiedUser',JSON.stringify(this.verifiedlogin));
       })
-     
-      this.router.navigate(['/'])
+    this.api.setlogin(this.logindata);
+      this.router.navigate(['']);
+      this.login = this.api.getlogin();
+    console.log(this.login)
+    this.api.logOut.emit(this.login)
     }
     this.wrongOTP = true;
 

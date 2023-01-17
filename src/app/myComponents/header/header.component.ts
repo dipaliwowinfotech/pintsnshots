@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
   cartcount:any;
   cartlength:any;
   username1:any;
+
+  login:any;
  
   
   constructor(private api:ApiService,
@@ -32,12 +34,20 @@ console.log(res)
         this.cartlist=res;
         // this.cartlength=this.cartlist.length;
       })
+
+      this.api.logOut.subscribe((loginDATA)=>{
+        console.log(loginDATA);
+        this.username1 = loginDATA.fullname;
+      })
     }
 
   ngOnInit(): void {
+    this.login = this.api.getlogin();
+    console.log(this.login)
+   
     this.loginData();
-    this.username1 = this.verifiedUser.fullname;
-    console.log(this.username1)
+    
+    
     this.api.addCart(this.cartlist)
     var data1=this.api.getCart();
     this.api.onMainEvent.emit(data1);
@@ -45,14 +55,19 @@ console.log(res)
      
     //  this.cartList();
   }
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges() {
    
      }
 
   loginData(){
     this.verifiedUser = JSON.parse(localStorage.getItem('verifiedUser')!);
-    
+    this.username1 = this.verifiedUser.fullname;
    
+  }
+
+  ngAfterViewInit(): void{
+    this.login = this.api.getlogin();
+    console.log(this.login)
   }
 
   cartList(){
@@ -75,7 +90,8 @@ console.log(res)
   logout(){
     this.api.remove();
    
-    this.router.navigate([' '])
+    //this.router.navigate([' '])
+    window.location.reload();
   }
 
 }

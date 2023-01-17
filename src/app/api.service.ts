@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class ApiService {
   cartItems:any;
   onMainEvent: EventEmitter<any> = new EventEmitter();
+  logOut: EventEmitter<any> = new EventEmitter();
 
   constructor(private http:HttpClient,
     private router:Router) { }
