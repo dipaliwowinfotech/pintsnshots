@@ -28,28 +28,26 @@
             <div class="latest-news ">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6" *ngFor="let item of activelist; let i = index" [class.focus]="isActive==item.order_id" >
-                            <a routerLink="/wallet-details"  >
-                            <div class="single-latest-news">
+                        <div class="col-lg-6 col-md-6" *ngFor="let item of activelist; let i = index" [class.focus]="isActive==item.order_id">
+                          <a routerLink="/wallet-details"> 
+                             <div class="single-latest-news">
+                              
+                            <div class="news-text-box">
+                                <ul class=" unordered-list">
+                                    <li><b style="color:#d6a354;">Hotel Name:- </b>{{item.hotel_name}}</li>
+
+                                    <li> <b style="color:#d6a354;">Address:- </b>{{item.address}}</li>
+
+                                    <li> <b style="color:#d6a354;">Valid Upto :-</b>{{item.valid_upto_date}}</li>
+
+                                    <!-- <li> <b style="color:#FF6634;">संपर्क:- </b>९९३०९९८००७  <b style="color:#FF6634;padding-left:10px;">कार्यालय:- </b>०२२ २५९७०६२५</li> -->
 
 
-                                <div class="news-text-box">
-                                    <ul class=" unordered-list">
-                                        <li><b style="color:#d6a354;">Hotel Name:- </b>{{item.hotel_name}}</li>
-
-                                        <li> <b style="color:#d6a354;">Address:- </b>{{item.address}}</li>
-
-                                        <li> <b style="color:#d6a354;">Valid Upto:-</b>{{item.valid_upto_date}}</li>
-
-                                        <!-- <li> <b style="color:#FF6634;">संपर्क:- </b>९९३०९९८००७  <b style="color:#FF6634;padding-left:10px;">कार्यालय:- </b>०२२ २५९७०६२५</li> -->
-
-
-                                    </ul>
-                                </div>
-
-
+                                </ul>
                             </div>
-                            </a>
+
+
+                        </div></a>
                         </div>
 
                         <!-- <div class="col-lg-6 col-md-6">
@@ -132,7 +130,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-6" *ngFor="let item of completedlist">
-                            <a routerLink="/wallet-details"  >
+                           <a routerLink="/wallet-details"  >
                             <div class="single-latest-news">
 
 
@@ -150,7 +148,7 @@
 
 
                             </div>
-                            </a>
+                           </a>
                         </div>
 
 

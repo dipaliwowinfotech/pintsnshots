@@ -56,7 +56,7 @@ label {
   padding: 1.5em;
   border-radius: 16px;
   padding: 9px;
-  color: #757575;
+  color: #000000;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
@@ -86,8 +86,10 @@ label {
 }
 
 .tab_container [id^="tab"]:checked + label {
-  background: #fff;
+
   border-top: 3px solid #d6a354;
+  color: white;
+    background: #322f2f;
 }
 
 .tab_container [id^="tab"]:checked + label .fa {

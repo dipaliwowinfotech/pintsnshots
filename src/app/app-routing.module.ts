@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './myComponents/about/about.component';
 import { AddCartComponent } from './myComponents/add-cart/add-cart.component';
+import { BlogDetailsComponent } from './myComponents/blog-details/blog-details.component';
 import { BlogComponent } from './myComponents/blog/blog.component';
 import { CheckOutComponent } from './myComponents/check-out/check-out.component';
 import { CoffeeShopComponent } from './myComponents/coffee-shop/coffee-shop.component';
@@ -47,6 +48,9 @@ const routes: Routes = [
   },
   {
     path:'blog',component:BlogComponent
+  },
+  {
+    path:'blog-details',component:BlogDetailsComponent
   },
   {
     path:'check-out', component:CheckOutComponent

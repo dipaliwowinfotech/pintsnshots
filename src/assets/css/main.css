@@ -24,7 +24,7 @@ body {
   font-size: 1rem;
   letter-spacing: 0.1px;
   line-height: 1.8;
-  color: #051922;
+  color: #000000;
   overflow-x: hidden;
 }
 
@@ -474,6 +474,7 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
 
 .section-title {
   margin-bottom: 35px;
+  margin-top: 40px;
 }
 
 .breadcrumb-bg {
@@ -1635,7 +1636,7 @@ div.owl-controls, .owl-controls div {
 
 .single-latest-news h3 {
   font-size: 20px;
-  /* line-height: 2.25em; */
+  line-height: 2.25em;
   font-weight: 600;
   text-align: center;
 }
@@ -1690,9 +1691,10 @@ p.excerpt {
 } */
 
 .pagination-wrap ul {
-  margin: 0;
+  margin: 0px;
   padding: 0;
   list-style: none;
+  margin-top: 50px;
 }
 
 .pagination-wrap ul li {
@@ -1888,6 +1890,7 @@ span.comment-date {
   content: "\f105";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
+  color: #d6a354;
 }
 
 .tag-section ul li {
@@ -2811,7 +2814,7 @@ table.order-details tbody td {
 @media (max-width: 479px) {
   a.cart-btn {
     font-size: 11px;
-    padding: 7px 15px;
+    padding: 7px 14px;
   }
   .single-latest-news {
     
@@ -2834,3 +2837,11 @@ font-size: 13px !important;
 .new_imgs{
   height: 67px !important;
 }
+
+
+@media only screen and (max-width: 767.96px) {
+  .mb-100 {
+    margin-bottom: 80px;
+  }
+}
+
