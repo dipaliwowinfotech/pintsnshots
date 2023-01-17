@@ -166,30 +166,30 @@ this.cartList();
       this.api.onMainEvent.emit(data);
 
   }
-  checkout(){
+  // checkout(){
    
-    const formData = new FormData();
-      formData.set('quantity',this.quantitylist.toString());
-      formData.set('hotel_id',this.hotel_id);
-      formData.set('discount',this.discountlist.toString() );
-      formData.set('product_price',this.productpricelist.toString());
-      formData.set('user_id',this.verifiedUser.user_id );
-      formData.set('total_amount',this.totalbill.toString());
-      formData.set('currency_type','Rupee' );
-      formData.set('dob','02-12-1997');
-      formData.set('product_id', this.productIdlist.toString());
-      formData.set('total_quantity',this.totalquantity);
-      formData.set('action','order' );
-      formData.set('unit_id',this.unitidlist.toString());
-      formData.set('discount_id',this.discountlist.toString() );
-      this.api.checkout(formData).subscribe((res)=>{
-        console.log(res);
+  //   const formData = new FormData();
+  //     formData.set('quantity',this.quantitylist.toString());
+  //     formData.set('hotel_id',this.hotel_id);
+  //     formData.set('discount',this.discountlist.toString() );
+  //     formData.set('product_price',this.productpricelist.toString());
+  //     formData.set('user_id',this.verifiedUser.user_id );
+  //     formData.set('total_amount',this.totalbill.toString());
+  //     formData.set('currency_type','Rupee' );
+  //     formData.set('dob','02-12-1997');
+  //     formData.set('product_id', this.productIdlist.toString());
+  //     formData.set('total_quantity',this.totalquantity);
+  //     formData.set('action','order' );
+  //     formData.set('unit_id',this.unitidlist.toString());
+  //     formData.set('discount_id',this.discountlist.toString() );
+  //     this.api.checkout(formData).subscribe((res)=>{
+  //       console.log(res);
         
-      })
+  //     })
    
   
         
-   }
+  //  }
 }     
         
         

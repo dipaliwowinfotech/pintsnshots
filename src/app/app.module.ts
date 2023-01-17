@@ -26,6 +26,7 @@ import { WalletComponent } from './myComponents/wallet/wallet.component';
 import { BlogComponent } from './myComponents/blog/blog.component';
 import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-details.component';
 import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-history.component';
+import { BlogDetailsComponent } from './myComponents/blog-details/blog-details.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-his
     WalletComponent,
     BlogComponent,
     WalletDetailsComponent,
-    WalletHistoryComponent
+    WalletHistoryComponent,
+    BlogDetailsComponent
   ],
   imports: [
     BrowserModule,
