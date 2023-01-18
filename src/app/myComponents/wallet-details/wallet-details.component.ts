@@ -147,6 +147,7 @@ console.log(this.price );
       if(res.ResponseCode){
         alert(res.ResponseMessage);
         this.show = true;
+        document.getElementById("closemodal")?.click();
       }
       
     })

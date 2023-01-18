@@ -88,7 +88,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" data-toggle="modal" data-target="#exampleModal1"
-                 (click)="checkMobile()"   class="btn btn-primary">Share</button>
+                 (click)="checkMobile()" data-dismiss="modal"  class="btn btn-primary">Share</button>
             </div>
         </div>
     </div>
@@ -99,7 +99,7 @@
 
 
 <!-- SECOND MODEL -->
-<div *ngIf="!show" class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
     aria-hidden="true" >
     <div class="modal-dialog" role="document">
         <div class="modal-content" *ngFor="let data of shareUser">
@@ -125,7 +125,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="closemodal"  class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" (click)="shareWallet()" class="btn btn-primary">Share</button>
             </div>
         </div>
