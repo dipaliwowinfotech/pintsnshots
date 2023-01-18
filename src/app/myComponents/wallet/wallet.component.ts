@@ -12,6 +12,8 @@ export class WalletComponent implements OnInit {
    isActive: any;
    walletdetails:any;
    verifiedUser: any;
+   complete:any = "Compl";
+   actiVe:any = "Active";
   constructor(private api:ApiService,
     private router:Router) { }
 
@@ -37,7 +39,7 @@ export class WalletComponent implements OnInit {
   completed(){
     const formData = new FormData();
       formData.set('user_id',this.verifiedUser.user_id);
-      formData.set('payment_status','active');
+      formData.set('payment_status','complete');
       formData.set('action','volet' );
       this.api.walletCompleted(formData).subscribe((res:any)=>{
         console.log(res);
@@ -51,19 +53,10 @@ export class WalletComponent implements OnInit {
   }
 
 
-  onwallet(item:any){
-    const formData = new FormData();
-    formData.set('user_id',this.verifiedUser.user_id);
-    formData.set('hotel_id',item.hotel_id);
-
-    formData.set('payment_status','Incomplete');
-    formData.set('action','volet_details' );
-    formData.set('order_id',item.order_id);
-    this.api.walletDetails(formData).subscribe((res:any)=>{
-      console.log(res);
-      this.walletdetails = res;
-      
-      
-    })
+  onwallet(item:any,status:any){
+    console.log(status);
+    var id = item.order_id;
+    var hotelId = item.hotel_id;
+    this.router.navigate(['wallet-details'+'/'+id+'/'+hotelId+'/'+status]);
   }
 }

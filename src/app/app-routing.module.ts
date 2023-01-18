@@ -69,7 +69,7 @@ const routes: Routes = [
    path:'otp',component:OtpComponent
   },
   {
-    path:'wallet-details',component:WalletDetailsComponent
+    path:'wallet-details'+'/:id'+'/:hotelId'+'/:status',component:WalletDetailsComponent
   },
   {
     path:'wallet-history',component:WalletHistoryComponent

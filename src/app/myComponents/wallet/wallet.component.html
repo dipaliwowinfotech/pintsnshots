@@ -32,7 +32,7 @@
                           <a > 
                              <div class="single-latest-news">
                               
-                            <div (click)="onwallet(item)" class="news-text-box">
+                            <div (click)="onwallet(item,actiVe)" class="news-text-box">
                                 <ul class=" unordered-list">
                                     <li><b style="color:#d6a354;">Hotel Name:- </b>{{item.hotel_name}}</li>
 
@@ -48,79 +48,8 @@
 
 
                         </div></a>
-                        </div>
-
-                        <!-- <div class="col-lg-6 col-md-6">
-                            <div class="single-latest-news">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="news-text-box">
-                                            <ul class=" unordered-list">
-                                                <li><b style="color:#d6a354;">Taproom Name:- </b>Bombay Cafe</li>
-
-                                                <li> <b style="color:#d6a354;">Address:- </b>Thane Station Road, Jambli
-                                                    Naka, Thane West, Thane, Maharashtra, India</li>
-
-                                                <li> <b style="color:#d6a354;">Valid Upto:-</b>27/02/2023</li>
-
-
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div> -->
-
-                         <!-- <div class="col-lg-6 col-md-6">
-                            <div class="single-latest-news">
-
-
-                                <div class="news-text-box">
-                                    <ul class=" unordered-list">
-                                        <li><b style="color:#d6a354;">Taproom Name:- </b>Bombay Cafe</li>
-
-                                        <li> <b style="color:#d6a354;">Address:- </b>Thane Station Road, Jambli Naka,
-                                            Thane West, Thane, Maharashtra, India</li>
-
-                                        <li> <b style="color:#d6a354;">Valid Upto:-</b>27/02/2023</li>
-
-                                        <li> <b style="color:#FF6634;">संपर्क:- </b>९९३०९९८००७  <b style="color:#FF6634;padding-left:10px;">कार्यालय:- </b>०२२ २५९७०६२५</li>
-
-
-                                    </ul>
-                                </div>
-
-
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="col-lg-6 col-md-6">
-                            <div class="single-latest-news">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="news-text-box">
-                                            <ul class=" unordered-list">
-                                                <li><b style="color:#d6a354;">Taproom Name:- </b>Bombay Cafe</li>
-
-                                                <li> <b style="color:#d6a354;">Address:- </b>Thane Station Road, Jambli
-                                                    Naka, Thane West, Thane, Maharashtra, India</li>
-
-                                                <li> <b style="color:#d6a354;">Valid Upto:-</b>27/02/2023</li>
-
-
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div> -->
+                        </div>                        
                     </div>
-
-
                 </div>
             </div>
         </section>
@@ -130,11 +59,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-6" *ngFor="let item of completedlist">
-                           <a routerLink="/wallet-details"  >
+                           <a >
                             <div class="single-latest-news">
 
 
-                                <div class="news-text-box">
+                                <div (click)="onwallet(item,complete)" class="news-text-box">
                                     <ul class=" unordered-list">
                                         <li><b style="color:#d6a354;">Hotel Name:- </b>{{item.hotel_name}}</li>
 

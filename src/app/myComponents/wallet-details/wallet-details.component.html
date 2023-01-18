@@ -21,27 +21,26 @@
                     <div class="row no">
 
 
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-6" *ngFor="let itm of walletdetails">
                             <div class="single-latest-news">
                                 <div class="news-text-box">
                                     <ul class=" unordered-list">
                                         <div class="get-code-visible copy-visible-code1"
                                             data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs"
                                             data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
-                                            data-offer-id="AJl2qkayMs">FFDNPR</div>
-                                        <li class="bg_colour"><b style="color:#d6a354;">Product Name:- </b>BLACK FOREST
-                                            KUKA</li>
+                                            data-offer-id="AJl2qkayMs">{{itm.product_name}}{{itm.discount_id}}%</div>
+                                        <li class="bg_colour"><b style="color:#d6a354;">Product Name:- </b>{{itm.product_name}}</li>
 
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Product Price:- </b>₹280.0
+                                        <li class="bg_colour"> <b style="color:#d6a354;">Product Price:- </b>{{getPrice(itm)}}<span style="color: rgb(8, 163, 8);">₹{{price}}</span>&nbsp;<span style="text-decoration: line-through;">₹{{itm.product_price}}</span>
                                         </li>
 
-                                        <li class="bg_colour"> <b style="color:#d6a354;">No Of Coupons:-</b>2</li>
+                                        <li class="bg_colour"> <b style="color:#d6a354;">No Of Coupons:-</b>{{itm.quantity}}</li>
 
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Discount:-</b>5% off</li>
+                                        <li class="bg_colour"> <b style="color:#d6a354;">Discount:-</b>{{itm.discount_id}}% off</li>
 
 
                                     </ul>
-                                    <a data-toggle="modal" data-target="#exampleModal">
+                                    <a *ngIf="showShare" data-toggle="modal" (click)="openMobileModal(itm)" data-target="#exampleModal">
                                         <div class="readi" style="color: white;">
                                             <i class="fa fa-share" aria-hidden="true"></i><b> &nbsp;Share</b>
                                         </div>
@@ -51,170 +50,6 @@
                         </div>
 
 
-                        <!-- <div class="col-lg-4 col-md-6">
-                            <div class="single-latest-news">
-
-
-                                <div class="news-text-box">
-                                    <ul class=" unordered-list">
-                                        <div class="get-code-visible copy-visible-code1"
-                                            data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs"
-                                            data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
-                                            data-offer-id="AJl2qkayMs">FFDNPR</div>
-                                        <li class="bg_colour"><b style="color:#d6a354;">Product Name:- </b>BLACK FOREST
-                                            KUKA</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Product Price:- </b>₹280.0
-                                        </li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">No Of Coupons:-</b>2</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Discount:-</b>5% off</li>
-
-
-                                    </ul>
-                                    <a data-toggle="modal" data-target="#exampleModal">
-                                        <div class="readi" style="color: white;">
-                                            <i class="fa fa-share" aria-hidden="true"></i><b> &nbsp;Share</b>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="col-lg-4 col-md-6">
-                            <div class="single-latest-news">
-
-
-                                <div class="news-text-box">
-                                    <ul class=" unordered-list">
-                                        <div class="get-code-visible copy-visible-code1"
-                                            data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs"
-                                            data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
-                                            data-offer-id="AJl2qkayMs">FFDNPR</div>
-                                        <li class="bg_colour"><b style="color:#d6a354;">Product Name:- </b>BLACK FOREST
-                                            KUKA</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Product Price:- </b>₹280.0
-                                        </li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">No Of Coupons:-</b>2</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Discount:-</b>5% off</li>
-
-
-                                    </ul>
-                                    <a data-toggle="modal" data-target="#exampleModal">
-                                        <div class="readi" style="color: white;">
-                                            <i class="fa fa-share" aria-hidden="true"></i><b> &nbsp;Share</b>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="col-lg-4 col-md-6">
-                            <div class="single-latest-news">
-
-
-                                <div class="news-text-box">
-                                    <ul class=" unordered-list">
-                                        <div class="get-code-visible copy-visible-code1"
-                                            data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs"
-                                            data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
-                                            data-offer-id="AJl2qkayMs">FFDNPR</div>
-                                        <li class="bg_colour"><b style="color:#d6a354;">Product Name:- </b>BLACK FOREST
-                                            KUKA</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Product Price:- </b>₹280.0
-                                        </li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">No Of Coupons:-</b>2</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Discount:-</b>5% off</li>
-
-
-                                    </ul>
-                                    <a data-toggle="modal" data-target="#exampleModal">
-                                        <div class="readi" style="color: white;">
-                                            <i class="fa fa-share" aria-hidden="true"></i><b> &nbsp;Share</b>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="col-lg-4 col-md-6">
-                            <div class="single-latest-news">
-
-
-                                <div class="news-text-box">
-                                    <ul class=" unordered-list">
-                                        <div class="get-code-visible copy-visible-code1"
-                                            data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs"
-                                            data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
-                                            data-offer-id="AJl2qkayMs">FFDNPR</div>
-                                        <li class="bg_colour"><b style="color:#d6a354;">Product Name:- </b>BLACK FOREST
-                                            KUKA</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Product Price:- </b>₹280.0
-                                        </li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">No Of Coupons:-</b>2</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Discount:-</b>5% off</li>
-
-
-                                    </ul>
-                                    <a data-toggle="modal" data-target="#exampleModal">
-                                        <div class="readi" style="color: white;">
-                                            <i class="fa fa-share" aria-hidden="true"></i><b> &nbsp;Share</b>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="col-lg-4 col-md-6">
-                            <div class="single-latest-news">
-
-
-                                <div class="news-text-box">
-                                    <ul class=" unordered-list">
-                                        <div class="get-code-visible copy-visible-code1"
-                                            data-offer-key="offerGetCodeBtnText" data-id="AJl2qkayMs"
-                                            data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
-                                            data-offer-id="AJl2qkayMs">FFDNPR</div>
-                                        <li class="bg_colour"><b style="color:#d6a354;">Product Name:- </b>BLACK FOREST
-                                            KUKA</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Product Price:- </b>₹280.0
-                                        </li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">No Of Coupons:-</b>2</li>
-
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Discount:-</b>5% off</li>
-
-
-                                    </ul>
-                                    <a data-toggle="modal" data-target="#exampleModal">
-                                        <div class="readi" style="color: white;">
-                                            <i class="fa fa-share" aria-hidden="true"></i><b> &nbsp;Share</b>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                            </div>
-                        </div> -->
 
                     </div>
 
@@ -241,19 +76,19 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form [formGroup]="mobileForm">
 
                     <div class="form-group">
 
                         <textarea class="form-control" id="message-text"
-                            placeholder="Please Enter Receivers Mobile Number"></textarea>
+                            placeholder="Please Enter Receivers Mobile Number" formControlName="mobile" maxlength="10"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" data-toggle="modal" data-target="#exampleModal1"
-                    class="btn btn-primary">Share</button>
+                 (click)="checkMobile()"   class="btn btn-primary">Share</button>
             </div>
         </div>
     </div>
@@ -264,33 +99,34 @@
 
 
 <!-- SECOND MODEL -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
+<div *ngIf="!show" class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+    aria-hidden="true" >
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content" *ngFor="let data of shareUser">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel1" style="color: #d6a354; "><b>Vishal Handore</b></h5>
+                <h5 class="modal-title" id="exampleModalLabel1" style="color: #d6a354; "><b>{{data.fullname}}</b></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form style="display: flex;">
+                <form [formGroup]="quantityForm" style="display: flex;">
 
                     <div class="col-md-6">
                         <div class="form-group" style="width: 200px;">
 
-                            <textarea class="form-control " id="message-text"></textarea>
+                            <textarea class="form-control " id="message-text" formControlName="quantity" placeholder="Enter Quantity" maxlength="2"></textarea>
+                            
                         </div>
                     </div>
                     <div class="col-md-6" style="color: white;">
-                        <div class="text_a"><span>*</span> ₹ 150</div>
+                        <div class="text_a"><span>*</span> ₹{{itemData.product_price}}</div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Share</button>
+                <button type="button" (click)="shareWallet()" class="btn btn-primary">Share</button>
             </div>
         </div>
     </div>
