@@ -39,6 +39,12 @@
                       *ngIf="loginForm.controls['mobile_no'].dirty && loginForm.hasError('required','mobile_no')">Mobile Number
                        is required
                         </span>
+                        <span *ngIf="form['mobile_no'].touched&&isSubmitted ">
+                            <div class="text-danger" *ngIf="form['mobile_no'].errors?.['pattern']||form['mobile_no'].errors?.['minlength']">Please Enter Valid MobileNumber
+                            </div>
+                            <!-- <div class="text-danger" *ngIf="">Please Enter 10 Digit MobileNumber
+                            </div> -->
+                        </span>
                     </p>
                     <p>
                         <label>
