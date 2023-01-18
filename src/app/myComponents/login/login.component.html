@@ -25,17 +25,19 @@
                 </a>
                 <form  [formGroup]="loginForm" (ngSubmit)="login()">
                     <p>
-                        <label>Fullname<span>*</span></label>
+                        <label>Full Name<span>*</span></label>
                         <input type="text" required formControlName="fullname">
+                        <span class="text-danger"
+                        *ngIf="loginForm.controls['fullname'].dirty && loginForm.hasError('required','fullname')">Full Name
+                        is required
+                    </span>
                     </p>
                     <p>
-                        <label>MobileNumber<span>*</span></label>
+                        <label>Mobile Number<span>*</span></label>
                         <input type="text" maxlength="10" required formControlName="mobile_no">
-                        <span *ngIf="form['mobile_no'].touched&&isSubmitted ">
-                            <div class="text-danger" *ngIf="form['mobile_no'].errors?.['pattern']||form['mobile_no'].errors?.['minlength']">Please Enter Valid MobileNumber
-                            </div>
-                            <!-- <div class="text-danger" *ngIf="">Please Enter 10 Digit MobileNumber
-                            </div> -->
+                        <span class="text-danger"
+                      *ngIf="loginForm.controls['mobile_no'].dirty && loginForm.hasError('required','mobile_no')">Mobile Number
+                       is required
                         </span>
                     </p>
                     <p>
@@ -43,7 +45,7 @@
                             <!-- <a href="JavaScript:void(0);">Forgot password?</a> -->
                             <!-- <a routerLink="/registration">Create an account</a> -->
                         </label>
-                        <input type="submit" value="Send Otp" />
+                        <input  (click)="OnSubmit()"  style="color: white;" type="submit" value="Send Otp" />
                         
                     </p>
                 </form>

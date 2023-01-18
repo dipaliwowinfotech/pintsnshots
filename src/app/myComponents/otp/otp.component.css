@@ -11,3 +11,23 @@
 .otp_box1{
     text-align: center;
 }
+.opt_c{
+    color: #d6a354;
+    text-align: center;
+    font-size: 22px;
+}
+.opt_c1{
+    color: black;
+    text-align: center;
+    font-size: 17px;
+}
+.opt_c2{
+    background-color: #d6a354;
+    border-radius: 15px;
+    border: 2px solid #d6a354;
+    
+}
+.card{
+    background: #ffffff;
+    box-shadow: 0 0 5px #b3b3b3;
+}
