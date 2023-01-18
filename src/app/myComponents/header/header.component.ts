@@ -89,9 +89,13 @@ console.log(res)
   }
   logout(){
     this.api.remove();
-   
-    //this.router.navigate([' '])
     window.location.reload();
+    alert("Logout Succssesfully!")
+    // this.router.navigate(['login '])
+    
   }
 
 }
+
+    
+    

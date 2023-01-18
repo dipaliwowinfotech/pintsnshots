@@ -63,6 +63,7 @@ verify(){
        localStorage.setItem('verifiedUser',JSON.stringify(this.verifiedlogin));
       })
     this.api.setlogin(this.logindata);
+    alert('login Succsessfully!')
       this.router.navigate(['']);
       this.login = this.api.getlogin();
     console.log(this.login)
