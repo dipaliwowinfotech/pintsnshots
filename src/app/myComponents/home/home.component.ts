@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 @Component({
   selector: 'app-home',
@@ -11,11 +11,18 @@ taplist:any;
   coffee: any;
   shisha: any;
   cartlist:any;
+  showLoader: boolean = false;
+
 constructor(private api:ApiService) { }
+
 
 
   ngOnInit(): void {
    
+   this.showLoader = true;
+   setTimeout(()=>{
+    this.showLoader = false;
+   },3000)
     const formData = new FormData();
     formData.set('action','hotel_banner');
 
