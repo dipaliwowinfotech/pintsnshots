@@ -104,12 +104,12 @@
 
         // magnific popup
         $('.popup-youtube').magnificPopup({
-            disableOn: 700,
+            disableOn: 200,
             type: 'iframe',
             mainClass: 'mfp-fade',
-            removalDelay: 160,
+            removalDelay: 10,
             preloader: false,
-            fixedContentPos: false
+            fixedContentPos: true
         });
 
         // light box
@@ -161,7 +161,7 @@
 
 
     jQuery(window).on("load",function(){
-        jQuery(".loader").fadeOut(300);
+        jQuery(".loader").fadeOut(50);
     });
 
 
