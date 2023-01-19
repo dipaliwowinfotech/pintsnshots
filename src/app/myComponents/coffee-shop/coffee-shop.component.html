@@ -26,15 +26,15 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="single-product-item" *ngFor="let item of coffee">
+            <div routerLink="/product-components" class="col-lg-4 col-md-6 text-center" *ngFor="let item of coffee">
+                <div class="single-product-item" >
                     <div class="product-image">
                         <a href="JavaScript:void(0);">
                             <img src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{item.hotel_image}}" alt=""></a>
                     </div>
                     <h3>{{item.hotel_name}}</h3>
                     <p class="product-price"><span>Shop No 7/8 Sancheti apt. Beside Swastik Croporation Vidya Vikas Circule Gangapur Road Nashik, Mahar Beside Swastik Croporatio</span>  </p>
-                    <a routerLink="/product-components" href="JavaScript:void(0);" class="cart-btn">Continue</a>
+                    <a  href="JavaScript:void(0);" class="cart-btn">Continue</a>
                     <!-- <i class="fas fa-shopping-cart"></i>  -->
                 </div>
             </div>

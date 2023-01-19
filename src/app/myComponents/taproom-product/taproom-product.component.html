@@ -27,7 +27,7 @@
         </div>
 
         <div class="row" >
-            <div class="col-lg-4 col-md-6 col-6 col-6 text-center" *ngFor="let item of tap" >
+            <div routerLink="/product-components" class="col-lg-4 col-md-6 col-6 col-6 text-center" *ngFor="let item of tap" >
                 <div class="single-product-item" >
                     <div class="product-image">
                         <a href="JavaScript:void(0);">
@@ -35,7 +35,7 @@
                     </div>
                     <h3>{{item.hotel_name}} </h3>
                     <p class="product-price car_dec"><span>Thane Station Road, Jambli Naka, Thane West, Thane, Maharashtra, India</span>  </p>
-                    <a routerLink="/product-components" class="cart-btn">Continue</a>
+                    <a  class="cart-btn">Continue</a>
                     <!-- <i class="fas fa-shopping-cart"></i>  -->
                 </div>
             </div>
