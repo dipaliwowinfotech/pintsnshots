@@ -58,9 +58,7 @@ a.boxed-btn:hover{
   /* banner */
 
 
-  @media (min-width: 1200px) and (max-width: 1500px) {}
-  @media (min-width: 992px) and (max-width: 1199px) {}
-  @media (min-width: 768px) and (max-width: 991px) {}
+
   @media (min-width: 576px) and (max-width: 767px) {}
   @media (min-width: 480px) and (max-width: 575px) {}
   @media (max-width: 479px) {
@@ -85,4 +83,30 @@ a.boxed-btn:hover{
   p.product-price span {
   font-size: 13px !important;
   }
+  .height_h{
+    height: 300px !important;
   }
+  }
+
+  .height_h{
+    height: 700px;
+  }
+  .carousel-item {
+    
+    transition: -webkit-transform .0s ease-in-out !important;
+    transition: transform .0s ease-in-out !important;
+    transition: transform .0s ease-in-out,-webkit-transform .0s ease-in-out !important;
+}
+
+.carousel-inner{ position: relative;}
+.carousel-inner:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #051922;
+  content: "";
+  z-index: 1;
+  opacity: 0.7;
+}

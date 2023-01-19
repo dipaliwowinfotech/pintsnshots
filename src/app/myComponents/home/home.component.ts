@@ -12,7 +12,7 @@ taplist:any;
   shisha: any;
   cartlist:any;
   showLoader: boolean = false;
-
+  banner_id:any;
 constructor(private api:ApiService) { }
 
 
