@@ -20,7 +20,7 @@
                 <div>
                     
                     <p class="opt_c"><b>Enter verification code</b></p>
-                    <p class="opt_c1">We have sent a OTP via text message on below  mobile number</p>
+                    <p class="opt_c1">We have sent a OTP via text message on below mobile number </p><p *ngIf="mobileNo" class="opt_c1"> <span>{{this.mobileNo.mobile_no}}</span></p>
     
                     <ng-otp-input class="otp_box " (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config">
                     </ng-otp-input>

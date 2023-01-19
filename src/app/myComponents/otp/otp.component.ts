@@ -31,12 +31,14 @@ export class OtpComponent implements OnInit {
   wrongOTP:boolean = false
   formdata:any
   login: any;
+  mobileNo:any;
 
   constructor(private api:ApiService,private router:Router,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
   this. payload = this.api.getOTP();
-    console.log(this.payload)
+  this.mobileNo = this.api.getlogin();
+    console.log(this.mobileNo)
   }
 
     
