@@ -55,28 +55,28 @@ export class LoginComponent implements OnInit {
   }
 
 }
-OnSubmit(){
-  if(this.loginForm.valid){
-  //sent object to database
-}else{
-  // console.log('Form is not valid')
-  //throw the error using toaster and with required files
-   this.validateAllFormFields(this.loginForm);
-   alert("Form is invalid");
-}
-}
+// OnSubmit(){
+//   if(this.loginForm.valid){
+//   //sent object to database
+// }else{
+//   // console.log('Form is not valid')
+//   //throw the error using toaster and with required files
+//    this.validateAllFormFields(this.loginForm);
+//    alert("Form is invalid");
+// }
+// }
 
 
-private validateAllFormFields(formgroup:FormGroup){
-  Object.keys(formgroup.controls).forEach(Field=>{
-    const control = formgroup.get(Field);
-      if(control instanceof FormControl){
-        control.markAsDirty({onlySelf:true})
-      }else if(control instanceof FormGroup){
-         this.validateAllFormFields(control)
-      }
+// private validateAllFormFields(formgroup:FormGroup){
+//   Object.keys(formgroup.controls).forEach(Field=>{
+//     const control = formgroup.get(Field);
+//       if(control instanceof FormControl){
+//         control.markAsDirty({onlySelf:true})
+//       }else if(control instanceof FormGroup){
+//          this.validateAllFormFields(control)
+//       }
 
-  })
-}
+//   })
+// }
 
 }

@@ -90,9 +90,9 @@ console.log(res)
   }
   logout(){
     this.api.remove();
-    window.location.reload();
-    alert("Logout Succssesfully!")
-    // this.router.navigate(['login '])
+    
+    alert("Logout Succssesfully!");
+    this.router.navigate(['']);
     
   }
 
