@@ -15,13 +15,13 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="#">Home</a>
+                            <li [routerLinkActive]="['current-list-item']" [routerLinkActiveOptions]={exact:true}><a  routerLink="/" >Home</a>
                                 <!-- <ul class="sub-menu">
                                     <li><a href="index.html">Static Home</a></li>
                                     <li><a href="index_2.html">Slider Home</a></li>
                                 </ul> -->
                             </li>
-                            <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
+                            <li [routerLinkActive]="['current-list-item']"><a [routerLink]="['/about']" routerLinkActive="active">About Us</a></li>
                             <!-- <li><a href="#">Pages</a>
                                 <ul class="sub-menu">
                                     <li><a href="404.html">404 page</a></li>
@@ -33,7 +33,7 @@
                                     <li><a href="shop.html">Shop</a></li>
                                 </ul>
                             </li> -->
-                            <li><a href="JavaScript:void(0);">Restaurant</a>
+                            <li [routerLinkActive]="['current-list-item']"><a href="JavaScript:void(0);">Restaurant</a>
                                 <ul class="sub-menu">
                                     <li><a routerLink="/taproom-product">Taproom</a></li>
                                     <li><a routerLink="/coffee-shop">Coffee Shop</a></li>
@@ -41,21 +41,21 @@
                                     <li><a routerLink="/shisha-lounge">Shisha Lounge</a></li>
                                 </ul>
                             </li>
-                            <li><a routerLink="/blog" >Blog</a>
+                            <li [routerLinkActive]="['current-list-item']"><a routerLink="/blog" >Blog</a>
                                 <!-- <ul class="sub-menu">
                                     <li><a href="news.html">News</a></li>
                                     <li><a href="single-news.html">Single News</a></li>
                                 </ul> -->
                             </li>
-                            <li><a routerLink="/contact-us">Contact</a></li>
-                        <li *ngIf="username1"><a routerLink="/wallet">Wallet</a></li>
+                            <li [routerLinkActive]="['current-list-item']"><a routerLink="/contact-us">Contact</a></li>
+                        <li [routerLinkActive]="['current-list-item']" *ngIf="username1"><a routerLink="/wallet">Wallet</a></li>
                            
                             <li>
                                 <div class="header-icons">
-                                    <li *ngIf="username1"> <a class="shopping-cart" routerLink="/add-cart"><i class="fas fa-shopping-cart"></i><span class="position-absolute translate-middle badge rounded-pill" style="background-color: rgb(50, 141, 216);">{{cartlength}}</span></a></li>
-                                    <li><a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                                    <li [routerLinkActive]="['current-list-item']" *ngIf="username1"> <a class="shopping-cart" routerLink="/add-cart"><i class="fas fa-shopping-cart"></i><span class="position-absolute translate-middle badge rounded-pill" style="background-color: rgb(50, 141, 216);">{{cartlength}}</span></a></li>
+                                    <li [routerLinkActive]="['current-list-item']"><a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                     </li>
-                                    <li><a *ngIf="username1" routerLink="/login">{{username1}}</a>
+                                    <li [routerLinkActive]="['current-list-item']"><a *ngIf="username1" routerLink="/login">{{username1}}</a>
                                         <a *ngIf="!username1" routerLink="/login">Login</a>
 
                                         <ul  *ngIf="username1" class="sub-menu">
