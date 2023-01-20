@@ -20,9 +20,9 @@
                 <div class="container">
                     <div class="row no">
 
-
+<span *ngIf="showError" style="color: #ffff;"> No Wallet Details Available</span>
                         <div class="col-lg-4 col-md-6" *ngFor="let itm of walletdetails">
-                            <div class="single-latest-news">
+                            <div *ngIf="!showError" class="single-latest-news">
                                 <div class="news-text-box">
                                     <ul class=" unordered-list">
                                         <div class="get-code-visible copy-visible-code1"
@@ -40,7 +40,7 @@
 
 
                                     </ul>
-                                    <a *ngIf="showShare" data-toggle="modal" (click)="openMobileModal(itm)" data-target="#exampleModal">
+                                    <a *ngIf="showShare"  (click)="openMobileModal(itm,mobileNumber)" >
                                         <div class="readi" style="color: white;">
                                             <i class="fa fa-share" aria-hidden="true"></i><b> &nbsp;Share</b>
                                         </div>
@@ -63,8 +63,34 @@
 </div>
 
 
+<ng-template #mobileNumber let-modal >
+    <div style="background-color: #191C24;">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: #d6a354; "><b>Wallet Share</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.close('Save click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="mobileForm">
+
+            <div class="form-group">
+
+                <input class="form-control" type="text" id="message-text"
+                    placeholder="Please Enter Receivers Mobile Number" formControlName="mobile" maxlength="10">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Close</button>
+        <button type="button" (click)="checkMobile(mobileModal)" data-dismiss="modal"  class="btn btn-primary">Share</button>
+      </div>
+   
+</div>
+</ng-template>
+
 <!--FIRST MODEL  -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -80,28 +106,53 @@
 
                     <div class="form-group">
 
-                        <textarea class="form-control" id="message-text"
-                            placeholder="Please Enter Receivers Mobile Number" formControlName="mobile" maxlength="10"></textarea>
+                        <input class="form-control" type="text" id="message-text"
+                            placeholder="Please Enter Receivers Mobile Number" formControlName="mobile" maxlength="10">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" data-toggle="modal" data-target="#exampleModal1"
-                 (click)="checkMobile()" data-dismiss="modal"  class="btn btn-primary">Share</button>
+                <button type="button" 
+                 (click)="checkMobile(mobileModal)" data-dismiss="modal"  class="btn btn-primary">Share</button>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!--FIRST MODEL  -->
 
 
 
 <!-- SECOND MODEL -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true" >
-    <div class="modal-dialog" role="document">
+<ng-template #mobileModal let-modal >
+    <div *ngFor="let data of shareUser" style="background-color: #191C24;">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1" style="color: #d6a354; "><b>{{data.fullname}}</b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.close('Save click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="quantityForm" style="display: flex;">
+
+            <div class="col-md-6">
+                <div class="form-group" style="width: 200px;">
+
+                    <input type="text" class="form-control " id="message-text" formControlName="quantity" placeholder="Enter Quantity" maxlength="2">
+                    
+                </div>
+            </div>
+            <div class="col-md-6" style="color: white;">
+                <div class="text_a"><span>*</span> ₹{{itemData.product_price}}</div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="closemodal" class="btn btn-secondary" (click)="modal.close('Save click')">Close</button>
+        <button type="button" (click)="shareWallet()" class="btn btn-primary">Share</button>
+      </div>
+    <!-- <div class="modal-dialog" role="document">
         <div class="modal-content" *ngFor="let data of shareUser">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel1" style="color: #d6a354; "><b>{{data.fullname}}</b></h5>
@@ -129,7 +180,8 @@
                 <button type="button" (click)="shareWallet()" class="btn btn-primary">Share</button>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
+</ng-template>
 
 <!--SECOND MODEL  -->

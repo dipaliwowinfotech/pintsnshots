@@ -14,6 +14,7 @@ export class WalletComponent implements OnInit {
    verifiedUser: any;
    complete:any = "Compl";
    actiVe:any = "Active";
+   showError: boolean = false;
   constructor(private api:ApiService,
     private router:Router) { }
 
@@ -31,7 +32,14 @@ export class WalletComponent implements OnInit {
       formData.set('action','volet' );
       this.api.walletActive(formData).subscribe((res:any)=>{
         console.log(res);
-        this.activelist = res.data;
+        if(res){
+          this.activelist = res.data;
+        }
+        if(!res.data.length){
+          this.showError = true;
+
+        }
+        
 
       })
   }
@@ -43,7 +51,13 @@ export class WalletComponent implements OnInit {
       formData.set('action','volet' );
       this.api.walletCompleted(formData).subscribe((res:any)=>{
         console.log(res);
-        this.completedlist = res.data;
+        if(res){
+          this.completedlist = res.data;
+        }
+        if(!res.data.length){
+          this.showError = true;
+        }
+        
 
       })
   }

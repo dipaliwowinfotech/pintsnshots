@@ -42,6 +42,7 @@ console.log(res)
     }
 
   ngOnInit(): void {
+    
     this.login = this.api.getlogin();
     console.log(this.login)
    

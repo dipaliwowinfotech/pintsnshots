@@ -45,7 +45,7 @@ a {
 input, section {
   clear: both;
   padding-top: 10px;
-  display: none;
+  /* display: none; */
 }
 
 label {

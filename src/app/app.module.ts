@@ -27,6 +27,7 @@ import { BlogComponent } from './myComponents/blog/blog.component';
 import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-details.component';
 import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-history.component';
 import { BlogDetailsComponent } from './myComponents/blog-details/blog-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { BlogDetailsComponent } from './myComponents/blog-details/blog-details.c
     HttpClientModule,
     NgOtpInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
     
 
     
