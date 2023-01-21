@@ -44,11 +44,15 @@
 
         <div routerLink="/product-detalis" class="row product-lists"  *ngFor="let item of productList">
             <h4>{{item.sub_category_name}}</h4>
+            
             <div class="col-lg-4 col-md-6 col-6 text-center MIX-FRUIT" *ngFor="let i of item.product">
+              
                 <div class="single-product-item"  >
-                    
+                   
                         <div class="product-image">
+                            
                             <a (click)="details(i)">
+                                <div _ngcontent-uln-c120="" class="readi" style="color: white;"><b _ngcontent-uln-c120=""> &nbsp;10% Off</b></div>
                                 <img src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{i.product_image}}" class="pro_img" alt=""></a>
                         </div>
 
