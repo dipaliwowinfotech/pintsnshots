@@ -34,21 +34,33 @@
             <div class="col-md-7">
                 <div class="single-product-content ">
                     <div class="get-code-visible copy-visible-code1" data-offer-key="offerGetCodeBtnText"
-                    data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
-                    data-offer-id="AJl2qkayMs">{{productname}}{{productdiscount}}PR</div>
+                        data-id="AJl2qkayMs" data-clipboard-text="CDUNIA" data-offer-value="&amp; GET CODE"
+                        data-offer-id="AJl2qkayMs">{{productname}}{{productdiscount}}PR</div>
                     <!-- <h3>{{productname}}</h3> -->
                     <p class="single-product-pricing">
-                        <span>{{productsize}}{{productunit}}</span><span>₹{{productprice}}</span></p>
-                   
+                        <span>{{productsize}}{{productunit}}</span><span style="display: flex;">Price&nbsp;<span
+                                style="text-decoration: line-through;">₹{{productprice}}</span><label
+                                _ngcontent-uln-c120="" class="readi"
+                                style="color: white; background-color: rgb(73, 39, 39);"><b _ngcontent-uln-c120="">
+                                    &nbsp;{{productdiscount}}% Off</b></label></span>
+                    </p>
+
+                    <p class="single-product-pricing"> <span
+                            style="color: rgb(8, 163, 8);">Price&nbsp;₹{{discountPrice}}</span></p>
+
 
                     <p>{{productdetail}}</p>
 
                     <!-- <p>{{product_details}}</p> -->
                     <div class="single-product-form">
                         <form [formGroup]="qty" action="index.html">
-                            <input type="number" placeholder="0" formControlName="quantity">
+                            <div class="quantity">
+                                <a class="quantity__minus" (click)="quantitydown()"><span>-</span></a>
+                                <input type="number" placeholder="0" value="{{quantity}}">
+                                <a class="quantity__plus" (click)="quantityUp()"><span>+</span></a>
+                            </div>
                         </form>
-                        
+
                         <a (click)="addtocart()" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add Coupon To
                             Cart</a>
 
@@ -129,21 +141,21 @@
 </div>
 <!-- end more products -->
 
-<div  class="modal" [ngStyle]="{'display':displayStyle}">
-<div  class="modal-dialog" role="document">
-    
-    <div class="modal-content">
-        
-        <div class="modal-body">
-         if product aleready added clear cart
+<div class="modal" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
 
-        </div>
-        <div class="modal-footer">
-            <button type="button" (click)="emptyCart()"   class="btn btn-light">Yes</button>
-            <button type="button" (click)="closePopup() " class="btn btn-light">
-                No
-            </button>
+        <div class="modal-content">
+
+            <div class="modal-body">
+                if product aleready added clear cart
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="emptyCart()" class="btn btn-light">Yes</button>
+                <button type="button" (click)="closePopup() " class="btn btn-light">
+                    No
+                </button>
+            </div>
         </div>
     </div>
-</div>
 </div>

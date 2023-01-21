@@ -32,6 +32,7 @@ openmodal:boolean=false;
   displayStyle:any;
   cartlist: any;
   selectedProduct:any;
+  discountPrice: any;
   
   constructor(private api:ApiService,private formBuilder:FormBuilder,private router:Router) { }
 
@@ -57,7 +58,8 @@ openmodal:boolean=false;
    this.hotel_id= this.detaillist.hotel_id;
    this.productid= this.detaillist.product_id;
    this.productpriceid= this.detaillist.product_price_id;
-   console.log(this.productname)
+   this.discountPrice = this.productprice -(this.productprice * this.productdiscount/100);
+   console.log(this.discountPrice);
    this.products();
    this.loginData();
    console.log(this.verifiedUser,'verified')
@@ -107,7 +109,7 @@ openmodal:boolean=false;
     
     const form_data = new FormData();
     form_data.set('unit', this.productunit);
-    form_data.set('quantity', this.qty.value.quantity);
+    form_data.set('quantity', this.quantity);
     form_data.set('user_id', this.verifiedUser.user_id);
     form_data.set('price', this.productprice);
     form_data.set('product_id',this.productid);
@@ -116,7 +118,7 @@ openmodal:boolean=false;
     form_data.set('action', 'add_cart');
     this.api.addtocart(form_data).subscribe((res)=>{
       console.log(res)
-      this.add = res;
+      this.add = res; 
      if(this.add.ResponseCode==2){
      this.openmodal = true;
      this.displayStyle = "block";
@@ -139,6 +141,20 @@ openmodal:boolean=false;
   alert("Please Login First");
   
   }
+  }
+
+  quantityUp(){
+    this.quantity++;
+    
+  }
+
+  quantitydown(){
+   
+    if(this.quantity>=2){
+      this.quantity--;
+    }
+     
+   
   }
   
 closePopup() {
