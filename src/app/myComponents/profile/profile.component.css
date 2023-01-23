@@ -232,3 +232,8 @@ a.boxed-btn:hover{
     padding: var(--bs-modal-padding);
     background: rgb(97, 96, 96);
 }
+.profile_t{
+    font-weight: 700;
+    font-size: 30px;
+    color: #d6a354;
+}
