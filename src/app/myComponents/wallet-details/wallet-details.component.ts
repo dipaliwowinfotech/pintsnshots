@@ -191,6 +191,7 @@ console.log(this.price );
         alert(res.ResponseMessage);
         this.show = true;
         document.getElementById("closemodal")?.click();
+        document.getElementById("close_modal")?.click();
         this.walletDetails();
       }
       

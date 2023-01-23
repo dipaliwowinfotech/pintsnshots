@@ -1,3 +1,4 @@
+
 <!-- breadcrumb-section -->
 <div class="breadcrumb-section breadcrumb-bg">
 	<div class="container">
@@ -19,7 +20,11 @@
 		<div class="row">
 			<div class="col-lg-8 col-md-12">
 				<div class="cart-table-wrap">
-					<table *ngIf="!cartempty" class="cart-table">
+					<div *ngIf="showLoader" id="loader" class="back_colour">
+						<i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom" style="color: #d6a354;"></i>
+						<span class="sr-only">Loading...</span>
+						</div>
+					<table *ngIf="!cartempty&&!showLoader" class="cart-table">
 						<thead class="cart-table-head">
 							<tr class="table-head-row">
 								<th class="product-remove"></th>

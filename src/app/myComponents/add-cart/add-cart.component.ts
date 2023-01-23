@@ -19,6 +19,7 @@ export class AddCartComponent implements OnInit {
    billtotal:any=[];
    totalbill:number=0;
    totalcoupons:any;
+   showLoader: boolean = false;
 
    productIdlist:any=[];
    discountlist:any=[];
@@ -39,12 +40,15 @@ export class AddCartComponent implements OnInit {
   ngOnInit(): void {
 
     this.loginData();
+    this.showLoader = true;
     this.cartList();
+    
   }
   loginData(){
     this.verifiedUser = JSON.parse(localStorage.getItem('verifiedUser')!);
     
   }
+  
 
   cartList(){
     const formData = new FormData();
@@ -77,7 +81,7 @@ export class AddCartComponent implements OnInit {
       
      });
 
-    
+     this.showLoader = false;
     console.log(this.productIdlist.toString());
     //  this.cartlist.forEach((x:any) => {
     //     this.totalcoupons=
@@ -89,6 +93,7 @@ export class AddCartComponent implements OnInit {
     this.totalquantity=this.cartlist.filter((item:any) => item.product_id === item.product_id).length
       }else{
        this.cartempty=true;
+       this.showLoader = false;
       }
     })
     
@@ -147,7 +152,7 @@ this.cartList();
       console.log(res);
 
       alert(res.ResponseMessage)
-      this.router.navigate(['/add-cart']);
+      //this.router.navigate(['/add-cart']);
     })
     
     this.cartlist.splice(index,1);
@@ -164,32 +169,9 @@ this.cartList();
     })
       var data=this.api.getCart();
       this.api.onMainEvent.emit(data);
-
+      this.cartList();
   }
-  // checkout(){
-   
-  //   const formData = new FormData();
-  //     formData.set('quantity',this.quantitylist.toString());
-  //     formData.set('hotel_id',this.hotel_id);
-  //     formData.set('discount',this.discountlist.toString() );
-  //     formData.set('product_price',this.productpricelist.toString());
-  //     formData.set('user_id',this.verifiedUser.user_id );
-  //     formData.set('total_amount',this.totalbill.toString());
-  //     formData.set('currency_type','Rupee' );
-  //     formData.set('dob','02-12-1997');
-  //     formData.set('product_id', this.productIdlist.toString());
-  //     formData.set('total_quantity',this.totalquantity);
-  //     formData.set('action','order' );
-  //     formData.set('unit_id',this.unitidlist.toString());
-  //     formData.set('discount_id',this.discountlist.toString() );
-  //     this.api.checkout(formData).subscribe((res)=>{
-  //       console.log(res);
-        
-  //     })
-   
   
-        
-  //  }
 }     
         
         

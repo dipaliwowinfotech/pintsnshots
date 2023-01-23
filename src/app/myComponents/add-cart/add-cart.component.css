@@ -5,7 +5,7 @@ a.boxed-btn:hover{
     text-align: center;
 }
 .back_colour{
-    background: rgba(0, 0, 0, 0.9);
+    background: #212529;
 }
 .inner{
     color: #fff !important;

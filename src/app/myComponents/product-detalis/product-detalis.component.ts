@@ -129,13 +129,16 @@ openmodal:boolean=false;
       this.api.addCart(this.cartlist)
       var data=this.api.getCart();
       this.api.onMainEvent.emit(data);
-      
+      alert(this.add.ResponseMessage);
      
       
      }
     
     })
-    this.router.navigate(['add-cart'])
+  //   if(this.add.ResponseCode==0){
+  //     alert(this.add.ResponseMessage)
+  //  }
+    //this.router.navigate(['add-cart'])
   }
   if(!this.verifiedUser){
   alert("Please Login First");
