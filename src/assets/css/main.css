@@ -457,7 +457,7 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  width: 50px;
+  width: 110px;
   height: 2px;
   background-color: #d6a354;
   margin: 0 auto;
@@ -571,6 +571,9 @@ nav.main-menu ul > li {
   font-size: 17px;
   margin: 21px .625rem;
     /* margin-top: 19px; */
+}
+.a1{
+  margin: 4px .625rem !important;
 }
 
 nav.main-menu ul ul.sub-menu {
@@ -1604,21 +1607,21 @@ div.owl-controls, .owl-controls div {
 }
 
 .news-bg-4 {
-  background-image: url(../img/new_12.png);
+  background-image: url(../img/avaters/home_3.png);
   /* width: 100%; */
     background-repeat: no-repeat;
     /* background-size: contain; */
 }
 
 .news-bg-5 {
-  background-image: url(../img/new_123.png);
+  background-image: url(../img/avaters/home_1.png);
   /* width: 100%; */
     background-repeat: no-repeat;
     /* background-size: contain; */
 }
 
 .news-bg-6 {
-  background-image: url(../img/new_1234.png);
+  background-image: url(../img/avaters/home_2.png);
   /* width: 100%; */
     background-repeat: no-repeat;
     /* background-size: contain; */
@@ -1636,7 +1639,7 @@ div.owl-controls, .owl-controls div {
 
 .single-latest-news h3 {
   font-size: 20px;
-  line-height: 2.25em;
+  line-height: 3.25em;
   font-weight: 600;
   text-align: center;
 }

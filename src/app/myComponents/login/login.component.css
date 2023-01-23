@@ -204,3 +204,9 @@ a.boxed-btn:hover{
     padding: 10px 20px !important;
     text-decoration: none !important;
 }
+
+.login_t{
+    font-weight: 700;
+    font-size: 30px;
+    color: #d6a354;
+}
