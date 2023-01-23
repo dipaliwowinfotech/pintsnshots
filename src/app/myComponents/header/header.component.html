@@ -14,8 +14,8 @@
 
                     <!-- menu start -->
                     <nav class="main-menu">
-                        <ul>
-                            <li [routerLinkActive]="['current-list-item']" [routerLinkActiveOptions]={exact:true}><a  routerLink="/" >Home</a>
+                        <ul >
+                            <li [routerLinkActive]="['current-list-item']" [routerLinkActiveOptions]={exact:true}><a  class="" routerLink="/" >Home</a>
                                 <!-- <ul class="sub-menu">
                                     <li><a href="index.html">Static Home</a></li>
                                     <li><a href="index_2.html">Slider Home</a></li>
@@ -33,12 +33,14 @@
                                     <li><a href="shop.html">Shop</a></li>
                                 </ul>
                             </li> -->
-                            <li [routerLinkActive]="['current-list-item']"><a href="JavaScript:void(0);">Restaurant</a>
+
+                           
+                            <li class="sub_1" [routerLinkActive]="['current-list-item']"><a href="JavaScript:void(0);">Restaurant</a>
                                 <ul class="sub-menu">
-                                    <li><a routerLink="/taproom-product">Taproom</a></li>
-                                    <li><a routerLink="/coffee-shop">Coffee Shop</a></li>
+                                    <li  class="a1"><a class="a1" routerLink="/taproom-product">Taproom</a></li>
+                                    <li  class="a1"><a routerLink="/coffee-shop">Coffee Shop</a></li>
                                     <!-- <li><a href="single-product.html">Single Product</a></li> -->
-                                    <li><a routerLink="/shisha-lounge">Shisha Lounge</a></li>
+                                    <li  class="a1"><a routerLink="/shisha-lounge">Shisha Lounge</a></li>
                                 </ul>
                             </li>
                             <li [routerLinkActive]="['current-list-item']"><a routerLink="/blog" >Blog</a>
@@ -60,7 +62,7 @@
 
                                         <ul  *ngIf="username1" class="sub-menu">
                                             <li><a  routerLink="/profile">Profile</a></li>
-                                            <li><a   (click)="logout()">Logout</a></li>
+                                            <li><a href=" "  (click)="logout()">Logout</a></li>
                                         </ul>
                                     </li>
                                 </div>

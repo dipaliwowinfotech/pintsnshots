@@ -353,6 +353,12 @@
 	.product-image {
 	    /* padding: 60px; */
 	    padding-bottom: 0;
+		padding: 13px;
+	}
+	.single-product-item {
+		
+		padding-bottom: 20px;
+		
 	}
 
 	.header-icons {
