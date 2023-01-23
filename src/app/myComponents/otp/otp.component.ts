@@ -66,7 +66,10 @@ verify(){
       })
     this.api.setlogin(this.logindata);
     alert('Login Succsessfully!')
-      this.router.navigate(['']);
+    setTimeout(()=>{
+      window.location.reload();
+     },30)
+     this.router.navigate(['']);
       this.login = this.api.getlogin();
     console.log(this.login)
     this.api.logOut.emit(this.login)

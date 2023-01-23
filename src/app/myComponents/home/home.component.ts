@@ -23,6 +23,9 @@ constructor(private api:ApiService) { }
    setTimeout(()=>{
     this.showLoader = false;
    },3000)
+   this.api.addCart(this.cartlist)
+      var data1=this.api.getCart();
+      this.api.onMainEvent.emit(data1);
     const formData = new FormData();
     formData.set('action','hotel_banner');
 
