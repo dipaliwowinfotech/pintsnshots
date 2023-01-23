@@ -28,6 +28,7 @@ import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-det
 import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-history.component';
 import { BlogDetailsComponent } from './myComponents/blog-details/blog-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HotelDetailsComponent } from './myComponents/hotel-details/hotel-details.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BlogComponent,
     WalletDetailsComponent,
     WalletHistoryComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    HotelDetailsComponent
   ],
   imports: [
     BrowserModule,
