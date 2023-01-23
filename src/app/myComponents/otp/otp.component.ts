@@ -40,6 +40,7 @@ export class OtpComponent implements OnInit {
   ngOnInit(): void {
   this. payload = this.api.getOTP();
   this.mobileNo = this.api.getlogin();
+  this.logindata = this.api.getlogin();
   this.startTimer();
     console.log(this.mobileNo)
   
@@ -92,10 +93,8 @@ verify(){
     clearInterval(this.interval);
   }
 resend(){
-  let payload = {
-    "mobile_no":""
-  }
-  this.api.getOtp(payload).subscribe((res:any)=>{
+  
+  this.api.getOtp(this.logindata).subscribe((res:any)=>{
    console.log(res)
   })
 }
