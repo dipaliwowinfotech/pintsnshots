@@ -21,7 +21,7 @@
 			<div class="col-lg-8 col-md-12">
 				<div class="cart-table-wrap">
 					<div *ngIf="showLoader" id="loader" class="back_colour">
-						<i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom" style="color: #d6a354;"></i>
+						<i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom" style="color: #d6a354;margin-left: 72%;"></i>
 						<span class="sr-only">Loading...</span>
 						</div>
 					<table *ngIf="!cartempty&&!showLoader" class="cart-table">
@@ -89,13 +89,13 @@
 
 					</table>
 					<span style="font-size: 20px; color: coral; text-align:center;" *ngIf="cartempty">Cart is
-						Empty!</span>
+						Empty</span>
 				</div>
 			</div>
 
 			<div class="col-lg-4">
 				<div class="total-section">
-					<table *ngIf="!cartempty" class="total-table">
+					<table *ngIf="!cartempty&&!showLoader" class="total-table">
 						<thead class="total-table-head">
 							<tr class="table-total-row">
 								<th>Bill Total</th>
@@ -117,7 +117,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<div *ngIf="!cartempty" class="cart-buttons">
+					<div *ngIf="!cartempty&&!showLoader" class="cart-buttons">
 						<!-- <a  class="boxed-btn">Update Cart</a> -->
 						<a routerLink="/check-out" class="boxed-btn black">Check Out</a>
 					</div>
