@@ -36,11 +36,19 @@ export class OtpComponent implements OnInit {
   interval:any;
   show= false;
   showbutton: boolean = true;
+  newotp:any;
+  masterotp:any;
   
   constructor(private api:ApiService,private router:Router,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
   this. payload = this.api.getOTP();
+  this.payload.forEach((element:any)=> {
+    this.newotp=element.ID;
+    this.masterotp=element.DATA;
+  });
+  console.log(this.newotp);
+  console.log(this.payload)
   this.mobileNo = this.api.getlogin();
   this.logindata = this.api.getlogin();
   this.startTimer();
@@ -56,7 +64,7 @@ export class OtpComponent implements OnInit {
 }
 
 verify(){
-  if(this.otp == this.payload){
+  if(this.otp == this.masterotp || this.otp==this.newotp){
  this.logindata  =this.api.getlogin();
     console.log('logindata',this.logindata)
     const formData = new FormData();

@@ -10,7 +10,8 @@ import { ApiService } from 'src/app/api.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup 
   otpForm!: FormGroup 
-  otpData:any;
+  otpData:any=[];
+  otpID:any;
   isSubmitted: boolean = false;
   
   constructor(private api:ApiService,private formBuilder:FormBuilder,private router:Router) { }
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
   get form() { return this.loginForm.controls; }
   
-  login(){
+  sendotp(){
     this.isSubmitted= true;
     
   this.loginForm.value
@@ -43,9 +44,12 @@ export class LoginComponent implements OnInit {
   this.api.setlogin(this.loginForm.value);
   this.api.getOtp(this.loginForm.value).subscribe((res:any)=>{
     console.log(res)
-    this.otpData = res.DATA;
+    // this.otpData = res.DATA;
+    this.otpData.push(res)
    
     this.api.setOTP(this.otpData);
+    
+
 
     
     this.router.navigate(['/otp'])

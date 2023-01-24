@@ -44,7 +44,7 @@ export class ApiService {
   getOTP() {
     return this.list;
   }
-  setOTP(data: any[]) {
+  setOTP(data: any) {
     this.list = data;
   }
 
