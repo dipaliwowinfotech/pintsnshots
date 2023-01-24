@@ -14,6 +14,7 @@ export class OtpComponent implements OnInit {
   logindata:any;
   showOtpComponent = true;
   verifiedlogin:any;
+  
   @ViewChild(NgOtpInputComponent, { static: false })
   ngOtpInput!: NgOtpInputComponent;
   config :NgOtpInputConfig = {
@@ -34,6 +35,7 @@ export class OtpComponent implements OnInit {
   timeLeft: number = 60;
   interval:any;
   show= false;
+  showbutton: boolean = true;
   
   constructor(private api:ApiService,private router:Router,private formBuilder:FormBuilder) { }
 
@@ -93,7 +95,7 @@ verify(){
     clearInterval(this.interval);
   }
 resend(){
-  
+  this.showbutton = false;
   this.api.getOtp(this.logindata).subscribe((res:any)=>{
    console.log(res)
   })

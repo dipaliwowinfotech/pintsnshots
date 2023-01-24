@@ -36,9 +36,7 @@ export class LoginComponent implements OnInit {
   
   login(){
     this.isSubmitted= true;
-    let payload = {
-      "mobile_no":""
-    }
+    
   this.loginForm.value
   console.log(this.loginForm)
   if(this.loginForm.valid){
