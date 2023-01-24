@@ -5,7 +5,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
                     <p>See more Details</p>
-                    <h1>OTP</h1>
+                    
                 </div>
             </div>
         </div>
@@ -18,18 +18,22 @@
 
             <div class="card py-4 px-2">
                 <div>
-                    
+                    <h3 style="color:#d6a354; text-align: center;">OTP</h3>
                     <p class="opt_c"><b>Enter verification code</b></p>
-                    <p class="opt_c1">We have sent a OTP via text message on below mobile number </p><p *ngIf="mobileNo" class="opt_c1"> <span>+91&nbsp;{{this.mobileNo.mobile_no}}</span></p>
+                    <p class="opt_c1">We have sent a OTP via text message on below mobile number </p><p *ngIf="mobileNo" class="opt_c1"> <span><b>+91&nbsp;{{this.mobileNo.mobile_no}}</b></span></p>
     
-                    <ng-otp-input class="otp_box " (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config">
+                    <ng-otp-input style="size: 10px;" class="otp_box " (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config">
                     </ng-otp-input>
                     <span>
                         <div class=" otp_box1 text-danger" *ngIf="wrongOTP">please Enter Valid OTP</div>
                     </span>
                   </div>
+                  <span style="text-align: center; margin-top: 20px;"><b>{{(timeLeft>0)? '00:'+ timeLeft: '' }}</b></span>
                     <div class="otp_box1"> 
-                        <button type="button" class=" opt_c2 btn btn-primary m-5 mr-3" (click)="verify()">Verify</button>
+                        <button type="button" class=" opt_c2 btn btn-primary m-3 mr-3" (click)="resend()"  *ngIf="timeLeft == 0">Resend</button>
+                    
+                     
+                        <button type="button" class=" opt_c2 btn btn-primary m-3 mr-3" (click)="verify()">Confirm</button>
                     </div>
                 </div>
             </div>

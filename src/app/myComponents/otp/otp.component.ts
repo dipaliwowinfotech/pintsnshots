@@ -3,7 +3,6 @@ import {NgOtpInputComponent, NgOtpInputConfig } from 'ng-otp-input';
 import { ApiService } from 'src/app/api.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { verifyHostBindings } from '@angular/compiler';
 @Component({
   selector: 'app-otp',
   templateUrl: './otp.component.html',
@@ -32,13 +31,18 @@ export class OtpComponent implements OnInit {
   formdata:any
   login: any;
   mobileNo:any;
-
+  timeLeft: number = 60;
+  interval:any;
+  show= false;
+  
   constructor(private api:ApiService,private router:Router,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
   this. payload = this.api.getOTP();
   this.mobileNo = this.api.getlogin();
+  this.startTimer();
     console.log(this.mobileNo)
+  
   }
 
     
@@ -77,10 +81,26 @@ verify(){
     this.wrongOTP = true;
 
   }
-  
-   
-    
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft--;
+      }
+    }, 1000);
   }
+  pauseTimer() {
+    clearInterval(this.interval);
+  }
+resend(){
+  let payload = {
+    "mobile_no":""
+  }
+  this.api.getOtp(payload).subscribe((res:any)=>{
+   console.log(res)
+  })
+}
+  
+
   
   
   
@@ -88,4 +108,4 @@ verify(){
   
 
 
-
+}

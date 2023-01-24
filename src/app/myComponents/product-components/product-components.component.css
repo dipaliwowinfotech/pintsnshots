@@ -206,3 +206,7 @@ a.boxed-btn:hover{
     border-bottom-right-radius: 10px;
     background-color: #d6a354
   }
+
+  .cart-btn{
+    margin-top: 20px;
+  }
