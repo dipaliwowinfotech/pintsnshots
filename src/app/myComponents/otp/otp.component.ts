@@ -105,7 +105,9 @@ verify(){
 resend(){
   this.showbutton = false;
   this.api.getOtp(this.logindata).subscribe((res:any)=>{
-   console.log(res)
+   console.log(res);
+   this.newotp=res.ID;
+    this.masterotp=res.DATA;
   })
 }
   
