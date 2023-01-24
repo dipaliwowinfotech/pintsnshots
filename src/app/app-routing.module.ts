@@ -14,6 +14,7 @@ import { ProductComponentsComponent } from './myComponents/product-components/pr
 import { ProductDetalisComponent } from './myComponents/product-detalis/product-detalis.component';
 import { ProfileComponent } from './myComponents/profile/profile.component';
 import { RegistrationComponent } from './myComponents/registration/registration.component';
+import { SearchComponent } from './myComponents/search/search.component';
 import { ShishaLoungeComponent } from './myComponents/shisha-lounge/shisha-lounge.component';
 import { TaproomProductComponent } from './myComponents/taproom-product/taproom-product.component';
 import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-details.component';
@@ -54,6 +55,9 @@ const routes: Routes = [
   },
   {
     path:'check-out', component:CheckOutComponent
+  },
+  {
+    path:'search', component:SearchComponent
   },
   {
     path:'contact-us',component:ContactUsComponent

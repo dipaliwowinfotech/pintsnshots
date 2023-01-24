@@ -29,6 +29,7 @@ import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-his
 import { BlogDetailsComponent } from './myComponents/blog-details/blog-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HotelDetailsComponent } from './myComponents/hotel-details/hotel-details.component';
+import { SearchComponent } from './myComponents/search/search.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { HotelDetailsComponent } from './myComponents/hotel-details/hotel-detail
     WalletDetailsComponent,
     WalletHistoryComponent,
     BlogDetailsComponent,
-    HotelDetailsComponent
+    HotelDetailsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -164,5 +164,5 @@
         jQuery(".loader").fadeOut(50);
     });
 
-
+ 
 }(jQuery));

@@ -55,7 +55,7 @@
                             <li>
                                 <div class="header-icons">
                                     <li [routerLinkActive]="['current-list-item']" *ngIf="username1"> <a class="shopping-cart" routerLink="/add-cart"><i class="fas fa-shopping-cart"></i><span class="position-absolute translate-middle badge rounded-pill" style="background-color: rgb(50, 141, 216);">{{cartlength}}</span></a></li>
-                                    <li [routerLinkActive]="['current-list-item']"><a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                                    <li [routerLinkActive]="['current-list-item']"><a class="mobile-hide search-bar-icon" routerLink="/search"><i class="fas fa-search"></i></a>
                                     </li>
                                     <li [routerLinkActive]="['current-list-item']"><a *ngIf="username1" routerLink="/login">{{username1}}</a>
                                         <a *ngIf="!username1" routerLink="/login">Login</a>
@@ -82,7 +82,7 @@
 <!-- end header -->
 
 <!-- search area -->
-<div class="search-area">
+<!-- <div class="search-area">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -97,6 +97,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- end search area -->
 	

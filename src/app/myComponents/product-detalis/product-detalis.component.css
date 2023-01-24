@@ -172,5 +172,14 @@ input[type="number"] {
 .cart-btn{
   margin-top: 20px;
 }
-
+.d_flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.single-product-img img {
+  border-radius: 5px;
+  height: 500px;
+  width: 100%;
+}
 
