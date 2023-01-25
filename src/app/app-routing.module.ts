@@ -8,6 +8,7 @@ import { CheckOutComponent } from './myComponents/check-out/check-out.component'
 import { CoffeeShopComponent } from './myComponents/coffee-shop/coffee-shop.component';
 import { ContactUsComponent } from './myComponents/contact-us/contact-us.component';
 import { HomeComponent } from './myComponents/home/home.component';
+import { HotelDetalisComponent } from './myComponents/hotel-detalis/hotel-detalis.component';
 import { LoginComponent } from './myComponents/login/login.component';
 import { OtpComponent } from './myComponents/otp/otp.component';
 import { ProductComponentsComponent } from './myComponents/product-components/product-components.component';
@@ -58,6 +59,9 @@ const routes: Routes = [
   },
   {
     path:'search', component:SearchComponent
+  },
+  {
+    path:'hotel-detail', component:HotelDetalisComponent
   },
   {
     path:'contact-us',component:ContactUsComponent

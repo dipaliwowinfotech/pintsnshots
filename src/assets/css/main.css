@@ -1640,7 +1640,7 @@ div.owl-controls, .owl-controls div {
 
 .single-latest-news h3 {
   font-size: 20px;
-  line-height: 3.25em;
+  /* line-height: 3.25em; */
   font-weight: 600;
   text-align: center;
 }

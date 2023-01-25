@@ -28,8 +28,9 @@ import { WalletDetailsComponent } from './myComponents/wallet-details/wallet-det
 import { WalletHistoryComponent } from './myComponents/wallet-history/wallet-history.component';
 import { BlogDetailsComponent } from './myComponents/blog-details/blog-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HotelDetailsComponent } from './myComponents/hotel-details/hotel-details.component';
+
 import { SearchComponent } from './myComponents/search/search.component';
+import { HotelDetalisComponent } from './myComponents/hotel-detalis/hotel-detalis.component';
 
 @NgModule({
   declarations: [
@@ -55,8 +56,8 @@ import { SearchComponent } from './myComponents/search/search.component';
     WalletDetailsComponent,
     WalletHistoryComponent,
     BlogDetailsComponent,
-    HotelDetailsComponent,
-    SearchComponent
+    SearchComponent,
+    HotelDetalisComponent
   ],
   imports: [
     BrowserModule,
