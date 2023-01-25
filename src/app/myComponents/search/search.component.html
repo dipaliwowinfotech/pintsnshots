@@ -23,7 +23,7 @@
 					<div class="search-bar">
 						<div class="search-bar-tablecell">
 							
-							<input type="text" placeholder="Search Here">
+							<input type="text" [(ngModel)]="searchTxt" (change)="search(searchTxt)" placeholder="Search Here">
 							 
 						</div>
 					</div>
@@ -51,19 +51,19 @@
               <div class="container">
                   
                   <div class="row" >
-                      <div routerLink="/product-components" class="col-lg-4 col-md-6 col-6 col-6 text-center" style="cursor: pointer;"  >
+                      <div routerLink="/product-components" class="col-lg-4 col-md-6 col-6 col-6 text-center" style="cursor: pointer;"  *ngFor="let item of HotelList">
                           <div class="single-product-item" >
                               <div class="product-image">
                                   <a href="JavaScript:void(0);">
-                                      <img src="../../../assets/img/dfdfgdfg.jpg" alt=""></a>
+                                      <img src={{imgUrl}}{{item.hotel_image}} alt=""></a>
                               </div>
-                              <h3>sgfsfgs</h3>
-                              <p class="product-price car_dec"><span>Thane Station Road, Jambli Naka, Thane West, Thane, Maharashtra, India</span>  </p>
+                              <h3>{{item.hotel_name}}</h3>
+                              <p class="product-price car_dec"><span>{{item.address}}</span>  </p>
                               <a  class="cart-btn">Continue</a>
                               <!-- <i class="fas fa-shopping-cart"></i>  -->
                           </div>
                       </div>
-                      <div routerLink="/product-components" class="col-lg-4 col-md-6 col-6 col-6 text-center" style="cursor: pointer;"  >
+                      <!-- <div routerLink="/product-components" class="col-lg-4 col-md-6 col-6 col-6 text-center" style="cursor: pointer;"  >
                         <div class="single-product-item" >
                             <div class="product-image">
                                 <a href="JavaScript:void(0);">
@@ -72,10 +72,10 @@
                             <h3>sgfsfgs</h3>
                             <p class="product-price car_dec"><span>Thane Station Road, Jambli Naka, Thane West, Thane, Maharashtra, India</span>  </p>
                             <a  class="cart-btn">Continue</a>
-                            <!-- <i class="fas fa-shopping-cart"></i>  -->
+                           
                         </div>
-                    </div>
-                      <div routerLink="/product-components" class="col-lg-4 col-md-6 col-6 col-6 text-center" style="cursor: pointer;"  >
+                    </div> -->
+                      <!-- <div routerLink="/product-components" class="col-lg-4 col-md-6 col-6 col-6 text-center" style="cursor: pointer;"  >
                         <div class="single-product-item" >
                             <div class="product-image">
                                 <a href="JavaScript:void(0);">
@@ -84,9 +84,9 @@
                             <h3>sgfsfgs</h3>
                             <p class="product-price car_dec"><span>Thane Station Road, Jambli Naka, Thane West, Thane, Maharashtra, India</span>  </p>
                             <a  class="cart-btn">Continue</a>
-                            <!-- <i class="fas fa-shopping-cart"></i>  -->
+                           
                         </div>
-                    </div>
+                    </div> -->
                    
                   </div>
                   <div class="row">

@@ -110,6 +110,10 @@ export class ApiService {
     return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/share_step2.php", formdata)
   }
 
+  search(formdata: any){
+    return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/hotel_search.php", formdata)
+  }
+
   loginData: any;
   getlogin() {
     return this.loginData;
@@ -130,6 +134,7 @@ export class ApiService {
   getCart() {
     return this.cartItems;
   }
+  
 
 
 
