@@ -113,6 +113,12 @@ export class ApiService {
   search(formdata: any){
     return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/hotel_search.php", formdata)
   }
+  hotelBanner(formdata:any){
+    return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/hotel.php/",formdata)
+  }
+  hotellist(formdata:any){
+    return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/hotel.php/",formdata)
+  }
 
   loginData: any;
   getlogin() {

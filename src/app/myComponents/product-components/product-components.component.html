@@ -15,12 +15,12 @@
 <!-- products -->
 <div class="product-section mt-150 mb-150 back_colour">
     <div class="container">
-
+        <button (click)="onhotel()">Hotel Details</button>
         <div class="row">
             <div class="col-md-12">
                 <div class="product-filters product-filters1">
-                    <ul >
-                        <!-- <li  data-filter="*">All</li> --> -->
+                    <ul>
+                        <!-- <li  data-filter="*">All</li> --> 
                          <li  *ngFor="let item of product; let i = index" [class.focus]="isActive==item.product_category_id"  data-filter=".SHOTS" (click)="shots(item.product_category_id)">
                             {{item.product_category_name}}</li>
                         <!-- <li data-filter=".DRINKS">DRINKS</li>

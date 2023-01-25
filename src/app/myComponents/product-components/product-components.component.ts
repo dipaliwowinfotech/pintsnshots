@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-product-components',
   templateUrl: './product-components.component.html',
@@ -14,13 +14,17 @@ productId:any;
 list:any=[];
 selectedCat:any;
 isActive: any;
+hotelID:any
   constructor(
-    private route: Router,
-    private api:ApiService) { }
+    private router: Router,
+    private api:ApiService,
+    private route: ActivatedRoute
+   ) { }
 
   ngOnInit(): void {
+    this.hotelID = this.route.snapshot.params['hotelId'];
     const formData = new FormData();
-    formData.set('hotel_id', '2');
+    formData.set('hotel_id',this.hotelID);
    
     formData.set('action', 'product_category');
     
@@ -41,7 +45,7 @@ isActive: any;
     this.isActive = id;
     const form_data = new FormData();
     form_data.set('offset', '0');
-    form_data.set('hotel_id', '2');
+    form_data.set('hotel_id', this.hotelID);
     form_data.set('limit', '5');
    
     form_data.set('subcat_ids', id);
@@ -58,9 +62,14 @@ isActive: any;
     this.productId = item.product_id;
     console.log(this.productId);
     this.api.setProduct(this.list);
-      this.route.navigate(['/product-detalis'])
-  
-  
+      this.router.navigate(['/product-detalis'])
+  }
+  onhotel(){
+    console.log();
+   
+    
+    this.router.navigate(['hotel-details'+'/'+this.hotelID]);
+  }
 
-}
+
 }

@@ -38,7 +38,7 @@ const routes: Routes = [
 },
   { path: 'shisha-lounge',component:ShishaLoungeComponent
 },
-  { path:'product-components',component:ProductComponentsComponent
+  { path:'product-components'+'/:hotelId',component:ProductComponentsComponent
 },
   {path:'product-detalis',component:ProductDetalisComponent
 },
@@ -61,7 +61,7 @@ const routes: Routes = [
     path:'search', component:SearchComponent
   },
   {
-    path:'hotel-detail', component:HotelDetalisComponent
+    path:'hotel-details'+'/:hotelId', component:HotelDetalisComponent
   },
   {
     path:'contact-us',component:ContactUsComponent
@@ -82,9 +82,7 @@ const routes: Routes = [
   {
     path:'wallet-history',component:WalletHistoryComponent
   },
-  {
-  path:'hotel-details',component:HotelDetalisComponent
-  }
+  
 ];
 
 @NgModule({

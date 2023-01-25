@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 @Component({
   selector: 'app-taproom-product',
@@ -8,7 +8,8 @@ import { ApiService } from 'src/app/api.service';
 })
 export class TaproomProductComponent implements OnInit {
   tap:any
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,
+    private router:Router) { }
 
   ngOnInit(): void {
     const formData = new FormData();
@@ -22,6 +23,12 @@ export class TaproomProductComponent implements OnInit {
          console.log(res)
          this.tap = res.data;
      })
+  }
+  onhotel(item:any){
+    console.log(item);
+   
+    var hotelId = item.hotel_id;
+    this.router.navigate(['product-components'+'/'+hotelId]);
   }
 
 }

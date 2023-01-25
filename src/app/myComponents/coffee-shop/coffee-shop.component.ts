@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-coffee-shop',
   templateUrl: './coffee-shop.component.html',
@@ -8,7 +8,8 @@ import { ApiService } from 'src/app/api.service';
 })
 export class CoffeeShopComponent implements OnInit {
 
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,
+    private router:Router) { }
    coffee:any;
   ngOnInit(): void {
     const formData = new FormData();
@@ -23,6 +24,12 @@ export class CoffeeShopComponent implements OnInit {
          this.coffee = res.data;
      })
      
+  }
+  onhotel(item:any){
+    console.log(item);
+   
+    var hotelId = item.hotel_id;
+    this.router.navigate(['product-components'+'/'+hotelId]);
   }
 
 }

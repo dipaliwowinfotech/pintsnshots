@@ -43,7 +43,7 @@
         </div>
 
         <div class="row" >
-            <div routerLink="/product-components" class="col-lg-4 col-md-6 col-6 col-6 text-center" style="cursor: pointer;" *ngFor="let item of tap" >
+            <div (click)="onhotel(item)" class="col-lg-4 col-md-6 col-6 col-6 text-center" style="cursor: pointer;" *ngFor="let item of tap" >
                 <div class="single-product-item" >
                     <div class="product-image">
                         <a href="JavaScript:void(0);">

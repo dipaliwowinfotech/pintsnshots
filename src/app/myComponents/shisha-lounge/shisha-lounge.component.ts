@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { ApiService } from 'src/app/api.service';
 })
 export class ShishaLoungeComponent implements OnInit {
   shisha:any
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,
+    private router:Router) { }
 
   ngOnInit(): void {
     const formData = new FormData();
@@ -22,6 +24,12 @@ export class ShishaLoungeComponent implements OnInit {
          console.log(res)
          this.shisha = res.data;
      })
+  }
+  onhotel(item:any){
+    console.log(item);
+   
+    var hotelId = item.hotel_id;
+    this.router.navigate(['product-components'+'/'+hotelId]);
   }
 
 }
