@@ -81,8 +81,10 @@ const routes: Routes = [
   },
   {
     path:'wallet-history',component:WalletHistoryComponent
+  },
+  {
+  path:'hotel-details',component:HotelDetalisComponent
   }
-  
 ];
 
 @NgModule({

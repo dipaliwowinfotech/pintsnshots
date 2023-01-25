@@ -9,17 +9,22 @@ import { ApiService } from 'src/app/api.service';
 export class SearchComponent implements OnInit {
   searchTxt: any;
   HotelList: any;
+  ProductList:any;
+   Ontab: boolean = true;
+   
+
   imgUrl:any = "https://wowinfotech.net/pinsnshots/pintsnshots_api/" ;
 
   constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
-    this.hotelList()
+    this.hotelList();
+    this.searchProduct();
   }
 
 
   search(Text:any){
-    
+    if(this.Ontab){
     const formData = new FormData();
       formData.set('offset','0');
       formData.set('user_id','7');
@@ -33,6 +38,9 @@ export class SearchComponent implements OnInit {
       //console.log(res);
       this.HotelList = res.data;
     });
+  }else{
+    this.searchProduct();
+  }
 
   }
 
@@ -52,4 +60,28 @@ console.log(this.HotelList);
     });
   }
 
+  searchProduct(){
+     console.log(this.Ontab);
+    const formData = new FormData();
+      formData.set('offset','0');
+      formData.set('user_id','7');
+      formData.set('latitude','20.0086779' );
+      formData.set('limit','10');
+      formData.set('type','product');
+      formData.set('word','');
+      formData.set('longitude','73.763892');
+     
+    this.apiService.search(formData).subscribe((res:any)=>{
+      this.ProductList = res.data;
+      console.log(this.ProductList);
+      
+    });
+  }
+  taproom(){
+   this.Ontab = true;
+
+  }
+  product(){
+   this.Ontab= false;
+  }
 }
