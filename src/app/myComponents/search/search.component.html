@@ -122,7 +122,8 @@
                         <h3>{{item.hotel_name}}</h3>
 
                         <p>{{item.address}}</p>
-                        <div class="star-rating">
+                        <ngb-rating [max]="5" [(rate)]="item.rating" [readonly]="true"></ngb-rating>
+                        <!-- <div class="star-rating">
                           <input type="radio" id="5-stars" name="rating" value="5" />
                           <label for="5-stars" class="star">&#9733;</label>
                           <input type="radio" id="4-stars" name="rating" value="4" />
@@ -133,7 +134,7 @@
                           <label for="2-stars" class="star">&#9733;</label>
                           <input type="radio" id="1-star" name="rating" value="1" />
                           <label for="1-star" class="star">&#9733;</label>
-                        </div>
+                        </div> -->
 
                       </div>
                     </div>
@@ -164,9 +165,9 @@
                           <h3>{{i.product_name}}</h3>
 
                           <ul>
-                            <li class="colour_s">₹190.0 &nbsp;<span style="text-decoration: line-through;">₹200</span>
+                            <li class="colour_s">{{getPrice(i)}} ₹{{price}}&nbsp;<span style="text-decoration: line-through;">₹{{i.price}}</span>
                             </li>
-                            <li class="colour_s"><b>Save Upto: <span style="color: green;">₹10.0(5% Off)</span></b></li>
+                            <li class="colour_s"><b>Save Upto: <span style="color: green;">₹{{savePrice}}({{i.discount}}% Off)</span></b></li>
 
                           </ul>
                         </div>

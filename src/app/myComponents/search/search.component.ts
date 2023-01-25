@@ -14,6 +14,8 @@ export class SearchComponent implements OnInit {
    
 
   imgUrl:any = "https://wowinfotech.net/pinsnshots/pintsnshots_api/" ;
+  price: any;
+  savePrice:any;
 
   constructor(private apiService:ApiService) { }
 
@@ -92,6 +94,14 @@ console.log(this.HotelList);
   }
   taproom(){
    this.Ontab = true;
+
+  }
+  getPrice(item:any){
+    var savePrice1: any;
+    
+    this.price = item.price -(item.price * item.discount/100)
+   savePrice1 = item.price - this.price;
+    this.savePrice = savePrice1.toFixed(1);
 
   }
   product(){

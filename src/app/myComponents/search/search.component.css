@@ -225,6 +225,11 @@ a.boxed-btn:hover{
   padding: 0px 10px 35px 10px !important;
  
 }
+
+ngb-rating {
+    color: #f90;
+    font-size: 20px;
+}
 .cart-btn{
   margin-top: 20px;
 }
