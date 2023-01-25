@@ -57,7 +57,7 @@
                         <form [formGroup]="qty" action="index.html">
                             <div class="quantity">
                                 <a class="quantity__minus" (click)="quantitydown()"><span>-</span></a>
-                                <input type="number" placeholder="0" value="{{quantity}}">
+                                <input type="text" class="quantity__input" value="{{quantity}}" disabled>
                                 <a class="quantity__plus" (click)="quantityUp()"><span>+</span></a>
                             </div>
                         </form>

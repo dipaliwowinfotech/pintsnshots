@@ -94,8 +94,7 @@ openmodal:boolean=false;
       console.log(res);
       this.cartlist = res.data;
      
-      });
-      
+      });  
          
      
    

@@ -117,8 +117,7 @@ a.boxed-btn:hover{
   .quantity__plus {
     display: block;
     width: 30px;
-    height: 43px;
-    margin-bottom: 15px;
+    
     background: #d6a354;
     text-decoration: none;
     text-align: center;
@@ -137,7 +136,7 @@ a.boxed-btn:hover{
   }
   .quantity__input {
     width: 32px;
-    height: 23px;
+    height: 40px;
     margin: 0;
     padding: 0;
     text-align: center;

@@ -25,6 +25,7 @@ export class SearchComponent implements OnInit {
 
   search(Text:any){
     if(this.Ontab){
+      console.log(this.Ontab);
     const formData = new FormData();
       formData.set('offset','0');
       formData.set('user_id','7');
@@ -39,7 +40,19 @@ export class SearchComponent implements OnInit {
       this.HotelList = res.data;
     });
   }else{
-    this.searchProduct();
+    const formData = new FormData();
+      formData.set('offset','0');
+      formData.set('user_id','7');
+      formData.set('latitude','20.0086779' );
+      formData.set('limit','10');
+      formData.set('type','product' );
+      formData.set('word',Text);
+      formData.set('longitude','73.763892');
+     
+    this.apiService.search(formData).subscribe((res:any)=>{
+      this.ProductList = res.data;
+      console.log(this.ProductList);
+    });
   }
 
   }
