@@ -14,7 +14,10 @@ productId:any;
 list:any=[];
 selectedCat:any;
 isActive: any;
-hotelID:any
+hotelID:any;
+long:any;
+lat: any;
+
   constructor(
     private router: Router,
     private api:ApiService,
@@ -23,6 +26,9 @@ hotelID:any
 
   ngOnInit(): void {
     this.hotelID = this.route.snapshot.params['hotelId'];
+    this.long = this.route.snapshot.params['long'];
+    this.lat = this.route.snapshot.params['lat'];
+    console.log(this.long,this.lat);
     const formData = new FormData();
     formData.set('hotel_id',this.hotelID);
    
@@ -65,8 +71,7 @@ hotelID:any
       this.router.navigate(['/product-detalis'])
   }
   onhotel(){
-    console.log();
-   
+    console.log();   
     
     this.router.navigate(['hotel-details'+'/'+this.hotelID]);
   }

@@ -59,6 +59,50 @@
   color: #ffffff;
     background-color: #000;
 }
+ngb-rating {
+  color: #f90;
+  font-size: 20px;
+}
+
+.filled{
+    color: #f90;
+}
+
+.feedbackrate{
+  position: relative;
+  display: inline-block;
+  color:gray;
+  font-size: 40px;
+}
+ textarea{
+  background-color: #212529;
+    width: 100%;
+    color: white;
+ }
+ .modal-footer{
+  display: contents
+ }
+ .height_h{
+  height: 350px !important;
+}
+
+.slider_img{
+  height: inherit
+}
+
+.defaultHeart{
+    position: relative;
+    display: inline-block;
+    color:gray;
+    font-size: 20px;
+}
+
+.paintedHeart{
+    position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color:#f90;
+}
 .btn-primary {
   --bs-btn-bg: #d6a354;
   --bs-btn-border-color: #d6a354;
@@ -87,6 +131,7 @@
 }
 
 .single-article-text p {
+    margin-top: 20px;
     font-size: 15px;
     line-height: 1.6;
     color: #ffffff;

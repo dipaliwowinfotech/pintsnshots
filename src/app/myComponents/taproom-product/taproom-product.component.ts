@@ -26,7 +26,7 @@ export class TaproomProductComponent implements OnInit {
   }
   onhotel(item:any){
     console.log(item);
-   
+    
     var hotelId = item.hotel_id;
     this.router.navigate(['product-components'+'/'+hotelId]);
   }

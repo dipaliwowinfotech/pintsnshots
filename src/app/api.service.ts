@@ -120,6 +120,14 @@ export class ApiService {
     return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/hotel.php/",formdata)
   }
 
+  review(formdata:any){
+    return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/get_review.php",formdata)
+  }
+
+  updateReview(formdata:any){
+    return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/review.php",formdata)
+  }
+
   loginData: any;
   getlogin() {
     return this.loginData;

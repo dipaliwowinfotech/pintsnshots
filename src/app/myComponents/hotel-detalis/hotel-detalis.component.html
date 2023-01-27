@@ -23,28 +23,60 @@
             </div>
         </div>
         <div class="row"  style="margin-top: 50px;">
-            <div class="col-lg-12" *ngFor="let item of bannarlist">
+            <div class="col-lg-12" *ngFor="let item of hotelList">
                 <h1>{{item.hotel_name}}</h1>
                 <div class="single-article-section">
                     <div class="single-article-text">
-                        <div class="single-artcile-bg">
-                            <img src="../img/latest-news/news-bg-3.jpg" alt="">
-                        </div>
+                        <div id="carouselExampleIndicators" data-interval="3000" data-pause="false" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators" >
+                              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                
+                              <div class="carousel-item" *ngFor="let banner of bannarlist; let i = index" [ngClass]="(i === 0) ? 'active' : ''">
+                                <img *ngIf="banner.image"  class="d-block w-100 single-artcile-bg" src="{{imgUrl}}{{banner.image}}" alt="First slide">
+                                <div *ngIf="!banner.image" class="single-artcile-bg slider_img">
+                                    
+                                    <img src="{{banrImg}}" alt="">
+                                </div>
+                              </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators"  role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </div>
+                        <!-- <div class="single-artcile-bg" *ngFor="let banner of bannarlist">
+                            <img *ngIf="banner.image" src="{{imgUrl}}{{banner.image}}" alt="">
+                            <img *ngIf="!banner.image" src="{{banrImg}}" alt="">
+                        </div> -->
                         <p class="blog-meta" style="text-align:center;">
                             <span class="date">
-                                <a href=""><i class="fa fa-phone fa-2x" aria-hidden="true"></i> </a>
+                                <a href="tel:{{item.mobile_no}}"><i class="fa fa-phone fa-2x" aria-hidden="true"></i> </a>
                             </span>
                             <span class="date"><a href=""><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></a> </span>
-                            <span class="date"><a href=""><i class="fa fa-star fa-2x" aria-hidden="true"></i></a> </span>
+                            <span class="date"><a  data-toggle="modal" data-target="#tNcModal"><i class="fa fa-star fa-2x" aria-hidden="true"></i></a> </span>
                         </p>
                        <div class="row">
                         <div class="col-md-9">
-                            <h2>Air Lounge</h2>
+                            <h2>{{item.hotel_name}}</h2>
                           
                         </div>
                         <div class="col-md-3">
-                            
-                            <div class="star-rating">
+                            <ngb-rating [max]="5" [(rate)]="item.rating" [readonly]="true">
+                                <ng-template let-fill="fill">
+                                    <span class="defaultHeart" [class.filled]="fill === 100">
+                                      <span class="paintedHeart" [style.width.%]="fill">&#9733;</span>&#9733;
+                                    </span>
+                                  </ng-template>
+                            </ngb-rating>
+                            <!-- <div class="star-rating">
                                
                                 <input type="radio" id="5-stars" name="rating" value="5" />
                                 <label for="5-stars" class="star">&#9733;</label>
@@ -56,27 +88,27 @@
                                 <label for="2-stars" class="star">&#9733;</label>
                                 <input type="radio" id="1-star" name="rating" value="1" />
                                 <label for="1-star" class="star">&#9733;</label> 
-                                <!-- <p style="color: #B68D29;">Rating:</p> -->
-                              </div>
+                                
+                              </div> -->
                         </div>
                        </div>
-                        <p style="margin-bottom: 20px;"><b style="color: #B68D29;">Address:</b>College Road, Thatte Nagar, Nashik, Maharashtra 422005, India, Nashik, Maharashtra, Maharashtra 422005
+                        <p style="margin-bottom: 20px;"><b style="color: #B68D29;">Address:&nbsp;</b>{{item.address}}
                         </p>
                         <table id="customers">
                            
                             <tr>
                               <td>Open Time</td>
-                              <td>10:30 AM</td>
+                              <td>{{item.open_time}}</td>
                             
                             </tr>
                             <tr>
                               <td>Close Time</td>
-                              <td>10:00 PM</td>
+                              <td>{{item.close_time}}</td>
                              
                             </tr>
                             <tr>
                               <td>Mobile Number</td>
-                              <td>9737461237</td>
+                              <td>{{item.mobile_no}}</td>
                            
                             </tr>
                             
@@ -120,26 +152,28 @@
                               </table>
                              
                             </div> -->
-                    <p style="margin-bottom: 20px;"><b style="color: #B68D29;">Description:</b>Antioxidants are compounds that help repair the damage to your cells
-                        caused by free radicals — harmful molecules that cause oxidative stress.
-                        Oxidative stress is associated with several chronic health conditions, including diabetes, cancer, and heart disease.
-                        Grapes are rich in several powerful antioxidants. The highest concentration of antioxidants is found in the skin and seeds.
-                        Some grape varieties contain a higher content of anthocyanins, a class of flavonoids that give these fruits orange, red, blue, pink, and purple colors. Human and animal studies indicate that anthocyanins may help prevent or treat brain and heart diseases 
-                        (14Trusted Source, 15Trusted Source).
+                    <p style="margin-bottom: 20px;"><b style="color: #B68D29;">Description:&nbsp;</b>{{item.descriptions}}
                     </p>
                     </div>
                     <div class="">
                         <h3 class="comment-count-title">Review</h3>
                         <div class="comment-list">
-                            <div class="single-comment-body">
-                                <div class="comment-user-avater">
+                            <div class="single-comment-body" *ngFor="let i of reviewlst">
+                                <!-- <div class="comment-user-avater">
                                     <img src="assets/img/avaters/avatar1.png" alt="">
-                                </div>
+                                </div> -->
                                 <div class="comment-text-body">
-                                    <h4>Jenny Joe <span class="comment-date">Aprl 26,2023</span> </h4>
-                                    <p>Nunc risus ex, tempus quis purus ac, tempor consequat ex. Vivamus sem magna, maximus at est id, maximus aliquet nunc. Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus.</p>
+                                    <h4>{{i.fullname}} <span class="comment-date">{{i.register_date}}</span> </h4>
+                                    <p><ngb-rating [max]="5" [(rate)]="i.rating" [readonly]="true">
+                                        <ng-template let-fill="fill">
+                                            <span class="defaultHeart" [class.filled]="fill === 100">
+                                              <span class="paintedHeart" [style.width.%]="fill">&#9733;</span>&#9733;
+                                            </span>
+                                          </ng-template>
+                                    </ngb-rating></p>
+                                    <p>{{i.review}}</p>
                                 </div>
-                                <div class="single-comment-body child">
+                                <!-- <div class="single-comment-body child">
                                     <div class="comment-user-avater">
                                         <img src="assets/img/avaters/avatar3.png" alt="">
                                     </div>
@@ -147,9 +181,9 @@
                                         <h4>Simon Soe <span class="comment-date">Aprl 27,2023</span> </h4>
                                         <p>Nunc risus ex, tempus quis purus ac, tempor consequat ex. Vivamus sem magna, maximus at est id, maximus aliquet nunc. Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus.</p>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-                            <div class="single-comment-body">
+                            <!-- <div class="single-comment-body">
                                 <div class="comment-user-avater">
                                     <img src="assets/img/avaters/avatar2.png" alt="">
                                 </div>
@@ -157,7 +191,7 @@
                                     <h4>Addy Aoe <span class="comment-date">May 12,2023</span> </h4>
                                     <p>Nunc risus ex, tempus quis purus ac, tempor consequat ex. Vivamus sem magna, maximus at est id, maximus aliquet nunc. Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus.</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                    
@@ -167,5 +201,39 @@
         </div>
     </div>
 </div>
+<div class="modal" tabindex="-1" role="dialog" id="tNcModal">
+    <div class="modal-dialog" role="document">
+        <form [formGroup]="review" (ngSubmit)="updateReview()">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Feedback</h3>
+          <button type="button"  id="closemodal" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <p>Do you like our Taproom, then please rate us, it require less thab a one minute, THANK YOU.</p>
+            <p style="text-align: center;">Rating</p>
+            <p style="text-align: center;"><ngb-rating [max]="5" [(rate)]="rate" [readonly]="false">
+                <ng-template let-fill="fill">
+                    <span class="feedbackrate" [class.filled]="fill === 100">
+                      <span class="paintedHeart" [style.width.%]="fill">&#9733;</span>&#9733;
+                    </span>
+                  </ng-template>
+            </ngb-rating></p>
+            <p style="text-align: center;">Message</p>
+            <p><textarea rows="4" placeholder="Message" formControlName="reviewmsg"></textarea>
+                <span class="text-danger float-right" *ngIf="isSubmitted&&review.hasError('required','reviewmsg')">Please 
+                    Enter Your feedback
+                </span> </p>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-light">Submit</button>
+          
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
 <!--  -->
 

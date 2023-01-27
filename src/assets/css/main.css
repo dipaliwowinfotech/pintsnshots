@@ -1686,7 +1686,7 @@ p.excerpt {
 }
 
 .single-artcile-bg {
-  background-image: url(../img/latest-news/news-bg-3.jpg);
+  /* /background-image: url(../img/latest-news/news-bg-3.jpg); */
   height: 450px;
 }
 
@@ -1725,7 +1725,8 @@ p.excerpt {
 .single-artcile-bg {
   background-size: cover;
   background-position: center;
-  background-color: #ddd;
+  text-align: center;
+  background-color: rgb(41, 40, 40);
   border-radius: 5px;
   margin-bottom: 20px;
 }
@@ -1776,8 +1777,9 @@ p.excerpt {
 }
 
 .comment-text-body {
-  padding-left: 80px;
+  /* padding-left: 80px; */
   margin-bottom: 40px;
+  margin-top: 20px
 }
 
 .comment-text-body h4 {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class SearchComponent implements OnInit {
   price: any;
   savePrice:any;
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService,private router:Router) { }
 
   ngOnInit(): void {
     this.hotelList();
@@ -107,4 +108,14 @@ console.log(this.HotelList);
   product(){
    this.Ontab= false;
   }
+
+  onhotel(item:any){
+    console.log(item);
+    localStorage.setItem('selectedHotel', JSON.stringify(item));
+    
+    var hotelId = item.hotel_id;
+    this.router.navigate(['product-components'+'/'+hotelId]);
+  }
+
+
 }
