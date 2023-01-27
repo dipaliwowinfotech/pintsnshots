@@ -27,7 +27,7 @@ export class CoffeeShopComponent implements OnInit {
   }
   onhotel(item:any){
     console.log(item);
-   
+    localStorage.setItem('selectedHotel', JSON.stringify(item));
     var hotelId = item.hotel_id;
     this.router.navigate(['product-components'+'/'+hotelId]);
   }
