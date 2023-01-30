@@ -702,7 +702,7 @@ nav.main-menu ul ul.sub-menu li a {
 
 nav.main-menu ul li.current-list-item > a {
   color: #d6a354;
-  padding: .875rem .9375rem .75rem 1.1875rem;
+  padding: 5px 5px 5px 5px;
     border-radius: 1.4375rem;
     /* text-transform: uppercase; */
     /* font-size: 1.125rem; */
@@ -718,7 +718,7 @@ nav.main-menu li:hover > a {
     border-radius: 1.4375rem;
     /* text-transform: uppercase;
     font-size: 1.125rem; */
-   
+    padding: 5px 5px 5px 5px;
     background-color: rgb(255 255 255 / 24%);
    
 }
@@ -2477,6 +2477,9 @@ p.product-price span {
   opacity: 0.8;
   font-size: 15px;
   font-weight: 400;
+  text-overflow: ellipsis;
+    height: 51px;
+    overflow: hidden;
 }
 
 a.cart-btn {

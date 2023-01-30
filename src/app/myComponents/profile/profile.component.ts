@@ -16,6 +16,7 @@ profile: FormGroup|any;
   Code: any;
   countrycode:any;
   showDOB: boolean = true;
+  dob:any;
   selectedYear!: number;
   selectedMonth!: any;
   years: number[] = [];
@@ -41,14 +42,21 @@ get form() { return this.profile.controls; }
 
 
 createForm(){
-  this.loginData();
-  if(!this.verifiedUser.dob){
-    this.showDOB= false;
-    
-  }else{
-    this.showDOB= true;
-  }
+  this.loginData();  
   console.log(this.verifiedUser.dob);
+  if(this.verifiedUser.dob =="null"){
+    this.showDOB= false;    
+  }
+  if(this.verifiedUser.dob ==""){
+    this.showDOB= false;    
+  }
+  if(this.verifiedUser.dob!="null"){   
+    
+    this.dob = this.datepipe.transform(this.verifiedUser.dob, 'yyyy-MM-dd');
+    
+  }
+  console.log(this.dob)
+  
   this.profile = this.formBuilder.group({
     mobile_no: [this.verifiedUser.mobile_no, [Validators.required,
       Validators.pattern('[6-9]\\d{9}'),
@@ -56,14 +64,14 @@ createForm(){
       Validators.maxLength(10)]],
 
       fullname: [this.verifiedUser.fullname, [Validators.required,
-        Validators.minLength(6),
+        
         Validators.pattern('[a-zA-z].*')]],
 
         email: [this.verifiedUser.email, [Validators.required,
          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'),
           ]],
 
-          dob: [this.verifiedUser.dob,],
+          dob: [this.dob,],
           country: [this.verifiedUser.country,],
           pan: [this.verifiedUser.Aadhar_Emirates_ID,
           Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')],
@@ -76,6 +84,7 @@ createForm(){
           passport_expiry_date: [this.verifiedUser.passport_expiry_date,],
           tnc: [true],
     })
+    
 }
 
 loginData(){

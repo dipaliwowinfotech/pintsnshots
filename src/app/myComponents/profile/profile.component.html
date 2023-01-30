@@ -61,7 +61,7 @@
                     </p>
                     <p>
                         <label>Date Of Birth<span>*</span></label>
-                        <input type="date"  formControlName="dob" >
+                        <input type="date"  formControlName="dob" [attr.disabled]="this.showDOB ? '' : null">
                     </p>
                     <div style="display: flex;">
                         <span>Gender </span>
@@ -137,7 +137,7 @@
 
                     <p *ngIf="!isUs">
                         <label>Passport Expiry (optional)</label>
-                        <input type="text" placeholder="Select Date" onfocus="(this.type='month')" onblur="(this.type='text')" formControlName="passport_expiry_date">
+                        <input type="text" placeholder="Select Date" onfocus="(this.type='month')" onfocus="(this.datepicker='show')" onblur="(this.type='text')" formControlName="passport_expiry_date">
                     </p>
                     <!-- <p ><ngb-datepicker #dp  ></ngb-datepicker></p> -->
                     <p>
