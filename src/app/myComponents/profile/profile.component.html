@@ -113,32 +113,49 @@
                         <label>Passport (optional)</label>
                         <input type="text"  formControlName="passport">
                     </p>
-                    <p *ngIf="isUs">
+                    <!-- <p *ngIf="isUs">
                         <label>Passport Expiry</label>
                         <input type="month"  formControlName="passport_expiry_date">
                         <span *ngIf="isSubmitted ">
                             <span class="text-danger" *ngIf="form['passport_expiry_date'].errors?.['required']">Please Enter Passport Expiry
                             </span>
                         </span>
-                    </p>
-                    <p>
+                    </p> -->
+                    <p  *ngIf="isUs">
                         <label>Passport Expiry (optional)</label>
-                        <select   style="display: inline;width: 45%;" formControlName="country" class="form-control" >
-                            <option >Select Month</option>
+                        <select   style="display: inline;width: 45%;" formControlName="month" class="form-control" >
+                            <option value="">Select Month</option>
                             <option *ngFor="let i of months" >{{i.value}}</option>
                             
                         </select>
-                        <select  style="display: inline;width: 45%;margin-left: 10%;" formControlName="country" class="form-control">
+                        <select  style="display: inline;width: 45%;margin-left: 10%;" formControlName="year" class="form-control">
+                            <option >Select Year</option>
+                            <option *ngFor="let i of years" >{{i}}</option>
+                            
+                        </select>
+                        <span *ngIf="isSubmitted ">
+                            <span class="text-danger" *ngIf="form['passport_expiry_date'].errors?.['required']">Please Enter Passport Expiry
+                            </span>
+                        </span>
+                    </p>
+                    <p  *ngIf="!isUs">
+                        <label>Passport Expiry (optional)</label>
+                        <select   style="display: inline;width: 45%;" formControlName="month" class="form-control" >
+                            <option [value]="" selected>Select Month</option>
+                            <option *ngFor="let i of months" [value]='i.id'>{{i.value}}</option>
+                            
+                        </select>
+                        <select  style="display: inline;width: 45%;margin-left: 10%;" formControlName="year" class="form-control">
                             <option >Select Year</option>
                             <option *ngFor="let i of years" >{{i}}</option>
                             
                         </select>
                     </p>
 
-                    <p *ngIf="!isUs">
+                    <!-- <p *ngIf="!isUs">
                         <label>Passport Expiry (optional)</label>
                         <input type="text" placeholder="Select Date" onfocus="(this.type='month')" onfocus="(this.datepicker='show')" onblur="(this.type='text')" formControlName="passport_expiry_date">
-                    </p>
+                    </p> -->
                     <!-- <p ><ngb-datepicker #dp  ></ngb-datepicker></p> -->
                     <p>
                         <span class="check">

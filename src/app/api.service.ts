@@ -40,6 +40,9 @@ export class ApiService {
   shisha(formData: any) {
     return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/hotel.php/", formData)
   }
+  payment(formData: any) {
+    return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/payment.php/", formData)
+  }
   list: any;
   getOTP() {
     return this.list;

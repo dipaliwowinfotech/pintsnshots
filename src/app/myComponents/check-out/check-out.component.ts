@@ -34,6 +34,10 @@ export class CheckOutComponent implements OnInit {
   totalList:any=[];
   TotalCal:any;
   TotalPrice:any;
+
+  saved:any;
+  savedAmount:any = [];
+  savedamnt:any;
   constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit(): void {
@@ -85,14 +89,17 @@ export class CheckOutComponent implements OnInit {
      
       this.cartlist.forEach((element: any) => {
         this.totalbill = element.price*element.quantity;
-        this.TotalCal = this.totalbill -(this.totalbill * element.discount/100)
+        this.TotalCal = this.totalbill -(this.totalbill * element.discount/100);
+        this.saved = this.totalbill - this.TotalCal;
         this.billtotal.push(this.TotalCal);
+        this.savedAmount.push(this.saved);
         
       console.log(this.TotalCal);
      });
+     
      this.TotalPrice = this.billtotal.reduce((acc:any, cur:any) => acc + cur, 0);
-    
-    console.log(this.TotalPrice);
+     this.savedamnt = this.savedAmount.reduce((acc:any, cur:any) => acc + cur, 0);
+    console.log(this.savedamnt);
      
     this.totalcoupons=this.cartlist.filter((item:any) => item.discount === item.discount).length
     console.log(this.totalcoupons)
@@ -112,10 +119,10 @@ export class CheckOutComponent implements OnInit {
     const formData = new FormData();
     formData.set('quantity',this.quantitylist.toString());
     formData.set('hotel_id',this.hotel_id);
-    formData.set('discount',this.discountlist.toString() );
+    formData.set('discount',this.savedamnt );
     formData.set('product_price',this.productpricelist.toString());
     formData.set('user_id',this.verifiedUser.user_id );
-    formData.set('total_amount',this.billtotal.toString());
+    formData.set('total_amount',this.TotalPrice);
     formData.set('currency_type','Rupee' );
     formData.set('dob',this.verifiedUser.dob);
     formData.set('product_id', this.productIdlist.toString());
@@ -128,14 +135,24 @@ export class CheckOutComponent implements OnInit {
       if(res.ResponseCode ==0 ){
         
         alert("Order Placed Successfully");
+        const  formParams= new FormData();
+        formParams.set('transaction_id','pay_LAiw76ERDGoINs');
+    formParams.set('user_id',this.verifiedUser.user_id);
+    formParams.set('payment_status','Success' );
+    formParams.set('action','payment');
+    formParams.set('order_id',res.data.order_id );
+    formParams.set('status','Yes');
+        this.api.payment(formParams).subscribe((data:any)=>{
+
+        })
         window.location.reload();
       }
 
       if(res.ResponseCode ==1 ){
+        alert(res.ResponseMessage);
         
-        this.router.navigate(['profile']);
       }
-      this.router.navigate(['product-components']);
+      
     })
   }
 }
