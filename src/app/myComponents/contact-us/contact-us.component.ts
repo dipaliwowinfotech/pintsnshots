@@ -43,6 +43,7 @@ export class ContactUsComponent implements OnInit {
   submit(){
    this.isSubmitted = true;
     console.log('ContactUs',this.contactForm);
+    if(this.contactForm.valid){
     Email.send({
       Host : 'smtp.elasticemail.com',
       Username : 'wowinfo.angular@gmail.com',
@@ -54,7 +55,7 @@ export class ContactUsComponent implements OnInit {
       Body : this.contactForm.value.msgTxt
       }).then( (message:any) => {alert(message); } );
   }
-
+  }
   get form() { return this.contactForm.controls; }
 
 }
