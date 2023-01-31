@@ -127,6 +127,9 @@ export class ApiService {
   updateReview(formdata:any){
     return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/review.php",formdata)
   }
+  orderhistory(formdata:any){
+    return this.http.post("https://wowinfotech.net/pinsnshots/pintsnshots_api/order_history.php/",formdata)
+  }
 
   loginData: any;
   getlogin() {

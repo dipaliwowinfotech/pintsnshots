@@ -23,18 +23,18 @@
                     <div class="row no">
 
                  
-                        <div class="col-lg-4 col-md-6" >
-                            <div  class="single-latest-news">
-                                <div class="news-text-box">
-                                    <ul class=" unordered-list">
+                        <div class="col-lg-4 col-md-6"  *ngFor="let item of orderHistory">
+                            <div  class="single-latest-news" >
+                                <div class="news-text-box" >
+                                    <ul class=" unordered-list" >
                                         
-                                        <li class="bg_colour"><b style="color:#d6a354;">Product Name:- </b> Black Forest KuKa</li>
+                                        <li class="bg_colour"><b style="color:#d6a354;">Product Name:- </b>{{item.product_name}}</li>
 
                                        
 
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Product Price:-</b>180</li>
+                                        <li class="bg_colour"> <b style="color:#d6a354;">Product Price:-</b>{{item.product_price}}</li>
 
-                                        <li class="bg_colour"> <b style="color:#d6a354;">Quality:-</b>2</li>
+                                        <li class="bg_colour"> <b style="color:#d6a354;">Quality:-</b>{{item.quantity}}</li>
 
 
                                     </ul>
