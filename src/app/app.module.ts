@@ -32,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchComponent } from './myComponents/search/search.component';
 import { HotelDetalisComponent } from './myComponents/hotel-detalis/hotel-detalis.component';
 import { DatePipe } from '@angular/common';
+import { OrderHistoryComponent } from './myComponents/order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { DatePipe } from '@angular/common';
     WalletHistoryComponent,
     BlogDetailsComponent,
     SearchComponent,
-    HotelDetalisComponent
+    HotelDetalisComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,

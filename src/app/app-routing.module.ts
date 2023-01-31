@@ -10,6 +10,7 @@ import { ContactUsComponent } from './myComponents/contact-us/contact-us.compone
 import { HomeComponent } from './myComponents/home/home.component';
 import { HotelDetalisComponent } from './myComponents/hotel-detalis/hotel-detalis.component';
 import { LoginComponent } from './myComponents/login/login.component';
+import { OrderHistoryComponent } from './myComponents/order-history/order-history.component';
 import { OtpComponent } from './myComponents/otp/otp.component';
 import { ProductComponentsComponent } from './myComponents/product-components/product-components.component';
 import { ProductDetalisComponent } from './myComponents/product-detalis/product-detalis.component';
@@ -56,6 +57,9 @@ const routes: Routes = [
   },
   {
     path:'check-out', component:CheckOutComponent
+  },
+  {
+    path:'order-history', component:OrderHistoryComponent
   },
   {
     path:'search', component:SearchComponent
