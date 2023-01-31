@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   cartlength:any;
   username1:any;
   userId1: any;
+  isShow: boolean = true;
 
   login:any;
  
@@ -129,6 +130,17 @@ console.log(res)
        this.router.navigate(['']);
     }
     
+  }
+
+  onSelect(){
+    
+      this.isShow = false;
+     
+    //document.getElementById("sub_1")!.style.display = "none";
+   
+    setTimeout(()=>{
+      this.isShow = true;
+     },3)
   }
 
 }
