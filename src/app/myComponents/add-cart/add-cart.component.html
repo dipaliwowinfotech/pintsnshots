@@ -110,13 +110,14 @@
 								<td>{{totalcoupons}}</td>
 							</tr>
 							<tr class="total-data">
-									<td><strong>Total-Discount: </strong></td>
-									<td></td>
-								</tr>
-							<tr class="total-data">
 								<td><strong>Total: </strong></td>
 								<td>₹{{totalbill}}</td>
 							</tr>
+							<tr class="total-data">
+									<td><strong>Total-Discount: </strong></td>
+									<td>₹{{discCalPrize}}</td>
+								</tr>
+							
 						</tbody>
 					</table>
 					<div *ngIf="!cartempty&&!showLoader" class="cart-buttons">

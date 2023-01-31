@@ -36,6 +36,10 @@ export class AddCartComponent implements OnInit {
   productprice: any;
   productdiscount: any;
 
+  totalDiscount:any;
+  discCalPrize:any;
+  totalDiscPrize:any=[];
+
   constructor(private api:ApiService,
     private formBuilder:FormBuilder,
     private router:Router) { }
@@ -78,7 +82,9 @@ export class AddCartComponent implements OnInit {
       this.billtotal = [];
       this.cartlist.forEach((element: any) => {
         this.totalPrice = element.price*element.quantity;
-        console.log(this.totalPrice)
+        this.totalDiscount = this.totalPrice -(this.totalPrice*element.discount/100)
+        this.totalDiscPrize.push(this.totalDiscount);
+        console.log(this.totalDiscPrize);
         
         this.billtotal.push(this.totalPrice);
       
@@ -92,7 +98,8 @@ export class AddCartComponent implements OnInit {
     this.totalcoupons=this.cartlist.filter((item:any) => item.discount === item.discount).length
     console.log(this.totalcoupons)
    this.totalbill = this.billtotal.reduce((acc:any, cur:any) => acc + cur, 0);
-   console.log(this.totalbill);
+   this.discCalPrize = this.totalDiscPrize.reduce((acc:any, cur:any) => acc + cur, 0);
+   console.log(this.discCalPrize);
     this.totalquantity=this.cartlist.filter((item:any) => item.product_id === item.product_id).length
       }else{
        this.cartempty=true;

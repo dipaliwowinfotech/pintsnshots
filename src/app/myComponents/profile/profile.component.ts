@@ -21,12 +21,12 @@ profile: FormGroup|any;
   selectedMonth!: any;
   years: number[] = [];
 
-  months:Array<any>=[{id:1,value: "January"},{id:2,value: "February"},{id:1,value: "March"},{id:1,value: "April"},{id:1,value: "May"},{id:1,value: "June"},{id:1,value: "July"},{id:1,value: "August"},{id:1,value: "September"},{id:1,value: "October"},{id:1,value: "November"},{id:1,value: "December"}]
+  months:Array<any>=[{id:1,value: "January"},{id:2,value: "February"},{id:3,value: "March"},{id:4,value: "April"},{id:5,value: "May"},{id:6,value: "June"},{id:7,value: "July"},{id:8,value: "August"},{id:9,value: "September"},{id:10,value: "October"},{id:11,value: "November"},{id:12,value: "December"}]
   countryList:Array<any>=[{id:1,value: "India",code:'+91'},{id:2,value: "UAE",code:'+881'}];
   constructor(private api:ApiService,private formBuilder:FormBuilder,private router:Router,
     public datepipe: DatePipe) { 
     this.selectedYear = new Date().getFullYear();
-  for (let year = this.selectedYear; year <= 2032; year++) {
+  for (let year = this.selectedYear; year <= this.selectedYear+10; year++) {
     this.years.push(year);
   }
   console.log(this.years)
@@ -81,6 +81,8 @@ createForm(){
           countryCode: [this.verifiedUser.country_code,],
           gender: [this.verifiedUser.gender,],
           expiry_date: [this.verifiedUser.expiry_date,],
+          month: [this.verifiedUser.passport_expiry_date,],
+          year: [this.verifiedUser.passport_expiry_date,],
           passport_expiry_date: [this.verifiedUser.passport_expiry_date,],
           tnc: [true],
     })
@@ -119,7 +121,7 @@ else{
   update(){
     this.isSubmitted = true;
     console.log(this.profile.value.tnc);
-    
+    console.log(this.profile.value.month,this.profile.value.year);
     if(this.profile.valid){
       if(this.profile.value.tnc){
         const form_Data = new FormData();
@@ -132,7 +134,7 @@ else{
       form_Data.set('user_id',this.verifiedUser.user_id);
       form_Data.set('dob',this.profile.value.dob=this.datepipe.transform(this.profile.value.dob, 'dd-MM-yyyy')!);
       form_Data.set('Aadhar_Emirates_ID',this.profile.value.pan);
-      form_Data.set('passport_expiry_date',this.profile.value.passport_expiry_date);
+      form_Data.set('passport_expiry_date',this.profile.value.month+"/"+this.profile.value.year);
       form_Data.set('action','profile_update');
       form_Data.set('fullname',this.profile.value.fullname);
       form_Data.set('email',this.profile.value.email);
