@@ -1287,10 +1287,10 @@ a.cart-btn {
   transition: 0.3s;
 }
 
-a.cart-btn:hover {
+/* a.cart-btn:hover {
   background-color: #051922;
   color: #d6a354;
-}
+} */
 
 .recent-posts ul li {
   -webkit-transition: 0.3s;

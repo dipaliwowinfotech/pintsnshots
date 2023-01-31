@@ -32,6 +32,9 @@ export class AddCartComponent implements OnInit {
    hotel_id:any;
    cartlistlength:any;
    cartempty:boolean=false;
+  discountPrice: any;
+  productprice: any;
+  productdiscount: any;
 
   constructor(private api:ApiService,
     private formBuilder:FormBuilder,
@@ -96,8 +99,9 @@ export class AddCartComponent implements OnInit {
        this.showLoader = false;
       }
     })
-    
-    
+
+
+  
 
   }
 
@@ -138,10 +142,11 @@ this.cartList();
    
    
   }
-  getTotal(price:any,quantity:any){
+  getTotal(price:any,quantity:any,discount:any){
     this.Total = price*quantity;
-   console.log(this.Total) 
+   console.log(this.Total)
   }
+  
 
   DeleteCart(cart_id:any,index:any){
     const formData = new FormData();

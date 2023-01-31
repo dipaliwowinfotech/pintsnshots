@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       ],
 
      fullname: ['', [Validators.required,
-          Validators.minLength(5),
+          
           Validators.pattern('[a-zA-Z].*')]],
 
     });

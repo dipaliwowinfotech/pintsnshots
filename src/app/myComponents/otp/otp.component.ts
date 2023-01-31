@@ -32,7 +32,7 @@ export class OtpComponent implements OnInit {
   formdata:any
   login: any;
   mobileNo:any;
-  timeLeft: number = 60;
+  timeLeft: number = 45;
   interval:any;
   show= false;
   showbutton: boolean = true;

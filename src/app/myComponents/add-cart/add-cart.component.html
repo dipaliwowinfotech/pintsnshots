@@ -65,7 +65,9 @@
 									<!-- <input type="number" [(ngModel)]="item.quantity" id="quantity" (change)="quantityChange($event,item.price,item.quantity,i)"  > -->
 								</td>
 
-								<td class="product-total">{{getTotal(item.price,item.quantity)}}{{Total}}</td>
+								<td >{{getTotal(item.price,item.quantity,
+									item.discount)}}{{Total}}</td>
+								
 							</tr>
 							<!-- <tr class="table-body-row">
 									<td class="product-remove"><a href="#"><i class="far fa-window-close icons_colour"></i></a></td>
@@ -107,10 +109,10 @@
 								<td><strong>No.Of Coupons: </strong></td>
 								<td>{{totalcoupons}}</td>
 							</tr>
-							<!-- <tr class="total-data">
-									<td><strong>Shipping: </strong></td>
-									<td>₹45</td>
-								</tr> -->
+							<tr class="total-data">
+									<td><strong>Total-Discount: </strong></td>
+									<td></td>
+								</tr>
 							<tr class="total-data">
 								<td><strong>Total: </strong></td>
 								<td>₹{{totalbill}}</td>
