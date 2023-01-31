@@ -109,6 +109,12 @@ console.log(this.HotelList);
    this.Ontab= false;
   }
 
+  details(item:any){
+    localStorage.setItem('selectedProduct', JSON.stringify(item));
+   
+      this.router.navigate(['/product-detalis'])
+  }
+
   onhotel(item:any){
     console.log(item);
     localStorage.setItem('selectedHotel', JSON.stringify(item));

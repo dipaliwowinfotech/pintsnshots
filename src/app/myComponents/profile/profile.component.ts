@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common'
 import {  FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
@@ -15,8 +16,19 @@ profile: FormGroup|any;
   Code: any;
   countrycode:any;
   showDOB: boolean = true;
+  selectedYear!: number;
+  selectedMonth!: any;
+  years: number[] = [];
+
+  months:Array<any>=[{id:1,value: "January"},{id:2,value: "February"},{id:1,value: "March"},{id:1,value: "April"},{id:1,value: "May"},{id:1,value: "June"},{id:1,value: "July"},{id:1,value: "August"},{id:1,value: "September"},{id:1,value: "October"},{id:1,value: "November"},{id:1,value: "December"}]
   countryList:Array<any>=[{id:1,value: "India",code:'+91'},{id:2,value: "UAE",code:'+881'}];
-  constructor(private api:ApiService,private formBuilder:FormBuilder,private router:Router) { 
+  constructor(private api:ApiService,private formBuilder:FormBuilder,private router:Router,
+    public datepipe: DatePipe) { 
+    this.selectedYear = new Date().getFullYear();
+  for (let year = this.selectedYear; year <= 2032; year++) {
+    this.years.push(year);
+  }
+  console.log(this.years)
    // this.loginData();
   }
 
@@ -33,8 +45,10 @@ createForm(){
   if(!this.verifiedUser.dob){
     this.showDOB= false;
     
+  }else{
+    this.showDOB= true;
   }
-  
+  console.log(this.verifiedUser.dob);
   this.profile = this.formBuilder.group({
     mobile_no: [this.verifiedUser.mobile_no, [Validators.required,
       Validators.pattern('[6-9]\\d{9}'),
@@ -60,6 +74,7 @@ createForm(){
           gender: [this.verifiedUser.gender,],
           expiry_date: [this.verifiedUser.expiry_date,],
           passport_expiry_date: [this.verifiedUser.passport_expiry_date,],
+          tnc: [true],
     })
 }
 
@@ -94,8 +109,11 @@ else{
 
   update(){
     this.isSubmitted = true;
+    console.log(this.profile.value.tnc);
+    
     if(this.profile.valid){
-      const form_Data = new FormData();
+      if(this.profile.value.tnc){
+        const form_Data = new FormData();
       form_Data.set('country',this.profile.value.country);
       form_Data.set('gender',this.profile.value.gender);
       form_Data.set('expiry_date',this.profile.value.expiry_date);
@@ -103,7 +121,7 @@ else{
       form_Data.set('passport_id',this.profile.value.passport);
       form_Data.set('country_code',this.countrycode);
       form_Data.set('user_id',this.verifiedUser.user_id);
-      form_Data.set('dob',this.profile.value.dob);
+      form_Data.set('dob',this.profile.value.dob=this.datepipe.transform(this.profile.value.dob, 'dd-MM-yyyy')!);
       form_Data.set('Aadhar_Emirates_ID',this.profile.value.pan);
       form_Data.set('passport_expiry_date',this.profile.value.passport_expiry_date);
       form_Data.set('action','profile_update');
@@ -118,7 +136,13 @@ else{
         
         window.history.back();
       });
+      }
+      else{
+        alert('Please Select Terms and Conditions');       
+      
     }
+      }
+    
     this.profile.value
 console.log(this.profile);
     

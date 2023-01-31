@@ -74,7 +74,7 @@ openmodal:boolean=false;
     form_data.set('offset', '0');
     form_data.set('hotel_id', '2');
     form_data.set('limit', '5');
-   
+   console.log(this.detaillist.sub_category_id);
     form_data.set('subcat_ids', this.detaillist.sub_category_id);
     
      this.api.sub_category(form_data).subscribe((res:any)=>{

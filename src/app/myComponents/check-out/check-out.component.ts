@@ -128,6 +128,7 @@ export class CheckOutComponent implements OnInit {
       if(res.ResponseCode ==0 ){
         
         alert("Order Placed Successfully");
+        window.location.reload();
       }
 
       if(res.ResponseCode ==1 ){

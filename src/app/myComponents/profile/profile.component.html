@@ -19,9 +19,9 @@
 		<div class="container12 clearfix">
             <div class="form registration">
                 <h1 class="profile_t">Profile</h1>
-                <a class="logo" href="">
+                <!-- <a class="logo" >
                     <img src="assets/img/256-512.jpg" style="width: 50%;" alt="Logo" />
-                </a>
+                </a> -->
                 <form #updateForm [formGroup]="profile" (ngSubmit)="update()">
                     <p>
                         <label>Full Name<span>*</span></label>
@@ -61,7 +61,7 @@
                     </p>
                     <p>
                         <label>Date Of Birth<span>*</span></label>
-                        <input type="date"  formControlName="dob" [attr.disabled]="showDOB ? '' : null">
+                        <input type="date"  formControlName="dob" >
                     </p>
                     <div style="display: flex;">
                         <span>Gender </span>
@@ -121,13 +121,28 @@
                             </span>
                         </span>
                     </p>
+                    <p>
+                        <label>Passport Expiry (optional)</label>
+                        <select   style="display: inline;width: 45%;" formControlName="country" class="form-control" >
+                            <option >Select Month</option>
+                            <option *ngFor="let i of months" >{{i.value}}</option>
+                            
+                        </select>
+                        <select  style="display: inline;width: 45%;margin-left: 10%;" formControlName="country" class="form-control">
+                            <option >Select Year</option>
+                            <option *ngFor="let i of years" >{{i}}</option>
+                            
+                        </select>
+                    </p>
+
                     <p *ngIf="!isUs">
                         <label>Passport Expiry (optional)</label>
-                        <input type="month"  formControlName="passport_expiry_date">
+                        <input type="text" placeholder="Select Date" onfocus="(this.type='month')" onblur="(this.type='text')" formControlName="passport_expiry_date">
                     </p>
+                    <!-- <p ><ngb-datepicker #dp  ></ngb-datepicker></p> -->
                     <p>
                         <span class="check">
-                            <input type="checkbox" class="inputCheck" checked value="tnc" /><a data-toggle="modal" data-target="#tNcModal">I Accept to the Terms and Conditions</a>
+                            <input type="checkbox" formControlName="tnc" class="inputCheck" checked value="tnc" /><a data-toggle="modal" data-target="#tNcModal">I Accept to the Terms and Conditions</a>
                         </span>
                         </p>
                     <p>

@@ -31,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SearchComponent } from './myComponents/search/search.component';
 import { HotelDetalisComponent } from './myComponents/hotel-detalis/hotel-detalis.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,7 @@ import { HotelDetalisComponent } from './myComponents/hotel-detalis/hotel-detali
     
     
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
