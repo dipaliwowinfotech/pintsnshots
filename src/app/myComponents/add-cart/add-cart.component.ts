@@ -37,8 +37,10 @@ export class AddCartComponent implements OnInit {
   productdiscount: any;
 
   totalDiscount:any;
-  discCalPrize:any;
+  discCalPrize:number=0;
   totalDiscPrize:any=[];
+  discountprice:number=0;
+ 
 
   constructor(private api:ApiService,
     private formBuilder:FormBuilder,
@@ -80,13 +82,15 @@ export class AddCartComponent implements OnInit {
          
       console.log(this.cartlist);
       this.billtotal = [];
+      this.totalDiscPrize = [];
       this.cartlist.forEach((element: any) => {
         this.totalPrice = element.price*element.quantity;
         this.totalDiscount = this.totalPrice -(this.totalPrice*element.discount/100)
         this.totalDiscPrize.push(this.totalDiscount);
         console.log(this.totalDiscPrize);
-        
         this.billtotal.push(this.totalPrice);
+        
+        
       
      });
 
@@ -101,14 +105,16 @@ export class AddCartComponent implements OnInit {
    this.discCalPrize = this.totalDiscPrize.reduce((acc:any, cur:any) => acc + cur, 0);
    console.log(this.discCalPrize);
     this.totalquantity=this.cartlist.filter((item:any) => item.product_id === item.product_id).length
+    this.discountprice = this.totalbill-this.discCalPrize;
+    console.log(this.discountprice);
+  
       }else{
        this.cartempty=true;
        this.showLoader = false;
       }
     })
 
-
-  
+   
 
   }
 
@@ -163,7 +169,7 @@ this.cartList();
      
       console.log(res);
 
-      alert(res.ResponseMessage)
+      alert("Product Deleted Succsessfully!")
       //this.router.navigate(['/add-cart']);
     })
     
