@@ -1,0 +1,32 @@
+.dialog1{
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 40%;
+}
+.modal-content{
+    background-color: #191C24;
+   
+}
+.modal-body .btn-outline-dark{
+    background-color: #7c5f05;
+    color: #fff; 
+}
+.modal-body .btn-outline-dark:hover {
+    color: #fff;
+}
+
+button{
+    background-color: #7c5f05;
+}
+.btn:hover {
+ 
+    background-color: #7c5f05;
+ 
+}
+.modal.show .modal-dialog {
+    position: absolute!important;
+    left: 0!important;
+    right: 0!important;
+    top: 50%!important;
+}

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'src/app/api.service';
+import { PayWindowService } from 'src/app/pay-window.service';
+import { PaymentSuccessModalComponent } from './payment-success-modal/payment-success-modal.component';
 
 @Component({
   selector: 'app-check-out',
@@ -30,6 +33,10 @@ export class CheckOutComponent implements OnInit {
   hotel_id:any;
   cartlistlength:any;
   cartempty:boolean=false;
+  rzp1:any;
+  payMentID:any;
+  paymentSuccess: boolean = false;
+  
 
   totalList:any=[];
   TotalCal:any;
@@ -38,7 +45,7 @@ export class CheckOutComponent implements OnInit {
   saved:any;
   savedAmount:any = [];
   savedamnt:any;
-  constructor(private api:ApiService,private router:Router) { }
+  constructor(private api:ApiService,private router:Router,private winRef: PayWindowService,private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.loginData();
@@ -116,43 +123,91 @@ export class CheckOutComponent implements OnInit {
   }
 
   procpayment(){
-    const formData = new FormData();
-    formData.set('quantity',this.quantitylist.toString());
-    formData.set('hotel_id',this.hotel_id);
-    formData.set('discount',this.savedamnt );
-    formData.set('product_price',this.productpricelist.toString());
-    formData.set('user_id',this.verifiedUser.user_id );
-    formData.set('total_amount',this.TotalPrice);
-    formData.set('currency_type','Rupee' );
-    formData.set('dob',this.verifiedUser.dob);
-    formData.set('product_id', this.productIdlist.toString());
-    formData.set('total_quantity',this.totalquantity);
-    formData.set('action','order' );
-    formData.set('unit_id',this.unitidlist.toString());
-    formData.set('discount_id',this.discountlist.toString() );
-    this.api.checkout(formData).subscribe((res:any)=>{
-      console.log(res);
-      if(res.ResponseCode ==0 ){
-        
-        alert("Order Placed Successfully");
-        const  formParams= new FormData();
-        formParams.set('transaction_id','pay_LAiw76ERDGoINs');
-    formParams.set('user_id',this.verifiedUser.user_id);
-    formParams.set('payment_status','Success' );
-    formParams.set('action','payment');
-    formParams.set('order_id',res.data.order_id );
-    formParams.set('status','Yes');
-        this.api.payment(formParams).subscribe((data:any)=>{
+    
+    this.initPay();    
+    
+  }
 
-        })
-        window.location.reload();
-      }
+  
 
-      if(res.ResponseCode ==1 ){
-        alert(res.ResponseMessage);
+  public initPay():void {
+  const  options = {
+      "key": "rzp_test_dveDexCQKoGszl",
+      "amount": this.TotalPrice*100,
+      "name": "PintsNShots",
+      "handler": this.paymentCapture.bind(this),
+      "theme": {
+        "color": "#0c238a",
+        "size" : "20%"
         
-      }
+    },
+    "prefill": {
+      "name": this.verifiedUser.fullname,
+      "email": this.verifiedUser.email,
+      "contact": this.verifiedUser.mobile_no
+  },
+  
+   };
+   
+    this.rzp1 = new this.winRef.nativeWindow.Razorpay(options);
+    this.rzp1.open();
+ }
+ paymentCapture(response:any) {   
+ 
+ console.log(this.paymentSuccess);
+  this.payMentID = response.razorpay_payment_id;
+  console.log("payment id ",response);
+  const formData = new FormData();
+  formData.set('quantity',this.quantitylist.toString());
+  formData.set('hotel_id',this.hotel_id);
+  formData.set('discount',this.savedamnt );
+  formData.set('product_price',this.productpricelist.toString());
+  formData.set('user_id',this.verifiedUser.user_id );
+  formData.set('total_amount',this.TotalPrice);
+  formData.set('currency_type','Rupee' );
+  formData.set('dob',this.verifiedUser.dob);
+  formData.set('product_id', this.productIdlist.toString());
+  formData.set('total_quantity',this.totalquantity);
+  formData.set('action','order' );
+  formData.set('unit_id',this.unitidlist.toString());
+  formData.set('discount_id',this.discountlist.toString() );
+  this.api.checkout(formData).subscribe((res:any)=>{
+    console.log(res);
+    if(res.ResponseCode ==0 ){
       
-    })
+      alert("Order Placed Successfully");
+      const  formParams= new FormData();
+      formParams.set('transaction_id',this.payMentID);
+  formParams.set('user_id',this.verifiedUser.user_id);
+  formParams.set('payment_status','Success' );
+  formParams.set('action','payment');
+  formParams.set('order_id',res.data.order_id );
+  formParams.set('status','Yes');
+      this.api.payment(formParams).subscribe((data:any)=>{
+        console.log(data);
+      })
+      
+      // window.location.reload();
+    }
+
+    if(res.ResponseCode ==1 ){
+      
+      
+    }
+    
+  })
+  const modalRef = this.modalService.open(PaymentSuccessModalComponent,{ windowClass : "myCustomModalClass"});
+      modalRef.componentInstance.name = 'World';
+      modalRef.result.then((data) => {
+        //this.router.navigate(['']);
+      }, (reason) => {
+        this.router.navigate(['']);
+        // on dismiss
+      });
+}
+
+@HostListener('window:payment.success', ['$event'])
+  onPaymentSuccess(event: any): void {
+    this.paymentSuccess = true;
   }
 }

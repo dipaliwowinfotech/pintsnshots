@@ -33,6 +33,8 @@ import { SearchComponent } from './myComponents/search/search.component';
 import { HotelDetalisComponent } from './myComponents/hotel-detalis/hotel-detalis.component';
 import { DatePipe } from '@angular/common';
 import { OrderHistoryComponent } from './myComponents/order-history/order-history.component';
+import { PayWindowService } from './pay-window.service';
+import { PaymentSuccessModalComponent } from './myComponents/check-out/payment-success-modal/payment-success-modal.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { OrderHistoryComponent } from './myComponents/order-history/order-histor
     BlogDetailsComponent,
     SearchComponent,
     HotelDetalisComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    PaymentSuccessModalComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,7 @@ import { OrderHistoryComponent } from './myComponents/order-history/order-histor
     
     
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,PayWindowService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

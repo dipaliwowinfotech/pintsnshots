@@ -116,3 +116,10 @@ a.boxed-btn:hover{
   margin-top: 30px;
   float: right;
 }
+.myCustomModalClass {
+  max-width: 565px;
+  position: relative;
+    left: 0;
+    right: 0;
+    top: 40%;  
+}
