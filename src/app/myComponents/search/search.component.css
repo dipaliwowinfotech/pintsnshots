@@ -84,7 +84,8 @@
     margin: 15px;
     border: 2px solid #d6a354;
     color: rgb(255 255 255);
-    background: #D7A354;
+    background: linear-gradient(to bottom right, #e7e35e, #a9490d)
+    ;
     /* background: rgb(72 62 62 / 90%); */
     cursor: pointer;
     padding: 1px 13px;
