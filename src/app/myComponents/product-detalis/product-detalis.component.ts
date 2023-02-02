@@ -122,13 +122,16 @@ openmodal:boolean=false;
      this.openmodal = true;
      this.displayStyle = "block";
      }
+     if(this.add.ResponseCode==0){
+      alert(this.add.ResponseMessage)
+   }
      if(this.add.ResponseCode==1){
         alert(this.add.ResponseMessage)
      }else{
       this.api.addCart(this.cartlist)
       var data=this.api.getCart();
       this.api.onMainEvent.emit(data);
-      alert(this.add.ResponseMessage);
+      //alert(this.add.ResponseMessage);
       this.router.navigate(['product-components'])
       
      }
@@ -174,6 +177,10 @@ emptyCart(){
    console.log(res)
   
    this.displayStyle = "none";
+        
+   this.api.addCart(this.cartlist)
+   var data=this.api.getCart();
+    this.api.onMainEvent.emit(data);
   })
 
 
