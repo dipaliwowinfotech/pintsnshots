@@ -1,4 +1,3 @@
-
 <!-- breadcrumb-section -->
 <div class="breadcrumb-section breadcrumb-bg">
 	<div class="container">
@@ -21,9 +20,10 @@
 			<div class="col-lg-8 col-md-12">
 				<div class="cart-table-wrap">
 					<div *ngIf="showLoader" id="loader" class="back_colour">
-						<i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom" style="color: #d6a354;margin-left: 72%;"></i>
+						<i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"
+							style="color: #d6a354;margin-left: 72%;"></i>
 						<span class="sr-only">Loading...</span>
-						</div>
+					</div>
 					<table *ngIf="!cartempty&&!showLoader" class="cart-table">
 						<thead class="cart-table-head">
 							<tr class="table-head-row">
@@ -33,6 +33,7 @@
 								<th class="product-name">Coupon</th>
 								<th class="product-price">Price</th>
 								<th class="product-quantity">Quantity</th>
+								<th class="product-discount">Discount</th>
 								<th class="product-total">Total</th>
 							</tr>
 						</thead>
@@ -41,8 +42,8 @@
 							<tr class="table-body-row" *ngFor="let item of cartlist; let i=index">
 								<td class="product-remove"><a (click)="DeleteCart(item.cart_id,i)"><i
 											class="far fa-window-close icons_colour"></i></a></td>
-								<td class="product-image "><img
-									class="new_imgs"	src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{item.product_image}}"
+								<td class="product-image "><img class="new_imgs"
+										src="https://wowinfotech.net/pinsnshots/pintsnshots_api/{{item.product_image}}"
 										alt=""></td>
 								<td class="product-name">{{item.product_name}}</td>
 								<td class="product-name ">
@@ -58,16 +59,17 @@
 										<a class="quantity__minus"
 											(click)="quantitydown(item.product_id,item.quantity,item.cart_id)"><span>-</span></a>
 										<input name="quantity" type="text" class="quantity__input"
-										 	value={{item.quantity}} disabled>
+											value={{item.quantity}} disabled>
 										<a class="quantity__plus"
 											(click)="quantityUp(item.product_id,item.quantity,item.cart_id)"><span>+</span></a>
 									</div>
 									<!-- <input type="number" [(ngModel)]="item.quantity" id="quantity" (change)="quantityChange($event,item.price,item.quantity,i)"  > -->
 								</td>
+								<td class="product-discount">{{item.discount}}%off</td>
 
-								<td >{{getTotal(item.price,item.quantity,
+								<td>{{getTotal(item.price,item.quantity,
 									item.discount)}}{{Total}}</td>
-								
+
 							</tr>
 							<!-- <tr class="table-body-row">
 									<td class="product-remove"><a href="#"><i class="far fa-window-close icons_colour"></i></a></td>
@@ -118,10 +120,10 @@
 								<td>₹{{d1}}</td>
 							</tr>
 							<tr class="total-data">
-									<td><strong>Total-Discount-Amount: </strong></td>
-									<td>₹{{discCalPrize}}</td>
-								</tr>
-							
+								<td><strong>Total-Discount-Amount: </strong></td>
+								<td>₹{{discCalPrize}}</td>
+							</tr>
+
 						</tbody>
 					</table>
 					<div *ngIf="!cartempty&&!showLoader" class="cart-buttons">

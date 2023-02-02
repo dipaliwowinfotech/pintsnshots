@@ -27,7 +27,7 @@
         <section id="content1" class="tab-content ">
             <div class="latest-news ">
                 <div class="container">
-                    <span style="font-size: 20px; color: coral; text-align:center;" *ngIf="showError">Wallet is not available!</span>
+                    <span style="font-size: 20px; color: coral; text-align:center;" *ngIf="showError">No Active Yet</span>
                     <div class="row">
                         <div class="col-lg-6 col-md-6" *ngFor="let item of activelist; let i = index" [class.focus]="isActive==item.order_id">
                           <a > 

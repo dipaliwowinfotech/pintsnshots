@@ -185,5 +185,11 @@ emptyCart(){
 
 
 }
+details(item:any){
+  localStorage.setItem('selectedProduct', JSON.stringify(item));
+ 
+  
+    window.location.reload();
+}
 
   }

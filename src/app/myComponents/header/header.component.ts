@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   username1:any;
   userId1: any;
   isShow: boolean = true;
-
+  displayStyle:any;
   login:any;
  
   
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
          this.cartlength=response.data.count;
           console.log(this.cartlength);
         })
-console.log(res)
+         console.log(res)
         this.cartlist=res;
         }
         
@@ -114,9 +114,26 @@ console.log(res)
     
   }
   logout(){
-    this.api.remove();
+    this.displayStyle = "block";
+  }
+
+  onSelect(){
     
-    alert("Logout Succssesfully!");
+      this.isShow = false;
+     
+    //document.getElementById("sub_1")!.style.display = "none";
+   
+    setTimeout(()=>{
+      this.isShow = true;
+     },3)
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
+  closeapp(){
+    this.api.remove();
+   
+    // alert("Logout Succssesfully!");
     
     if(this.router.url=='/'){
       window.location.reload();
@@ -130,20 +147,8 @@ console.log(res)
        this.router.navigate(['']);
     }
     
-  }
-
-  onSelect(){
     
-      this.isShow = false;
-     
-    //document.getElementById("sub_1")!.style.display = "none";
-   
-    setTimeout(()=>{
-      this.isShow = true;
-     },3)
-  }
-
 }
 
     
-    
+}   
