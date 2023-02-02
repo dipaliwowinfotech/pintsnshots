@@ -123,8 +123,13 @@ export class CheckOutComponent implements OnInit {
   }
 
   procpayment(){
-    
-    this.initPay();        
+    if(this.verifiedUser.dob){
+      this.initPay();
+    }
+    else{
+      this.router.navigate(['profile']);
+    }
+            
     
   }
 
