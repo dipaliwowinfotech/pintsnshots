@@ -20,4 +20,12 @@ export class PaymentSuccessModalComponent implements OnInit {
     this.router.navigate(['']);    
   }
 
+  onThank(){
+    this.activeModal.close();
+    setTimeout(()=>{
+      window.location.reload();
+     },30)
+    this.router.navigate(['wallet']);    
+  }
+
 }

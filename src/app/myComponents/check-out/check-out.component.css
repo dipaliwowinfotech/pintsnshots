@@ -121,5 +121,10 @@ a.boxed-btn:hover{
   position: relative;
     left: 0;
     right: 0;
-    top: 40%;  
+    top: 40%; 
+    opacity: 1!important; 
+}
+
+.fade:not(.show) {
+  opacity: 1 !important;
 }

@@ -36,7 +36,7 @@ export class CheckOutComponent implements OnInit {
   rzp1:any;
   payMentID:any;
   paymentSuccess: boolean = false;
-  
+  options:any;
 
   totalList:any=[];
   TotalCal:any;
@@ -124,14 +124,14 @@ export class CheckOutComponent implements OnInit {
 
   procpayment(){
     
-    this.initPay();    
+    this.initPay();        
     
   }
 
   
 
   public initPay():void {
-  const  options = {
+  this.options = {
       "key": "rzp_test_dveDexCQKoGszl",
       "amount": this.TotalPrice*100,
       "name": "PintsNShots",
@@ -147,16 +147,17 @@ export class CheckOutComponent implements OnInit {
       "contact": this.verifiedUser.mobile_no
   },
   
+  
    };
+   this.rzp1 = new this.winRef.nativeWindow.Razorpay(this.options);
+  this.rzp1.open();
+   //options.modal.ondismiss = this.razorpayReload.bind(this);
    
-    this.rzp1 = new this.winRef.nativeWindow.Razorpay(options);
-    this.rzp1.open();
+
+  
  }
- paymentCapture(response:any) {   
- 
- console.log(this.paymentSuccess);
-  this.payMentID = response.razorpay_payment_id;
-  console.log("payment id ",response);
+ checkOut(){
+  
   const formData = new FormData();
   formData.set('quantity',this.quantitylist.toString());
   formData.set('hotel_id',this.hotel_id);
@@ -184,30 +185,44 @@ export class CheckOutComponent implements OnInit {
   formParams.set('order_id',res.data.order_id );
   formParams.set('status','Yes');
       this.api.payment(formParams).subscribe((data:any)=>{
-        console.log(data);
-      })
+        console.log(data);        
+        this.paymentSuccess = true;
+      })      
       
       // window.location.reload();
     }
 
-    if(res.ResponseCode ==1 ){
-      
-      
+    if(res.ResponseCode ==1 ){      
+      alert(res.ResponseMessage);
     }
     
   })
-  const modalRef = this.modalService.open(PaymentSuccessModalComponent,{ windowClass : "myCustomModalClass"});
-      modalRef.componentInstance.name = 'World';
-      modalRef.result.then((data) => {
-        //this.router.navigate(['']);
-      }, (reason) => {
-        this.router.navigate(['']);
-        // on dismiss
-      });
+  this.opnModal();
+ }
+ paymentCapture(response:any) {   
+  this.payMentID = response.razorpay_payment_id;
+   
+   this.checkOut();
+   
+     
+   
+  //this.rzp1.dismiss();   
 }
 
 @HostListener('window:payment.success', ['$event'])
   onPaymentSuccess(event: any): void {
-    this.paymentSuccess = true;
+   
+  }
+
+  opnModal(){  
+    this.rzp1.close();
+    const modalRef = this.modalService.open(PaymentSuccessModalComponent,{windowClass:"myCustomModalClass",centered:true});
+    modalRef.componentInstance.name = 'World';
+    modalRef.result.then((data) => {
+      //this.router.navigate(['']);
+    }, (reason) => {
+      this.router.navigate(['']);
+      // on dismiss
+    });
   }
 }

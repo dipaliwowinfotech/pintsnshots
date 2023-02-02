@@ -2,3 +2,6 @@
 /* .all{
     cursor: pointer;
 } */
+body {
+    overflow: visible !important;
+  }

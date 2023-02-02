@@ -1,8 +1,9 @@
-.dialog1{
+::ng-deep.dialog1{
     position: relative;
     left: 0;
     right: 0;
     top: 40%;
+    z-index: 9998;
 }
 .modal-content{
     background-color: #191C24;
@@ -24,9 +25,15 @@ button{
     background-color: #7c5f05;
  
 }
-.modal.show .modal-dialog {
+::ng-deep.modal.show .modal-dialog {
     position: absolute!important;
     left: 0!important;
     right: 0!important;
     top: 50%!important;
+    z-index: 9998;
+    opacity: 1!important;
+}
+
+::ng-deep.fade:not(.show) {
+    opacity: 1 !important;
 }
