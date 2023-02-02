@@ -19,11 +19,11 @@
             <div class="latest-news ">
                 <div class="container">
                    
-   <a  routerLink="/order-history"  class="button-62">Order History</a>
+   <a  routerLink="/order-history"  class="button-62 ">Order History</a>
                     <div class="row no">
 
                    <span *ngIf="showError" style="font-size: 20px; color: coral; text-align:center;">Wallet is not available!</span>
-                        <div class="col-lg-4 col-md-6" *ngFor="let itm of walletdetails">
+                        <div class="walletcontainer col-lg-4 col-md-6" *ngFor="let itm of walletdetails">
                             <div *ngIf="!showError" class="single-latest-news">
                                 <div class="news-text-box">
                                     <ul class=" unordered-list">

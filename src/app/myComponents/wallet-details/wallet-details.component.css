@@ -110,6 +110,24 @@ label .fa {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  /* label span {
+    display: none;
+  } */
+  .button-62 {
+    
+    font-size: 14px;
+    
+    
+  }
+  
+  .walletcontainer {
+    width: 98%;
+    display:flex;
+  }
+
+}
+
 /*Content Animation*/
 @keyframes fadeInScale {
   0% {
@@ -225,7 +243,7 @@ label .fa {
     cursor: pointer;
     display: inline-block;
     font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 2.5;
     outline: transparent;

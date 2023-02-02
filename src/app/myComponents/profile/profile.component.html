@@ -31,7 +31,7 @@
                         <label>Last name<span>*</span></label>
                         <input type="text" required>
                     </p> -->
-                    <p>
+                    <!-- <p>
                         <label>Email Address<span>*</span></label>
                         <input type="email"  formControlName="email">
                         <span *ngIf="isSubmitted ">
@@ -39,7 +39,7 @@
                             </div>
                             
                         </span>
-                    </p>
+                    </p> -->
                     <p ><label >Country Code</label>
                         <select name="country" id="country" [(ngModel)]="countrycode" class="form-control"  formControlName="countryCode"  >
                             <ng-container *ngFor="let i of countryList">
@@ -78,7 +78,7 @@
                         </select>
                     </p>
                     <p *ngIf="!isUs">
-                        <label>PAN</label>
+                        <label>PAN (optional)</label>
                         <input type="text"  formControlName="pan" required>
                         <span *ngIf="isSubmitted ">
                             <div class="text-danger" *ngIf="form['pan'].errors?.['pattern']">Please Enter Valid PAN
@@ -103,7 +103,7 @@
                     </p>
                     <p *ngIf="isUs">
                         <label>Passport</label>
-                        <input type="text"  formControlName="passport">
+                        <input type="text" placeholder="Enter Passport Number e.g. A7665536"  formControlName="passport">
                         <span *ngIf="isSubmitted ">
                         <span class="text-danger" *ngIf="form['passport'].errors?.['required']">Please Enter Passport Number
                         </span>
@@ -111,7 +111,7 @@
                     </p>
                     <p *ngIf="!isUs">
                         <label>Passport (optional)</label>
-                        <input type="text"  formControlName="passport">
+                        <input type="text" placeholder="Enter Passport Number e.g. A7665536"  formControlName="passport">
                     </p>
                     <!-- <p *ngIf="isUs">
                         <label>Passport Expiry</label>

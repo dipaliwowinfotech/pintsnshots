@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -45,7 +46,8 @@ export class CheckOutComponent implements OnInit {
   saved:any;
   savedAmount:any = [];
   savedamnt:any;
-  constructor(private api:ApiService,private router:Router,private winRef: PayWindowService,private modalService: NgbModal) { }
+  age:any;
+  constructor(private api:ApiService,private router:Router,private winRef: PayWindowService,private modalService: NgbModal,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
     this.loginData();
@@ -122,10 +124,33 @@ export class CheckOutComponent implements OnInit {
 
   }
 
+  public ageFromDateOfBirthday(dateOfBirth: any): number {
+    const today = new Date();
+    const birthDate = new Date(dateOfBirth);
+    this.age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      this.age--;
+    }
+
+    return this.age;
+  }
+
   procpayment(){
     if(this.verifiedUser.dob){
-      this.initPay();
-    }
+      this.ageFromDateOfBirthday(this.verifiedUser.dob)
+      console.log(this.age);
+      if(this.age>=19){
+        console.log(this.verifiedUser.dob);
+        this.initPay();
+      }
+      else{
+        console.log(this.verifiedUser.dob);
+        alert("Your Age is not valid");
+      }
+      
+    }    
     else{
       this.router.navigate(['profile']);
     }
@@ -148,7 +173,7 @@ export class CheckOutComponent implements OnInit {
     },
     "prefill": {
       "name": this.verifiedUser.fullname,
-      "email": this.verifiedUser.email,
+      "email": "pintsnshots@gmail.com",
       "contact": this.verifiedUser.mobile_no
   },
   
@@ -191,18 +216,19 @@ export class CheckOutComponent implements OnInit {
   formParams.set('status','Yes');
       this.api.payment(formParams).subscribe((data:any)=>{
         console.log(data);        
-        this.paymentSuccess = true;
+        
       })      
       
       // window.location.reload();
     }
 
     if(res.ResponseCode ==1 ){      
-      alert(res.ResponseMessage);
+      this.paymentSuccess = false;
     }
     
-  })
-  this.opnModal();
+  })  
+    this.opnModal();  
+  
  }
  paymentCapture(response:any) {   
   this.payMentID = response.razorpay_payment_id;

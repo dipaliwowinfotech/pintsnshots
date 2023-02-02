@@ -50,7 +50,7 @@ createForm(){
   if(this.verifiedUser.dob ==""){
     this.showDOB= false;    
   }
-  if(this.verifiedUser.dob!="null"){   
+  if(this.verifiedUser.dob!="null"&&this.verifiedUser.dob!=""&&this.verifiedUser.dob!=null){   
     
     this.dob = this.datepipe.transform(this.verifiedUser.dob, 'yyyy-MM-dd');
     
@@ -67,9 +67,9 @@ createForm(){
         
         Validators.pattern('[a-zA-z].*')]],
 
-        email: [this.verifiedUser.email, [Validators.required,
-         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'),
-          ]],
+        // email: [this.verifiedUser.email, [Validators.required,
+        //  Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'),
+        //   ]],
 
           dob: [this.dob,],
           country: [this.verifiedUser.country,],
@@ -137,7 +137,7 @@ else{
       form_Data.set('passport_expiry_date',this.profile.value.month+"/"+this.profile.value.year);
       form_Data.set('action','profile_update');
       form_Data.set('fullname',this.profile.value.fullname);
-      form_Data.set('email',this.profile.value.email);
+      form_Data.set('email',this.profile.value.mobile_no);
       this.api.profile(form_Data).subscribe((res:any)=>{
         console.log(res)
         alert(res.ResponseMessage);
