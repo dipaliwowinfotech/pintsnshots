@@ -40,7 +40,7 @@ export class AddCartComponent implements OnInit {
   discCalPrize:number=0;
   totalDiscPrize:any=[];
   discountprice:number=0;
- 
+  d1:any;
 
   constructor(private api:ApiService,
     private formBuilder:FormBuilder,
@@ -106,8 +106,9 @@ export class AddCartComponent implements OnInit {
    console.log(this.discCalPrize);
     this.totalquantity=this.cartlist.filter((item:any) => item.product_id === item.product_id).length
     this.discountprice = this.totalbill-this.discCalPrize;
+    this.d1 = this.discountprice.toFixed(1);
     console.log(this.discountprice);
-  
+       
       }else{
        this.cartempty=true;
        this.showLoader = false;
