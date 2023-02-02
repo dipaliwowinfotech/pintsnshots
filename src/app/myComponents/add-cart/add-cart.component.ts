@@ -106,7 +106,7 @@ export class AddCartComponent implements OnInit {
    console.log(this.discCalPrize);
     this.totalquantity=this.cartlist.filter((item:any) => item.product_id === item.product_id).length
     this.discountprice = this.totalbill-this.discCalPrize;
-
+   
     
     this.d1 = this.discountprice.toFixed(1);
     console.log(this.discountprice);
@@ -163,6 +163,7 @@ this.cartList();
    console.log(this.Total)
   }
   
+  
 
   DeleteCart(cart_id:any,index:any){
     const formData = new FormData();
@@ -192,7 +193,7 @@ this.cartList();
       this.api.onMainEvent.emit(data);
       this.cartList();
   }
-  
+
   
 }     
         
