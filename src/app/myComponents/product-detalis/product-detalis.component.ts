@@ -46,7 +46,7 @@ openmodal:boolean=false;
     });
     
     
-   this. detaillist = this.selectedProduct;
+   this.detaillist = this.selectedProduct;
    console.log(this.detaillist,'passed data'); 
    this.productname = this.detaillist.product_name;
    this.productimage = this.detaillist.product_image;
